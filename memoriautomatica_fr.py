@@ -25,6 +25,12 @@ class DocumentEditor:
             if texto_apendice in paragraph.text:
                 return i+1
         return -1
+    
+    def buscar_txt_temp(self, textotemp):
+        for i, paragraph in enumerate(self.document.paragraphs):
+            if textotemp in paragraph.text:
+                return i+1
+        return -1
 
     def convert_to_pdf(word_file_path, pdf_file_path):
         convert(word_file_path, pdf_file_path)
@@ -102,6 +108,15 @@ class DocumentEditor:
             run.add_picture(imagen_MP, width=Inches(6.9), height=Inches(2.4))
             return True
         return False
+    
+    def añadir_im_tempMP(self, textotemp, imagentemp_MP):
+        target_index = self.buscar_txt_temp(textotemp)
+        if target_index != -1:
+            target_paragraph = self.document.paragraphs[target_index]
+            run = target_paragraph.add_run()
+            run.add_picture(imagentemp_MP, width=Inches(6.8), height=Inches(1.1))
+            return True
+        return False
 
     # añadir TDS del Megaprop
     def añadir_TDS_MP(self, texto_apendice, imagen_TDS_MP1, imagen_TDS_MP2, imagen_TDS_MP3, imagen_TDS_MP4, imagen_TDS_MP5, imagen_TDS_MP6, imagen_TDS_MP7, imagen_TDS_MP8, imagen_TDS_MP9, imagen_TDS_MP10, imagen_TDS_MP11):
@@ -138,6 +153,15 @@ class DocumentEditor:
             target_paragraph = self.document.paragraphs[target_index]
             run = target_paragraph.add_run()
             run.add_picture(imagen_GS, width=Inches(6.9), height=Inches(2.4))
+            return True
+        return False
+    
+    def añadir_im_tempGS(self, textotemp, imagentemp_GS):
+        target_index = self.buscar_txt_temp(textotemp)
+        if target_index != -1:
+            target_paragraph = self.document.paragraphs[target_index]
+            run = target_paragraph.add_run()
+            run.add_picture(imagentemp_GS, width=Inches(6.8), height=Inches(1.1))
             return True
         return False
 
@@ -250,6 +274,33 @@ class DocumentEditor:
             target_paragraph = self.document.paragraphs[target_index]
             run = target_paragraph.add_run()
             run.add_picture(imagen_PS6, width=Inches(6.9), height=Inches(2.4))
+            return True
+        return False
+    
+    def añadir_im_tempP4L(self, textotemp, imagentemp_P4L):
+        target_index = self.buscar_txt_temp(textotemp)
+        if target_index != -1:
+            target_paragraph = self.document.paragraphs[target_index]
+            run = target_paragraph.add_run()
+            run.add_picture(imagentemp_P4L, width=Inches(6.8), height=Inches(1.1))
+            return True
+        return False
+
+    def añadir_im_tempP4S(self, textotemp, imagentemp_P4S):
+        target_index = self.buscar_txt_temp(textotemp)
+        if target_index != -1:
+            target_paragraph = self.document.paragraphs[target_index]
+            run = target_paragraph.add_run()
+            run.add_picture(imagentemp_P4S, width=Inches(6.8), height=Inches(1.1))
+            return True
+        return False
+    
+    def añadir_im_tempP6(self, textotemp, imagentemp_P6):
+        target_index = self.buscar_txt_temp(textotemp)
+        if target_index != -1:
+            target_paragraph = self.document.paragraphs[target_index]
+            run = target_paragraph.add_run()
+            run.add_picture(imagentemp_P6, width=Inches(6.8), height=Inches(1.1))
             return True
         return False
 
@@ -444,7 +495,7 @@ class Application(tk.Frame):
         folder = filedialog.askdirectory()
         if folder:
             folder = folder.replace('\\', '/')
-            self.output_path = folder + f"/{codigo}-Nota_de_calculo.docx"
+            self.output_path = folder + f"/{codigo}-Note_de_calcul.docx"
 
     def fill_template(self):
         # Las entradas de texto
@@ -502,7 +553,7 @@ class Application(tk.Frame):
         anyo = current_date.strftime("%Y") # mis primeras 
 
         # cargamos la plantilla
-        template = "C:/Memorias y servidor/Memorias Generadas/MemoriaIncyePrueba12.docx"
+        template = "C:/Memorias y servidor/Memorias Generadas/plantillamemoriafr.docx"
         document = MailMerge(template)
 
         # Sustituimos valores
@@ -517,25 +568,25 @@ class Application(tk.Frame):
         document.merge(INCYE300=checkbox_values2[0], INCYE450=checkbox_values2[1], INCYE600=checkbox_values2[2], SuperSlim=checkbox_values2[3])
         
         if checkbox_values[0]:   # INCYE80
-            document.merge(TC="El sistema INCYE 80 es un sistema modular constituido por tubos cuadrados de 80mm de lado y un espesor de 4mm. Este sistema modular es compatible con el sistema Superslim y sus elementos asociados.")
+            document.merge(TC="Le système INCYE 80 est un système modulaire constitué de tubes carrés de 80mm de côté et d'une épaisseur de 4mm. Ce système modulaire est compatible avec le système Superslim et ses éléments associés. Acier S275.")
         if checkbox_values[1]:   # SuperSlim
-            document.merge(SS="El sistema Superslim (área neta de la sección 19,64 cm2) es un sistema de perfilería constituido por vigas compuestas formadas por dos perfiles en C, unidos mediante presillas situadas en distintas posiciones que configuran un sistema de vigas modulares de gran versatilidad.")
+            document.merge(SS="Le système Superslim (aire nette de la section 19,64 cm2) est un système de profilés constitué de poutres composées formées par deux profilés en C. Il s’agit d’un système de poutres modulaires très polyvalent. Acier S355.")
         if checkbox_values[2]:   # Megaprop
-            document.merge(MP="El sistema Megaprop (área sección 58,45 cm2) es un sistema de perfilería constituido por vigas compuestas formadas por dos perfiles en C, unidos mediante presillas situadas en distintas posiciones que configuran un sistema de vigas modulares de gran versatilidad. El acero utilizado para su fabricación es de la calidad S355.")
+            document.merge(MP="Le système Megaprop (aire de la section 58,45 cm2) est un système de profilés constitué de poutres composées par deux profilés en C. Elles sont attachées au moyen des platines situées à différentes positions qui configurent un système de poutres modulaires très polyvalent. L'acier utilisé dans sa fabrication est de qualité S355.")
         if checkbox_values[3]:   # Pipeshor 4L
-            document.merge(Pip4L="El sistema Pipeshor 4L, con área de sección 100.13 cm2, es un sistema de puntales formados por módulos de tubos de 406 mm de diámetro y sus elementos asociados. Fabricado con acero S355 de 8 milímetros de espesor.")
+            document.merge(Pip4L="Le système Pipeshor 4L, avec une aire de section de 100.13 cm2, est un système d'étais formé par modules de tubes de 406 mm de diamètre et leurs éléments associés. Fabriqué en acier S355 de 8 millimètres d'épaisseur.")
         if checkbox_values[4]:   # Pipeshor 4S
-            document.merge(Pip4S="El sistema Pipeshor 4S, con área sección 196,24 cm2, es un sistema de puntales formados por módulos de tubos de 406 mm de diámetro y sus elementos asociados. Fabricado con acero S355 de 16 milímetros de espesor.")
+            document.merge(Pip4S="Le système Pipeshor 4S, avec une aire de section de 196,24 cm2, est un système d'étais formés par modules de tubes de 406 mm de diamètre et leurs éléments associés. Fabriqué en acier S355 de 16 millimètres d'épaisseur.")
         if checkbox_values2[0]:  # Pipeshor 6
-            document.merge(Pip6="El sistema Pipeshor 6 (área sección 234,4 cm2) está formado por tubos de 610 mm de diámetro y sus elementos asociados. Fabricado con acero de calidad S355 y un espesor de 12,5 milímetros.")
+            document.merge(Pip6="Le système Pipeshor 6 (aire de la section 234,4 cm2) est formé par tubes de 610 mm de diamètre et leurs éléments associés. Fabriqué en acier de qualité S355 et d'une épaisseur de 12,5 millimètres.")
         if checkbox_values2[1]:  # Granshor
-            document.merge(GS="El sistema Granshor (área sección 72,59 cm2/cordón x 2 cordones) es un sistema de de celosías modular y sus elementos asociados. Fabricado con acero S355.")
+            document.merge(GS="Le système Granshor (aire de la section 72,59 cm2/corde x 2 cordes) est un système de treillis modulaire et ses éléments associés. Fabriqué en acier S355.")
         if checkbox_values2[2]:  # INCYE300
-            document.merge(I300="Las vigas de reparto perimetrales se realizarán mediante la utilización de vigas INCYE300, consistentes en vigas HEB300 reforzadas.")
+            document.merge(I300="Les liernes périmétrales sont exécutées avec des profilés INCYE300, constituées par poutres HEB300 renforcées avec une triple âme. Acier S275.")
         if checkbox_values2[3]:  # INCYE450
-            document.merge(I450="Las vigas de reparto perimetrales se realizarán mediante la utilización de vigas INCYE450, consistentes en vigas HEB450 reforzadas.")
+            document.merge(I450="Les liernes périmétrales seront exécutées avec des profilés INCYE450, constituées de poutres HEB450 renforcées. Il y en existe deux types de profilés dans cette catégorie, avec une triple âme et simple âme avec des raidisseurs au niveau des points d’impact des butons pour éviter le phénomène de voilement.  Acier S275.")
         if checkbox_values2[4]:  # INCYE600
-            document.merge(I600="Las vigas de reparto perimetrales se realizarán mediante la utilización de vigas INCYE600, consistentes en vigas HEB600 reforzadas.")
+            document.merge(I600="Les liernes périmétrales seront exécutées avec de poutres INCYE600, constituées de poutres HEB600 renforcées renforcés avec une triple âme. Fabriqués en acier S275.")
         if checkbox_values[1]:      # Texto del SS en la metodolog�a de cálculo
             document.merge(SST="Nota: En el Technical Data Sheet del sistema Superslim los valores incluidos en las gráficas son valores en Estado Límite de Servicio, es decir, son valores ya minorados por un coeficiente de 1,50. Para comparar frente a cargas mayoradas es necesario multiplicar los valores admisibles de las gráficas por 1,50 para no tener en cuenta un factor de mayoración duplicado.")
         if checkbox_values[2]:      # Texto del MP en la metodolog�a de c�culo
@@ -544,41 +595,44 @@ class Application(tk.Frame):
             document.merge(PERF="Para la comprobación de los perfiles se obtendrán los esfuerzos en cada uno de ellos y se compararán con sus valores admisibles.")
 
         # Ruta de guardado
-        doc_modified = "C:/Memorias y servidor/Memorias Generadas/Modificada_MemoriaEjemplo.docx"
+        doc_modified = "C:/Memorias y servidor/Memorias Generadas/Modificada_MemoriaEjemplofr.docx"
         document.write(doc_modified)
 
         if __name__ == '__main__':
-            document_path = 'C:/Memorias y servidor/Memorias Generadas/Modificada_MemoriaEjemplo.docx'
+            document_path = 'C:/Memorias y servidor/Memorias Generadas/Modificada_MemoriaEjemplofr.docx'
             
             # texto e imágenes del Superslim
-            texto_SS = "El sistema Superslim (área neta de la sección 19,64 cm2) es un sistema de perfilería constituido por vigas compuestas formadas por dos perfiles en C, unidos mediante presillas situadas en distintas posiciones que configuran un sistema de vigas modulares de gran versatilidad."
+            texto_SS = "Le système Superslim (aire nette de la section 19,64 cm2) est un système de profilés constitué de poutres composées formées par deux profilés en C. Il s’agit d’un système de poutres modulaires très polyvalent. Acier S355."
             imagen_SS = "C:/Memorias y servidor/Aplicacion de Memorias/Imagenes/ss.JPG"
             
             # texto e imágenes del Megaprop
-            texto_MP = "El sistema Megaprop (área sección 58,45 cm2) es un sistema de perfilería constituido por vigas compuestas formadas por dos perfiles en C, unidos mediante presillas situadas en distintas posiciones que configuran un sistema de vigas modulares de gran versatilidad. El acero utilizado para su fabricación es de la calidad S355."
+            texto_MP = "Le système Megaprop (aire de la section 58,45 cm2) est un système de profilés constitué de poutres composées par deux profilés en C. Elles sont attachées au moyen des platines situées à différentes positions qui configurent un système de poutres modulaires très polyvalent. L'acier utilisé dans sa fabrication est de qualité S355."
             imagen_MP = "C:/Memorias y servidor/Aplicacion de Memorias/Imagenes/megaprop.JPG"
             
             # texto e imágenes del Granshor
-            texto_GS = "El sistema Granshor (área sección 72,59 cm2/cordón x 2 cordones) es un sistema de de celosías modular y sus elementos asociados. Fabricado con acero S355."
+            texto_GS = "Le système Granshor (aire de la section 72,59 cm2/corde x 2 cordes) est un système de treillis modulaire et ses éléments associés. Fabriqué en acier S355."
             imagen_GS = "C:/Memorias y servidor/Aplicacion de Memorias/Imagenes/granshor.JPG"
             
             # textos e imágenes del TC
-            texto_TC = "El sistema INCYE 80 es un sistema modular constituido por tubos cuadrados de 80mm de lado y un espesor de 4mm. Este sistema modular es compatible con el sistema Superslim y sus elementos asociados."
+            texto_TC = "Le système INCYE 80 est un système modulaire constitué de tubes carrés de 80mm de côté et d'une épaisseur de 4mm. Ce système modulaire est compatible avec le système Superslim et ses éléments associés. Acier S275."
             imagen_TC = "C:/Memorias y servidor/Aplicacion de Memorias/Imagenes/tensorcuadrado.JPG"
 
             # textos e imágenes del Pipeshor
-            texto_PS6 = "El sistema Pipeshor 6 (área sección 234,4 cm2) está formado por tubos de 610 mm de diámetro y sus elementos asociados. Fabricado con acero de calidad S355 y un espesor de 12,5 milímetros."
+            texto_PS6 = "Le système Pipeshor 6 (aire de la section 234,4 cm2) est formé par tubes de 610 mm de diamètre et leurs éléments associés. Fabriqué en acier de qualité S355 et d'une épaisseur de 12,5 millimètres."
             imagen_PS6 = "C:/Memorias y servidor/Aplicacion de Memorias/Imagenes/pipeshor6.JPG"
-            texto_PS2 = "El sistema Pipeshor 4S, con área sección 196,24 cm2, es un sistema de puntales formados por módulos de tubos de 406 mm de diámetro y sus elementos asociados. Fabricado con acero S355 de 16 milímetros de espesor."
-            texto_PS4 = "El sistema Pipeshor 4L, con área de sección 100.13 cm2, es un sistema de puntales formados por módulos de tubos de 406 mm de diámetro y sus elementos asociados. Fabricado con acero S355 de 8 milímetros de espesor."
+            texto_PS2 = "Le système Pipeshor 4S, avec une aire de section de 196,24 cm2, est un système d'étais formés par modules de tubes de 406 mm de diamètre et leurs éléments associés. Fabriqué en acier S355 de 16 millimètres d'épaisseur."
+            texto_PS4 = "Le système Pipeshor 4L, avec une aire de section de 100.13 cm2, est un système d'étais formé par modules de tubes de 406 mm de diamètre et leurs éléments associés. Fabriqué en acier S355 de 8 millimètres d'épaisseur."
             imagen_PS4 = "C:/Memorias y servidor/Aplicacion de Memorias/Imagenes/pipeshor.JPG"
 
             # texto e imágenes de los INCYE
-            texto_V = "Las vigas de reparto perimetrales se realizarán mediante la utilización de vigas INCYE300, consistentes en vigas HEB300 reforzadas."
-            texto_V2 = "Las vigas de reparto perimetrales se realizarán mediante la utilización de vigas INCYE450, consistentes en vigas HEB450 reforzadas."
-            texto_V3 = "Las vigas de reparto perimetrales se realizarán mediante la utilización de vigas INCYE600, consistentes en vigas HEB600 reforzadas."
+            texto_V = "Les liernes périmétrales sont exécutées avec des profilés INCYE300, constituées par poutres HEB300 renforcées avec une triple âme. Acier S275."
+            texto_V2 = "Les liernes périmétrales seront exécutées avec des profilés INCYE450, constituées de poutres HEB450 renforcées. Il y en existe deux types de profilés dans cette catégorie, avec une triple âme et simple âme avec des raidisseurs au niveau des points d’impact des butons pour éviter le phénomène de voilement.  Acier S275."
+            texto_V3 = "Les liernes périmétrales seront exécutées avec de poutres INCYE600, constituées de poutres HEB600 renforcées renforcés avec une triple âme. Fabriqués en acier S275."
             imagen_V = "C:/Memorias y servidor/Aplicacion de Memorias/Imagenes/perfil.JPG"
             texto_apendice = "Y MECÁNICAS PERFILES INCYE"
+
+            # texto para meter las fórmulas de la temperatura
+            textotemp = "Selon l’information initial que nous avons reçue provenant de la note de calcul de Spie ils ont pris en compte une surcharge due à l’influence de la température sur les butons. Nous sommes partis avec la même hypothèse et donc une variation thermique de 27 ºC est considérée. Si nous considérons une jonction rigide et parfaite entre toutes les pièces des butons et entre les butons et l’écran, l’effort axial additionnel dû à la température est le suivant :"
             
             # Imagenes TDS del SuperSlim
             imagen_TDS_SS1 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/SS/ANEJO SS-01.jpg"
@@ -719,6 +773,13 @@ class Application(tk.Frame):
             imagen_TDS_MP10 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Megaprop/TDS Megaprop INCYE-10.jpg"
             imagen_TDS_MP11 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Megaprop/TDS Megaprop INCYE-11.jpg"
 
+            # Imágenes de las fórmulas
+            imagentemp_MP = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/tempMP.jpg"
+            imagentemp_GS = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/tempGS.jpg"
+            imagentemp_P4L = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/tempP4L.jpg"
+            imagentemp_P4S = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/tempP4S.jpg"
+            imagentemp_P6 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/tempP6.jpg"
+
 
             document_editor = DocumentEditor(document_path)
             added_imagen_SS = document_editor.añadir_im_SS(texto_SS, imagen_SS)
@@ -741,9 +802,18 @@ class Application(tk.Frame):
                 added_imagen_TDS_I3 = document_editor.añadir_TDS_I3(texto_apendice, imagen_TDS_I31, imagen_TDS_I32, imagen_TDS_I33, imagen_TDS_I34, imagen_TDS_I35, imagen_TDS_I36, imagen_TDS_I37, imagen_TDS_I38, imagen_TDS_I39, imagen_TDS_I310)
             if checkbox_values[3] or checkbox_values[4] or checkbox_values2[0]: # Pipeshor
                 added_image_TDS_P = document_editor.añadir_TDS_P(texto_apendice, imagen_TDS_P1, imagen_TDS_P2, imagen_TDS_P3, imagen_TDS_P4, imagen_TDS_P5, imagen_TDS_P6, imagen_TDS_P7, imagen_TDS_P8, imagen_TDS_P9, imagen_TDS_P10, imagen_TDS_P11, imagen_TDS_P12, imagen_TDS_P13, imagen_TDS_P14, imagen_TDS_P15, imagen_TDS_P16, imagen_TDS_P17, imagen_TDS_P18, imagen_TDS_P19, imagen_TDS_P20, imagen_TDS_P21, imagen_TDS_P22, imagen_TDS_P23, imagen_TDS_P24, imagen_TDS_P25, imagen_TDS_P26, imagen_TDS_P27, imagen_TDS_P28, imagen_TDS_P29, imagen_TDS_P30, imagen_TDS_P31, imagen_TDS_P32, imagen_TDS_P33, imagen_TDS_P34, imagen_TDS_P35)
-
+            if checkbox_values[2]: # Megaprop temp
+                added_image_tempMP = document_editor.añadir_im_tempMP(textotemp, imagentemp_MP)
+            if checkbox_values2[1]: # Granshor temp
+                added_image_tempGS = document_editor.añadir_im_tempGS(textotemp, imagentemp_GS)
+            if checkbox_values[3]: 
+                added_image_tempP4L = document_editor.añadir_im_tempP4L(textotemp, imagentemp_P4L)
+            if checkbox_values[4]: 
+                added_image_tempP4S = document_editor.añadir_im_tempP4S(textotemp, imagentemp_P4S)
+            if checkbox_values2[0]: 
+                added_image_tempP6 = document_editor.añadir_im_tempP6(textotemp, imagentemp_P6)
             
-            if added_imagen_SS or added_imagen_MP or added_imagen_GS or added_imagen_TC or added_imagen_PS4 or added_imagen_V or added_imagen_PS6 or added_imagen_TDS_SS or added_imagen_TDS_I3 or added_imagen_TDS_TC or added_image_TDS_P or added_imagen_TDS_GS or added_imagen_TDS_MP:
+            if added_imagen_SS or added_imagen_MP or added_imagen_GS or added_imagen_TC or added_imagen_PS4 or added_imagen_V or added_imagen_PS6 or added_imagen_TDS_SS or added_imagen_TDS_I3 or added_imagen_TDS_TC or added_image_TDS_P or added_imagen_TDS_GS or added_imagen_TDS_MP or added_image_tempMP or added_image_tempGS:
                 if self.output_path:
                     document_editor.save_document(self.output_path)
             else:
