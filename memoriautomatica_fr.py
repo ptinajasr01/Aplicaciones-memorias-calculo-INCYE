@@ -49,7 +49,7 @@ class DocumentEditor:
         if target_index != -1:
             target_paragraph = self.document.paragraphs[target_index]
             run = target_paragraph.add_run()
-            run.add_picture(imagen_SS, width=Inches(6.9), height=Inches(2.4))
+            run.add_picture(imagen_SS, width=Inches(5.9), height=Inches(1.8))
             return True
         return False
 
@@ -105,7 +105,7 @@ class DocumentEditor:
         if target_index != -1:
             target_paragraph = self.document.paragraphs[target_index]
             run = target_paragraph.add_run()
-            run.add_picture(imagen_MP, width=Inches(6.9), height=Inches(2.4))
+            run.add_picture(imagen_MP, width=Inches(5.9), height=Inches(1.8))
             return True
         return False
     
@@ -114,7 +114,7 @@ class DocumentEditor:
         if target_index != -1:
             target_paragraph = self.document.paragraphs[target_index]
             run = target_paragraph.add_run()
-            run.add_picture(imagentemp_MP, width=Inches(6.8), height=Inches(1.1))
+            run.add_picture(imagentemp_MP, width=Inches(4.8), height=Inches(0.7))
             return True
         return False
 
@@ -152,7 +152,7 @@ class DocumentEditor:
         if target_index != -1:
             target_paragraph = self.document.paragraphs[target_index]
             run = target_paragraph.add_run()
-            run.add_picture(imagen_GS, width=Inches(6.9), height=Inches(2.4))
+            run.add_picture(imagen_GS,width=Inches(5.9), height=Inches(1.8))
             return True
         return False
     
@@ -161,7 +161,7 @@ class DocumentEditor:
         if target_index != -1:
             target_paragraph = self.document.paragraphs[target_index]
             run = target_paragraph.add_run()
-            run.add_picture(imagentemp_GS, width=Inches(6.8), height=Inches(1.1))
+            run.add_picture(imagentemp_GS, width=Inches(4.8), height=Inches(0.7))
             return True
         return False
 
@@ -220,7 +220,7 @@ class DocumentEditor:
         if target_index != -1:
             target_paragraph = self.document.paragraphs[target_index]
             run = target_paragraph.add_run()
-            run.add_picture(imagen_TC, width=Inches(6.9), height=Inches(2.4))
+            run.add_picture(imagen_TC,width=Inches(5.9), height=Inches(1.8))
             return True
         return False
 
@@ -257,7 +257,7 @@ class DocumentEditor:
         if target_index != -1:
             target_paragraph = self.document.paragraphs[target_index]
             run = target_paragraph.add_run()
-            run.add_picture(imagen_PS4, width=Inches(6.9), height=Inches(2.4))
+            run.add_picture(imagen_PS4, width=Inches(5.9), height=Inches(1.8))
             return True
         return False
 
@@ -273,7 +273,7 @@ class DocumentEditor:
         if target_index != -1:
             target_paragraph = self.document.paragraphs[target_index]
             run = target_paragraph.add_run()
-            run.add_picture(imagen_PS6, width=Inches(6.9), height=Inches(2.4))
+            run.add_picture(imagen_PS6, width=Inches(5.9), height=Inches(1.8))
             return True
         return False
     
@@ -282,7 +282,7 @@ class DocumentEditor:
         if target_index != -1:
             target_paragraph = self.document.paragraphs[target_index]
             run = target_paragraph.add_run()
-            run.add_picture(imagentemp_P4L, width=Inches(6.8), height=Inches(1.1))
+            run.add_picture(imagentemp_P4L, width=Inches(4.8), height=Inches(0.7))
             return True
         return False
 
@@ -291,7 +291,7 @@ class DocumentEditor:
         if target_index != -1:
             target_paragraph = self.document.paragraphs[target_index]
             run = target_paragraph.add_run()
-            run.add_picture(imagentemp_P4S, width=Inches(6.8), height=Inches(1.1))
+            run.add_picture(imagentemp_P4S, width=Inches(4.8), height=Inches(0.7))
             return True
         return False
     
@@ -300,7 +300,7 @@ class DocumentEditor:
         if target_index != -1:
             target_paragraph = self.document.paragraphs[target_index]
             run = target_paragraph.add_run()
-            run.add_picture(imagentemp_P6, width=Inches(6.8), height=Inches(1.1))
+            run.add_picture(imagentemp_P6, width=Inches(4.8), height=Inches(0.7))
             return True
         return False
 
@@ -363,7 +363,7 @@ class DocumentEditor:
         if target_index != -1:
             target_paragraph = self.document.paragraphs[target_index]
             run = target_paragraph.add_run()
-            run.add_picture(imagen_V, width=Inches(6.9), height=Inches(2.4))
+            run.add_picture(imagen_V, width=Inches(5.9), height=Inches(1.8))
             return True
         return False
 
@@ -604,6 +604,7 @@ class Application(tk.Frame):
             # texto e imágenes del Superslim
             texto_SS = "Le système Superslim (aire nette de la section 19,64 cm2) est un système de profilés constitué de poutres composées formées par deux profilés en C. Il s’agit d’un système de poutres modulaires très polyvalent. Acier S355."
             imagen_SS = "C:/Memorias y servidor/Aplicacion de Memorias/Imagenes/ss.JPG"
+            # "C:/Memorias y servidor/Aplicacion de Memorias/Imagenes/ss.JPG"
             
             # texto e imágenes del Megaprop
             texto_MP = "Le système Megaprop (aire de la section 58,45 cm2) est un système de profilés constitué de poutres composées par deux profilés en C. Elles sont attachées au moyen des platines situées à différentes positions qui configurent un système de poutres modulaires très polyvalent. L'acier utilisé dans sa fabrication est de qualité S355."
@@ -632,7 +633,7 @@ class Application(tk.Frame):
             texto_apendice = "Y MECÁNICAS PERFILES INCYE"
 
             # texto para meter las fórmulas de la temperatura
-            textotemp = "Selon l’information initial que nous avons reçue provenant de la note de calcul de Spie ils ont pris en compte une surcharge due à l’influence de la température sur les butons. Nous sommes partis avec la même hypothèse et donc une variation thermique de 27 ºC est considérée. Si nous considérons une jonction rigide et parfaite entre toutes les pièces des butons et entre les butons et l’écran, l’effort axial additionnel dû à la température est le suivant :"
+            textotemp = "Considérant une réduction de la rigidité par rapport à celle des unions parfaites et pour prendre compte la flexibilité du terrain et du mur, d’après notre expérience et restant du côté de la sécurité, la charge axiale réelle transmise au buton est de l’ordre de 45 % de celle du cas d’union parfaite."
             
             # Imagenes TDS del SuperSlim
             imagen_TDS_SS1 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/SS/ANEJO SS-01.jpg"
@@ -789,31 +790,34 @@ class Application(tk.Frame):
             added_imagen_PS4 = document_editor.añadir_im_PS4(texto_PS4, imagen_PS4, texto_PS2)
             added_imagen_V = document_editor.añadir_im_V(texto_V, imagen_V, texto_V2, texto_V3)
             added_imagen_PS6 = document_editor.añadir_im_PS6(texto_PS6, imagen_PS6)
+            added_image_tempMP = document_editor.añadir_im_tempMP(textotemp, imagentemp_MP)
+            added_image_tempGS = document_editor.añadir_im_tempGS(textotemp, imagentemp_GS)
+            added_image_tempP4L = document_editor.añadir_im_tempP4L(textotemp, imagentemp_P4L)
+            added_image_tempP4S = document_editor.añadir_im_tempP4S(textotemp, imagentemp_P4S)
+            added_image_tempP6 = document_editor.añadir_im_tempP6(textotemp, imagentemp_P6)
 
-            if checkbox_values[0]: # Tensor cuadrado / INCYE 80
-                added_imagen_TDS_TC = document_editor.añadir_TDS_TC(texto_apendice, imagen_TDS_TC1, imagen_TDS_TC2, imagen_TDS_TC3, imagen_TDS_TC4, imagen_TDS_TC5, imagen_TDS_TC6, imagen_TDS_TC7, imagen_TDS_TC8, imagen_TDS_TC9)
-            if checkbox_values[1]: # Superslim
-                added_imagen_TDS_SS = document_editor.añadir_TDS_SS(texto_apendice, imagen_TDS_SS1, imagen_TDS_SS2, imagen_TDS_SS3, imagen_TDS_SS4, imagen_TDS_SS5, imagen_TDS_SS6, imagen_TDS_SS7, imagen_TDS_SS8, imagen_TDS_SS9, imagen_TDS_SS10, imagen_TDS_SS11, imagen_TDS_SS12, imagen_TDS_SS13, imagen_TDS_SS14, imagen_TDS_SS15, imagen_TDS_SS16, imagen_TDS_SS17, imagen_TDS_SS18, imagen_TDS_SS19, imagen_TDS_SS20, imagen_TDS_SS21, imagen_TDS_SS22, imagen_TDS_SS23, imagen_TDS_SS24, imagen_TDS_SS25, imagen_TDS_SS26, imagen_TDS_SS27, imagen_TDS_SS28)
-            if checkbox_values[2]: # Megaprop
-                added_imagen_TDS_MP = document_editor.añadir_TDS_MP(texto_apendice, imagen_TDS_MP1, imagen_TDS_MP2, imagen_TDS_MP3, imagen_TDS_MP4, imagen_TDS_MP5, imagen_TDS_MP6, imagen_TDS_MP7, imagen_TDS_MP8, imagen_TDS_MP9, imagen_TDS_MP10, imagen_TDS_MP11)
-            if checkbox_values2[1]: # Granshor
-                added_imagen_TDS_GS = document_editor.añadir_TDS_GS(texto_apendice, imagen_TDS_GS1, imagen_TDS_GS2, imagen_TDS_GS3, imagen_TDS_GS4, imagen_TDS_GS5, imagen_TDS_GS6, imagen_TDS_GS7, imagen_TDS_GS8, imagen_TDS_GS9, imagen_TDS_GS10, imagen_TDS_GS11, imagen_TDS_GS12, imagen_TDS_GS13, imagen_TDS_GS14, imagen_TDS_GS15, imagen_TDS_GS16, imagen_TDS_GS17, imagen_TDS_GS18, imagen_TDS_GS19, imagen_TDS_GS20, imagen_TDS_GS21, imagen_TDS_GS22, imagen_TDS_GS23, imagen_TDS_GS24, imagen_TDS_GS25, imagen_TDS_GS26, imagen_TDS_GS27, imagen_TDS_GS28, imagen_TDS_GS29, imagen_TDS_GS30, imagen_TDS_GS31, imagen_TDS_GS32)
-            if checkbox_values2[2]: # INCYE 300
-                added_imagen_TDS_I3 = document_editor.añadir_TDS_I3(texto_apendice, imagen_TDS_I31, imagen_TDS_I32, imagen_TDS_I33, imagen_TDS_I34, imagen_TDS_I35, imagen_TDS_I36, imagen_TDS_I37, imagen_TDS_I38, imagen_TDS_I39, imagen_TDS_I310)
-            if checkbox_values[3] or checkbox_values[4] or checkbox_values2[0]: # Pipeshor
-                added_image_TDS_P = document_editor.añadir_TDS_P(texto_apendice, imagen_TDS_P1, imagen_TDS_P2, imagen_TDS_P3, imagen_TDS_P4, imagen_TDS_P5, imagen_TDS_P6, imagen_TDS_P7, imagen_TDS_P8, imagen_TDS_P9, imagen_TDS_P10, imagen_TDS_P11, imagen_TDS_P12, imagen_TDS_P13, imagen_TDS_P14, imagen_TDS_P15, imagen_TDS_P16, imagen_TDS_P17, imagen_TDS_P18, imagen_TDS_P19, imagen_TDS_P20, imagen_TDS_P21, imagen_TDS_P22, imagen_TDS_P23, imagen_TDS_P24, imagen_TDS_P25, imagen_TDS_P26, imagen_TDS_P27, imagen_TDS_P28, imagen_TDS_P29, imagen_TDS_P30, imagen_TDS_P31, imagen_TDS_P32, imagen_TDS_P33, imagen_TDS_P34, imagen_TDS_P35)
-            if checkbox_values[2]: # Megaprop temp
-                added_image_tempMP = document_editor.añadir_im_tempMP(textotemp, imagentemp_MP)
-            if checkbox_values2[1]: # Granshor temp
-                added_image_tempGS = document_editor.añadir_im_tempGS(textotemp, imagentemp_GS)
-            if checkbox_values[3]: 
+            if checkbox_values[3]:
                 added_image_tempP4L = document_editor.añadir_im_tempP4L(textotemp, imagentemp_P4L)
             if checkbox_values[4]: 
                 added_image_tempP4S = document_editor.añadir_im_tempP4S(textotemp, imagentemp_P4S)
             if checkbox_values2[0]: 
                 added_image_tempP6 = document_editor.añadir_im_tempP6(textotemp, imagentemp_P6)
+            if checkbox_values[0]: # Tensor cuadrado / INCYE 80
+                added_imagen_TDS_TC = document_editor.añadir_TDS_TC(texto_apendice, imagen_TDS_TC1, imagen_TDS_TC2, imagen_TDS_TC3, imagen_TDS_TC4, imagen_TDS_TC5, imagen_TDS_TC6, imagen_TDS_TC7, imagen_TDS_TC8, imagen_TDS_TC9)
+            if checkbox_values[1]: # Superslim
+                added_imagen_TDS_SS = document_editor.añadir_TDS_SS(texto_apendice, imagen_TDS_SS1, imagen_TDS_SS2, imagen_TDS_SS3, imagen_TDS_SS4, imagen_TDS_SS5, imagen_TDS_SS6, imagen_TDS_SS7, imagen_TDS_SS8, imagen_TDS_SS9, imagen_TDS_SS10, imagen_TDS_SS11, imagen_TDS_SS12, imagen_TDS_SS13, imagen_TDS_SS14, imagen_TDS_SS15, imagen_TDS_SS16, imagen_TDS_SS17, imagen_TDS_SS18, imagen_TDS_SS19, imagen_TDS_SS20, imagen_TDS_SS21, imagen_TDS_SS22, imagen_TDS_SS23, imagen_TDS_SS24, imagen_TDS_SS25, imagen_TDS_SS26, imagen_TDS_SS27, imagen_TDS_SS28)
+            if checkbox_values[2]: # Megaprop
+                added_image_tempMP = document_editor.añadir_im_tempMP(textotemp, imagentemp_MP)
+                added_imagen_TDS_MP = document_editor.añadir_TDS_MP(texto_apendice, imagen_TDS_MP1, imagen_TDS_MP2, imagen_TDS_MP3, imagen_TDS_MP4, imagen_TDS_MP5, imagen_TDS_MP6, imagen_TDS_MP7, imagen_TDS_MP8, imagen_TDS_MP9, imagen_TDS_MP10, imagen_TDS_MP11)    
+            if checkbox_values2[1]: # Granshor
+                added_image_tempGS = document_editor.añadir_im_tempGS(textotemp, imagentemp_GS)
+                added_imagen_TDS_GS = document_editor.añadir_TDS_GS(texto_apendice, imagen_TDS_GS1, imagen_TDS_GS2, imagen_TDS_GS3, imagen_TDS_GS4, imagen_TDS_GS5, imagen_TDS_GS6, imagen_TDS_GS7, imagen_TDS_GS8, imagen_TDS_GS9, imagen_TDS_GS10, imagen_TDS_GS11, imagen_TDS_GS12, imagen_TDS_GS13, imagen_TDS_GS14, imagen_TDS_GS15, imagen_TDS_GS16, imagen_TDS_GS17, imagen_TDS_GS18, imagen_TDS_GS19, imagen_TDS_GS20, imagen_TDS_GS21, imagen_TDS_GS22, imagen_TDS_GS23, imagen_TDS_GS24, imagen_TDS_GS25, imagen_TDS_GS26, imagen_TDS_GS27, imagen_TDS_GS28, imagen_TDS_GS29, imagen_TDS_GS30, imagen_TDS_GS31, imagen_TDS_GS32)
+            if checkbox_values2[2]: # INCYE 300
+                added_imagen_TDS_I3 = document_editor.añadir_TDS_I3(texto_apendice, imagen_TDS_I31, imagen_TDS_I32, imagen_TDS_I33, imagen_TDS_I34, imagen_TDS_I35, imagen_TDS_I36, imagen_TDS_I37, imagen_TDS_I38, imagen_TDS_I39, imagen_TDS_I310)
+            if checkbox_values[3] or checkbox_values[4] or checkbox_values2[0]: # Pipeshor
+                added_image_TDS_P = document_editor.añadir_TDS_P(texto_apendice, imagen_TDS_P1, imagen_TDS_P2, imagen_TDS_P3, imagen_TDS_P4, imagen_TDS_P5, imagen_TDS_P6, imagen_TDS_P7, imagen_TDS_P8, imagen_TDS_P9, imagen_TDS_P10, imagen_TDS_P11, imagen_TDS_P12, imagen_TDS_P13, imagen_TDS_P14, imagen_TDS_P15, imagen_TDS_P16, imagen_TDS_P17, imagen_TDS_P18, imagen_TDS_P19, imagen_TDS_P20, imagen_TDS_P21, imagen_TDS_P22, imagen_TDS_P23, imagen_TDS_P24, imagen_TDS_P25, imagen_TDS_P26, imagen_TDS_P27, imagen_TDS_P28, imagen_TDS_P29, imagen_TDS_P30, imagen_TDS_P31, imagen_TDS_P32, imagen_TDS_P33, imagen_TDS_P34, imagen_TDS_P35)
             
-            if added_imagen_SS or added_imagen_MP or added_imagen_GS or added_imagen_TC or added_imagen_PS4 or added_imagen_V or added_imagen_PS6 or added_imagen_TDS_SS or added_imagen_TDS_I3 or added_imagen_TDS_TC or added_image_TDS_P or added_imagen_TDS_GS or added_imagen_TDS_MP or added_image_tempMP or added_image_tempGS:
+            if added_imagen_SS or added_imagen_MP or added_imagen_GS or added_imagen_TC or added_imagen_PS4 or added_imagen_V or added_imagen_PS6 or added_imagen_TDS_SS or added_imagen_TDS_I3 or added_imagen_TDS_TC or added_image_TDS_P or added_imagen_TDS_GS or added_imagen_TDS_MP or added_image_tempMP or added_image_tempGS or added_image_tempP4L or added_image_tempP4S or added_image_tempP6:
                 if self.output_path:
                     document_editor.save_document(self.output_path)
             else:
