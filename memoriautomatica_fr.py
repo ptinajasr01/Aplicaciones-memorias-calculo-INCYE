@@ -49,7 +49,7 @@ class DocumentEditor:
         if target_index != -1:
             target_paragraph = self.document.paragraphs[target_index]
             run = target_paragraph.add_run()
-            run.add_picture(imagen_SS, width=Inches(5.9), height=Inches(1.8))
+            run.add_picture(imagen_SS, width=Inches(6.9), height=Inches(2.4))
             return True
         return False
 
@@ -105,7 +105,7 @@ class DocumentEditor:
         if target_index != -1:
             target_paragraph = self.document.paragraphs[target_index]
             run = target_paragraph.add_run()
-            run.add_picture(imagen_MP, width=Inches(5.9), height=Inches(1.8))
+            run.add_picture(imagen_MP, width=Inches(6.9), height=Inches(2.4))
             return True
         return False
     
@@ -114,7 +114,7 @@ class DocumentEditor:
         if target_index != -1:
             target_paragraph = self.document.paragraphs[target_index]
             run = target_paragraph.add_run()
-            run.add_picture(imagentemp_MP, width=Inches(4.8), height=Inches(0.7))
+            run.add_picture(imagentemp_MP, width=Inches(4.9), height=Inches(0.55))
             return True
         return False
 
@@ -152,7 +152,7 @@ class DocumentEditor:
         if target_index != -1:
             target_paragraph = self.document.paragraphs[target_index]
             run = target_paragraph.add_run()
-            run.add_picture(imagen_GS,width=Inches(5.9), height=Inches(1.8))
+            run.add_picture(imagen_GS, width=Inches(6.9), height=Inches(2.4))
             return True
         return False
     
@@ -161,7 +161,7 @@ class DocumentEditor:
         if target_index != -1:
             target_paragraph = self.document.paragraphs[target_index]
             run = target_paragraph.add_run()
-            run.add_picture(imagentemp_GS, width=Inches(4.8), height=Inches(0.7))
+            run.add_picture(imagentemp_GS, width=Inches(4.9), height=Inches(0.55))
             return True
         return False
 
@@ -220,7 +220,7 @@ class DocumentEditor:
         if target_index != -1:
             target_paragraph = self.document.paragraphs[target_index]
             run = target_paragraph.add_run()
-            run.add_picture(imagen_TC,width=Inches(5.9), height=Inches(1.8))
+            run.add_picture(imagen_TC, width=Inches(6.9), height=Inches(2.4))
             return True
         return False
 
@@ -257,7 +257,7 @@ class DocumentEditor:
         if target_index != -1:
             target_paragraph = self.document.paragraphs[target_index]
             run = target_paragraph.add_run()
-            run.add_picture(imagen_PS4, width=Inches(5.9), height=Inches(1.8))
+            run.add_picture(imagen_PS4, width=Inches(6.9), height=Inches(2.4))
             return True
         return False
 
@@ -273,7 +273,7 @@ class DocumentEditor:
         if target_index != -1:
             target_paragraph = self.document.paragraphs[target_index]
             run = target_paragraph.add_run()
-            run.add_picture(imagen_PS6, width=Inches(5.9), height=Inches(1.8))
+            run.add_picture(imagen_PS6, width=Inches(6.9), height=Inches(2.4))
             return True
         return False
     
@@ -282,7 +282,7 @@ class DocumentEditor:
         if target_index != -1:
             target_paragraph = self.document.paragraphs[target_index]
             run = target_paragraph.add_run()
-            run.add_picture(imagentemp_P4L, width=Inches(4.8), height=Inches(0.7))
+            run.add_picture(imagentemp_P4L, width=Inches(4.9), height=Inches(0.55))
             return True
         return False
 
@@ -291,7 +291,7 @@ class DocumentEditor:
         if target_index != -1:
             target_paragraph = self.document.paragraphs[target_index]
             run = target_paragraph.add_run()
-            run.add_picture(imagentemp_P4S, width=Inches(4.8), height=Inches(0.7))
+            run.add_picture(imagentemp_P4S, width=Inches(4.9), height=Inches(0.55))
             return True
         return False
     
@@ -300,7 +300,7 @@ class DocumentEditor:
         if target_index != -1:
             target_paragraph = self.document.paragraphs[target_index]
             run = target_paragraph.add_run()
-            run.add_picture(imagentemp_P6, width=Inches(4.8), height=Inches(0.7))
+            run.add_picture(imagentemp_P6, width=Inches(4.9), height=Inches(0.55))
             return True
         return False
 
@@ -363,7 +363,7 @@ class DocumentEditor:
         if target_index != -1:
             target_paragraph = self.document.paragraphs[target_index]
             run = target_paragraph.add_run()
-            run.add_picture(imagen_V, width=Inches(5.9), height=Inches(1.8))
+            run.add_picture(imagen_V, width=Inches(6.9), height=Inches(2.4))
             return True
         return False
 
@@ -507,17 +507,17 @@ class Application(tk.Frame):
         selected_option = self.combobox_autor.get()
         
         additional_info = {
-        "Julián Vallejo.": "Julián Vallejo Luna.\nIngeniero de Caminos, CC. y PP.\nDpto. Ingeniería INCYE.",
-        "David Lara.": "David Lara.\nIngeniero de Caminos, CC. y PP.\nDpto. Ingeniería INCYE.",
-        "Ezequiel Sánchez.": "Ezequiel Sánchez.\nIngeniero de Caminos, CC. y PP.\nDpto. Ingeniería INCYE.",
-        "Andrés Rodríguez.": "Andrés Rodríguez Pérez.\nIngeniero de Caminos, CC. y PP.\nDpto. Ingeniería INCYE.",
-        "Jorge Nebreda.": "Jorge Nebreda.\nIngeniero Industrial\nDpto. Ingeniería INCYE.",
-        "Alberto Aldama.": "Alberto Aldama Martínez.\nIngeniero Industrial\nDpto. Ingeniería INCYE.",
-        "Adelaida Sáez.": "Adelaida Sáez Castejón.\nIng Téc. Industrial.\nDpto. Ingeniería INCYE.",
-        "Alejandro Ángel Builes.": "Alejandro Ángel Builes.\nIngeniero Civil.\nDpto. Ingeniería INCYE.",
-        "Juan José Morón.": "Juan José Morón Blanco.\nDeliniante.\nDpto. Ingeniería INCYE.",
-        "Manuel González.": "Manuel González-Arquiso Madrigal.\nIng. Téc. Agrícola.\nDpto. Ingeniería INCYE.",
-        "Rafael Mansilla.": "Rafael Mansilla Correa.\nIngeniero de Caminos, CC. y PP.\nDpto. Ingeniería INCYE."
+        "Julián Vallejo.": "Julián Vallejo Luna.\nIngénieur des Ponts, des Eaux et des Forêts.\nDpto. Ingénierie INCYE.",
+        "David Lara.": "David Lara.\nIngénieur des Ponts, des Eaux et des Forêts.\nDpto. Ingénierie INCYE.",
+        "Ezequiel Sánchez.": "Ezequiel Sánchez.\nIngénieur industriel.\nDpto. Ingénierie INCYE.",
+        "Andrés Rodríguez.": "Andrés Rodríguez Pérez.\nIngénieur des Ponts, des Eaux et des Forêts.\nDpto. Ingénierie INCYE.",
+        "Jorge Nebreda.": "Jorge Nebreda.\nIngénieur des Ponts, des Eaux et des Forêts.\nDpto. Ingénierie INCYE.",
+        "Alberto Aldama.": "Alberto Aldama Martínez.\nIngénieur Industriel.\nDpto. Ingénierie INCYE.",
+        "Adelaida Sáez.": "Adelaida Sáez Castejón.\nIng Tech. Industriel.\nDpto. Ingénierie INCYE.",
+        "Alejandro Ángel Builes.": "Alejandro Ángel Builes.\nIngénieur Civil.\nDpto. Ingénierie INCYE.",
+        "Juan José Morón.": "Juan José Morón Blanco.\nDessinateur.\nDpto. Ingénierie INCYE.",
+        "Manuel González.": "Manuel González-Arquiso Madrigal.\nIng. Tech. Agricole.\nDpto. Ingénierie INCYE.",
+        "Rafael Mansilla.": "Rafael Mansilla Correa.\nIngénieur des Ponts, des Eaux et des Forêts\nDpto. Ingénierie INCYE."
         }
 
         additional_info2 = {
@@ -825,7 +825,13 @@ class Application(tk.Frame):
             if checkbox_values[3] or checkbox_values[4] or checkbox_values2[0]: # Pipeshor
                 added_image_TDS_P = document_editor.añadir_TDS_P(texto_apendice, imagen_TDS_P1, imagen_TDS_P2, imagen_TDS_P3, imagen_TDS_P4, imagen_TDS_P5, imagen_TDS_P6, imagen_TDS_P7, imagen_TDS_P8, imagen_TDS_P9, imagen_TDS_P10, imagen_TDS_P11, imagen_TDS_P12, imagen_TDS_P13, imagen_TDS_P14, imagen_TDS_P15, imagen_TDS_P16, imagen_TDS_P17, imagen_TDS_P18, imagen_TDS_P19, imagen_TDS_P20, imagen_TDS_P21, imagen_TDS_P22, imagen_TDS_P23, imagen_TDS_P24, imagen_TDS_P25, imagen_TDS_P26, imagen_TDS_P27, imagen_TDS_P28, imagen_TDS_P29, imagen_TDS_P30, imagen_TDS_P31, imagen_TDS_P32, imagen_TDS_P33, imagen_TDS_P34, imagen_TDS_P35)           
 
-            if added_image_tempMP or added_image_tempP4L or added_image_tempP4S or added_image_tempP6 or added_image_tempGS or added_imagen_SS or added_imagen_MP or added_imagen_GS or added_imagen_TC or added_imagen_PS4 or added_imagen_V or added_imagen_PS6 or added_imagen_TDS_SS or added_imagen_TDS_I3 or added_imagen_TDS_TC or added_image_TDS_P or added_imagen_TDS_GS or added_imagen_TDS_MP:
+            added_image_tempMP = False
+            added_image_tempP4L = False
+            added_image_tempP4S = False
+            added_image_tempP6 = False
+            added_image_tempGS = False
+
+            if (added_image_tempMP or added_image_tempP4L or added_image_tempP4S or added_image_tempP6 or added_image_tempGS or added_imagen_SS or added_imagen_MP or added_imagen_GS or added_imagen_TC or added_imagen_PS4 or added_imagen_V or added_imagen_PS6 or added_imagen_TDS_SS or added_imagen_TDS_I3 or added_imagen_TDS_TC or added_image_TDS_P or added_imagen_TDS_GS or added_imagen_TDS_MP):
                 if self.output_path:
                     document_editor.save_document(self.output_path)
             else:

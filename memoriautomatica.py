@@ -464,7 +464,7 @@ class Application(tk.Frame):
         "Alberto Aldama.": "Alberto Aldama Martínez.\nIngeniero Industrial\nDpto. Ingeniería INCYE.",
         "Adelaida Sáez.": "Adelaida Sáez Castejón.\nIng Téc. Industrial.\nDpto. Ingeniería INCYE.",
         "Alejandro Ángel Builes.": "Alejandro Ángel Builes.\nIngeniero Civil.\nDpto. Ingeniería INCYE.",
-        "Juan José Morón.": "Juan José Morón Blanco.\nDeliniante.\nDpto. Ingeniería INCYE.",
+        "Juan José Morón.": "Juan José Morón Blanco.\nDelineante.\nDpto. Ingeniería INCYE.",
         "Manuel González.": "Manuel González-Arquiso Madrigal.\nIng. Téc. Agrícola.\nDpto. Ingeniería INCYE.",
         "Rafael Mansilla.": "Rafael Mansilla Correa.\nIngeniero de Caminos, CC. y PP.\nDpto. Ingeniería INCYE."
         }
