@@ -417,6 +417,14 @@ class Application(tk.Frame):
         self.nombre_cliente_entry = tk.Entry(self.cliente_frame, font=("Helvetica", 14))
         self.nombre_cliente_entry.pack(side=tk.RIGHT, padx=15, expand=True, fill=tk.X)
 
+        # porcentaje de la carga axial
+        self.ptje_frame = tk.Frame(self, bg="#F5F5F5")
+        self.ptje_frame.pack(pady=10)
+        self.ptje_label = tk.Label(self.ptje_frame, text="Porcentaje de carga axial:", font=("Helvetica", 14), bg="#F5F5F5", fg="#333333")
+        self.ptje_label.pack(side=tk.LEFT, padx=15)
+        self.ptje_entry = tk.Entry(self.ptje_frame, font=("Helvetica", 14))
+        self.ptje_entry.pack(side=tk.RIGHT, padx=15, expand=True, fill=tk.X)
+
         # Seleccionar familia de materiales
         self.familia_frame = tk.Frame(self, bg="#F5F5F5")
         self.familia_frame.pack(pady=15)
@@ -477,6 +485,7 @@ class Application(tk.Frame):
     def fill_template(self):
         # Las entradas de texto
         nombre_cliente = self.nombre_cliente_entry.get()
+        ptje_axial = self.ptje_entry.get()
         obra = self.obra_entry.get()
         Direccion_obra = self.Direccion_obra_entry.get()
         codigo = self.codigo_entry.get()
@@ -534,7 +543,7 @@ class Application(tk.Frame):
         document = MailMerge(template)
 
         # Sustituimos valores
-        document.merge(Nombre_Cliente=nombre_cliente, Obra=obra, Direccion_Obra=Direccion_obra, Codigo_Obra=codigo, Fecha=formatted_date, Dia=dia, Mes=mes, Anyo=anyo, Autor_NotaC=autor_nota, Revisor_NotaC=revisor_nota, Inic_AutorNC = siglas_autor, Inic_RevNC = siglas_rev)
+        document.merge(Nombre_Cliente=nombre_cliente, Obra=obra, Direccion_Obra=Direccion_obra, Codigo_Obra=codigo, pt_axial=ptje_axial, Fecha=formatted_date, Dia=dia, Mes=mes, Anyo=anyo, Autor_NotaC=autor_nota, Revisor_NotaC=revisor_nota, Inic_AutorNC = siglas_autor, Inic_RevNC = siglas_rev)
 
         # Obtener los valores de las checkboxes
         checkbox_values = list(self.checkbar.state())
@@ -609,6 +618,9 @@ class Application(tk.Frame):
             imagen_V = "C:/Memorias y servidor/Aplicacion de Memorias/Imagenes/perfil.JPG"
             imagen_V2 = "C:/Memorias y servidor/Aplicacion de Memorias/Imagenes/perfilSA.JPG"
             texto_apendice = "Y MECÁNICAS PERFILES INCYE"
+
+            # texto para la variación de la fuerza axial debido a las temperaturas
+            textotemp = "Si consideramos una unión rígida y perfecta entre todas las partes de los puntales, y también entre los mismos puntales y la pantalla, el esfuerzo axial adicional debido a la temperatura es el siguiente:"
             
             # Imagenes TDS del SuperSlim
             imagen_TDS_SS1 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/SS/ANEJO SS-01.jpg"
