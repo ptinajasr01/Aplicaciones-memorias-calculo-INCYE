@@ -507,17 +507,17 @@ class Application(tk.Frame):
         selected_option = self.combobox_autor.get()
         
         additional_info = {
-        "Julián Vallejo.": "Julián Vallejo Luna.\nIngénieur des Ponts, des Eaux et des Forêts.\nDpto. Ingénierie INCYE.",
-        "David Lara.": "David Lara.\nIngénieur des Ponts, des Eaux et des Forêts.\nDpto. Ingénierie INCYE.",
+        "Julián Vallejo.": "Julián Vallejo Luna.\nIngénieur Civil.\nDpt. Ingénierie INCYE.",
+        "David Lara.": "David Lara.\nIngénieur Civil.\nDpt. Ingénierie INCYE.",
         "Ezequiel Sánchez.": "Ezequiel Sánchez.\nIngénieur industriel.\nDpto. Ingénierie INCYE.",
-        "Andrés Rodríguez.": "Andrés Rodríguez Pérez.\nIngénieur des Ponts, des Eaux et des Forêts.\nDpto. Ingénierie INCYE.",
-        "Jorge Nebreda.": "Jorge Nebreda.\nIngénieur des Ponts, des Eaux et des Forêts.\nDpto. Ingénierie INCYE.",
-        "Alberto Aldama.": "Alberto Aldama Martínez.\nIngénieur Industriel.\nDpto. Ingénierie INCYE.",
-        "Adelaida Sáez.": "Adelaida Sáez Castejón.\nIng Tech. Industriel.\nDpto. Ingénierie INCYE.",
-        "Alejandro Ángel Builes.": "Alejandro Ángel Builes.\nIngénieur Civil.\nDpto. Ingénierie INCYE.",
-        "Juan José Morón.": "Juan José Morón Blanco.\nDessinateur.\nDpto. Ingénierie INCYE.",
-        "Manuel González.": "Manuel González-Arquiso Madrigal.\nIng. Tech. Agricole.\nDpto. Ingénierie INCYE.",
-        "Rafael Mansilla.": "Rafael Mansilla Correa.\nIngénieur des Ponts, des Eaux et des Forêts\nDpto. Ingénierie INCYE."
+        "Andrés Rodríguez.": "Andrés Rodríguez Pérez.\nIngénieur Civil.\nDpt. Ingénierie INCYE.",
+        "Jorge Nebreda.": "Jorge Nebreda.\nIngénieur Civil.\nDpt. Ingénierie INCYE.",
+        "Alberto Aldama.": "Alberto Aldama Martínez.\nIngénieur Industriel.\nDpt. Ingénierie INCYE.",
+        "Adelaida Sáez.": "Adelaida Sáez Castejón.\nIng Tech. Industriel.\nDpt. Ingénierie INCYE.",
+        "Alejandro Ángel Builes.": "Alejandro Ángel Builes.\nIngénieur Civil.\nDpt. Ingénierie INCYE.",
+        "Juan José Morón.": "Juan José Morón Blanco.\nDessinateur.\nDpt. Ingénierie INCYE.",
+        "Manuel González.": "Manuel González-Arquiso Madrigal.\nIng. Tech. Agricole.\nDpt. Ingénierie INCYE.",
+        "Rafael Mansilla.": "Rafael Mansilla Correa.\nIngénieur CIvil.\nDpt. Ingénierie INCYE."
         }
 
         additional_info2 = {
@@ -825,6 +825,7 @@ class Application(tk.Frame):
             if checkbox_values[3] or checkbox_values[4] or checkbox_values2[0]: # Pipeshor
                 added_image_TDS_P = document_editor.añadir_TDS_P(texto_apendice, imagen_TDS_P1, imagen_TDS_P2, imagen_TDS_P3, imagen_TDS_P4, imagen_TDS_P5, imagen_TDS_P6, imagen_TDS_P7, imagen_TDS_P8, imagen_TDS_P9, imagen_TDS_P10, imagen_TDS_P11, imagen_TDS_P12, imagen_TDS_P13, imagen_TDS_P14, imagen_TDS_P15, imagen_TDS_P16, imagen_TDS_P17, imagen_TDS_P18, imagen_TDS_P19, imagen_TDS_P20, imagen_TDS_P21, imagen_TDS_P22, imagen_TDS_P23, imagen_TDS_P24, imagen_TDS_P25, imagen_TDS_P26, imagen_TDS_P27, imagen_TDS_P28, imagen_TDS_P29, imagen_TDS_P30, imagen_TDS_P31, imagen_TDS_P32, imagen_TDS_P33, imagen_TDS_P34, imagen_TDS_P35)           
 
+            # asignamos el valor False a todas al comienzo para que no tomen valor directamente
             added_image_tempMP = False
             added_image_tempP4L = False
             added_image_tempP4S = False
