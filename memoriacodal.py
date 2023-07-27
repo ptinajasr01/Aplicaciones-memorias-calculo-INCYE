@@ -13,21 +13,6 @@ from docx2pdf import convert
 from tkinter import filedialog
 
 locale.setlocale(locale.LC_ALL, '')
-
-class Checkbar(Frame):
-    def __init__(self, parent=None, picks=[], side=LEFT, anchor=W, checkbox_font=None):
-        Frame.__init__(self, parent)
-        self.vars = []
-        self.checkbox_font = checkbox_font if checkbox_font else ("Helvetica", 12)
-
-        for pick in picks:
-            var = IntVar()
-            chk = Checkbutton(self, text=pick, variable=var, font=self.checkbox_font)
-            chk.pack(side=side, anchor=anchor, expand=YES)
-            self.vars.append(var)
-
-    def state(self):
-        return map((lambda var: var.get()), self.vars)
     
 # Clases de la aplicacion española
 
@@ -397,6 +382,7 @@ class Application(tk.Frame):
         self.master.configure(background="#F5F5F5")
         self.pack(fill=tk.BOTH, expand=True)
         self.create_widgets()
+
                 # Button styling 
 
 
@@ -484,13 +470,15 @@ class Application(tk.Frame):
         self.select_button = tk.Button(text="Ubicación de guardado:", command=self.select_output_path, font=("Helvetica", 16), bg="#F5F5F5", fg="black",
                                padx=17,
                                pady=9)
-        self.select_button.pack()
+        self.select_button.pack(side="bottom")
 
         # Modificar button 
         self.fill_button = tk.Button(text="Modificar", command=self.fill_template, font=("Helvetica", 16), bg="#3986F3", fg="white",
                                padx=70,
                                pady=20)
-        self.fill_button.pack()
+        self.fill_button.pack(side=["bottom"])
+        # Pack button frame at end
+
 
     def select_output_path(self):
         codigo = self.codigo_entry.get()
@@ -1236,6 +1224,7 @@ class Applicationfr(tk.Frame):
         self.master.configure(background="#F5F5F5")
         self.pack(fill=tk.BOTH, expand=True)
         self.create_widgets()
+
                 # Button styling 
 
 
@@ -1323,13 +1312,14 @@ class Applicationfr(tk.Frame):
         self.select_button = tk.Button(text="Ubicación de guardado:", command=self.select_output_path, font=("Helvetica", 16), bg="#F5F5F5", fg="black",
                                padx=17,
                                pady=9)
-        self.select_button.pack()
+        self.select_button.pack(side="bottom")
 
         # Modificar button 
-        self.fill_button = tk.Button(text="Modificar", command=self.fill_template, font=("Helvetica", 16), bg="#FF6E40", fg="white",
+        self.fill_button = tk.Button(text="Modificar", command=self.fill_templatefr, font=("Helvetica", 16), bg="#FF6E40", fg="white",
                                padx=70,
                                pady=20)
-        self.fill_button.pack()
+        self.fill_button.pack(side="bottom")
+
 
     def select_output_path(self):
         codigo = self.codigo_entry.get()
@@ -1338,7 +1328,7 @@ class Applicationfr(tk.Frame):
             folder = folder.replace('\\', '/')
             self.output_path = folder + f"/{codigo}-Note_de_calcul.docx"
 
-    def fill_template(self):
+    def fill_templatefr(self):
         # Las entradas de texto
         nombre_cliente = self.nombre_cliente_entry.get()
         ptje_axial = self.ptje_entry.get()
@@ -1686,36 +1676,92 @@ class Applicationfr(tk.Frame):
 
         messagebox.showinfo("Completado", "El documento se ha modificado y guardado con éxito.")
 
+class Checkbar(Frame):
+    def __init__(self, parent=None, picks=[], side=LEFT, anchor=W, checkbox_font=None):
+        Frame.__init__(self, parent)
+        self.vars = []
+        self.checkbox_font = checkbox_font if checkbox_font else ("Helvetica", 12)
+
+        for pick in picks:
+            var = IntVar()
+            chk = Checkbutton(self, text=pick, variable=var, font=self.checkbox_font)
+            chk.pack(side=side, anchor=anchor, expand=YES)
+            self.vars.append(var)
+
+    def state(self):
+        return map((lambda var: var.get()), self.vars)
+
 class MainApp(tk.Tk):
+
+  #def __init__(self):
+    #tk.Tk.__init__(self)
+    # Create notebook
+    #nb = ttk.Notebook(self)
+
+
+    # Create tabs 
+    #spanish_tab = ttk.Frame(nb)
+    #french_tab = ttk.Frame(nb)
+
+    #nb.add(spanish_tab, text='Español')
+    #nb.add(french_tab, text='Francés')
+
+    # Create apps
+    #app_spanish = Application(self)
+    #app_french = Applicationfr(self)
+
+    # Pack apps into tabs
+    #app_spanish.pack(in_=spanish_tab, expand=True, fill="both")
+    #app_french.pack(in_=french_tab, expand=True, fill="both")
+
+    # Pack notebook
+    #nb.pack(expand=True, fill="both")
 
   def __init__(self):
     tk.Tk.__init__(self)
-    self.master = self
 
-    # Create tabs 
-    spanish_tab = ttk.Frame(self)
-    french_tab = ttk.Frame(self)
+    # Create notebook
+    nb = ttk.Notebook(self)
+
+    # Tabs
+    spanish_tab = ttk.Frame(nb) 
+    french_tab = ttk.Frame(nb)
+
+    # Tab frames
+    spanish_frame = ttk.Frame(spanish_tab)
+    french_frame = ttk.Frame(french_tab)
+
+    # Pack frames in tabs
+    spanish_frame.pack(fill="both", expand=True)
+    french_frame.pack(fill="both", expand=True)
+
+    # Add tabs to notebook 
+    nb.add(spanish_tab, text='Español')
+    nb.add(french_tab, text='Francés')
 
     # Create apps
     app_spanish = Application(self)
     app_french = Applicationfr(self)
 
-    # Pack apps into tabs
-    app_spanish.pack(fill="both", expand=True) 
-    app_french.pack(fill="both", expand=True)
+    # Pack apps in frames
+    app_spanish.pack(in_=spanish_frame, fill="both", expand=True)
+    app_french.pack(in_=french_frame, fill="both", expand=True)
 
-    # Create notebook
-    nb = ttk.Notebook(self)
+    # Create buttons  
+    spanish_button = tk.Button(spanish_tab, text="Modificar", 
+                               command=app_spanish.fill_template)
+    french_button = tk.Button(french_tab, text="Modificar",
+                              command=app_french.fill_templatefr)
 
-    # Add tabs to notebook
-    nb.add(spanish_tab, text='Español')
-    nb.add(french_tab, text='Francés')
+    # Pack buttons in tabs
+    spanish_button.pack(side="bottom")
+    french_button.pack(side="bottom")
 
-    # Manage main window with notebook  
-    self.master.pack(fill="both", expand=True)
-
-    # Pack notebook
+    # Pack notebook 
     nb.pack(fill="both", expand=True)
 
 app = MainApp()
 app.mainloop()
+
+
+
