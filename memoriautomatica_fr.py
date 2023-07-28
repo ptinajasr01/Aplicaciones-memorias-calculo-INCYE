@@ -166,7 +166,7 @@ class DocumentEditorfr:
         return False
 
     # añadir TDS del Granshor
-    def añadir_TDS_GS(self, texto_apendice, imagen_TDS_GS1, imagen_TDS_GS2, imagen_TDS_GS3, imagen_TDS_GS4, imagen_TDS_GS5, imagen_TDS_GS6, imagen_TDS_GS7, imagen_TDS_GS8, imagen_TDS_GS9, imagen_TDS_GS10, imagen_TDS_GS11, imagen_TDS_GS12, imagen_TDS_GS13, imagen_TDS_GS14, imagen_TDS_GS15, imagen_TDS_GS16, imagen_TDS_GS17, imagen_TDS_GS18, imagen_TDS_GS19, imagen_TDS_GS20, imagen_TDS_GS21, imagen_TDS_GS22, imagen_TDS_GS23, imagen_TDS_GS24, imagen_TDS_GS25, imagen_TDS_GS26, imagen_TDS_GS27, imagen_TDS_GS28, imagen_TDS_GS29, imagen_TDS_GS30, imagen_TDS_GS31, imagen_TDS_GS32):
+    def añadir_TDS_GS(self, texto_apendice, imagen_TDS_GS1, imagen_TDS_GS2, imagen_TDS_GS3, imagen_TDS_GS4, imagen_TDS_GS5, imagen_TDS_GS6, imagen_TDS_GS7, imagen_TDS_GS8, imagen_TDS_GS9, imagen_TDS_GS10, imagen_TDS_GS11, imagen_TDS_GS12, imagen_TDS_GS13, imagen_TDS_GS14, imagen_TDS_GS15, imagen_TDS_GS16, imagen_TDS_GS17, imagen_TDS_GS18, imagen_TDS_GS19, imagen_TDS_GS20, imagen_TDS_GS21, imagen_TDS_GS22, imagen_TDS_GS23, imagen_TDS_GS24, imagen_TDS_GS25, imagen_TDS_GS26, imagen_TDS_GS27, imagen_TDS_GS28, imagen_TDS_GS29, imagen_TDS_GS30, imagen_TDS_GS31, imagen_TDS_GS32,imagen_TDS_GS33, imagen_TDS_GS34, imagen_TDS_GS35, imagen_TDS_GS36, imagen_TDS_GS37):
         target_index = self.buscar_txt_añTDS(texto_apendice)
         if target_index != -1:
             target_paragraph = self.document.paragraphs[target_index]
@@ -203,6 +203,11 @@ class DocumentEditorfr:
             run.add_picture(imagen_TDS_GS30, width=Inches(6.8), height=Inches(4.5))
             run.add_picture(imagen_TDS_GS31, width=Inches(6.8), height=Inches(4.5))
             run.add_picture(imagen_TDS_GS32, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_GS33, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_GS34, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_GS35, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_GS36, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_GS37, width=Inches(6.8), height=Inches(4.5))
             return True 
         return False
 
@@ -225,20 +230,12 @@ class DocumentEditorfr:
         return False
 
     # añadir TDS del Tensor Cuadrado
-    def añadir_TDS_TC(self, texto_apendice, imagen_TDS_TC1, imagen_TDS_TC2, imagen_TDS_TC3, imagen_TDS_TC4, imagen_TDS_TC5, imagen_TDS_TC6, imagen_TDS_TC7, imagen_TDS_TC8, imagen_TDS_TC9):
+    def añadir_TDS_TC(self, texto_apendice, imagen_TDS_TC1):
         target_index = self.buscar_txt_añTDS(texto_apendice)
         if target_index != -1:
             target_paragraph = self.document.paragraphs[target_index]
             run = target_paragraph.add_run()
             run.add_picture(imagen_TDS_TC1, width=Inches(6.8), height=Inches(4.5))
-            run.add_picture(imagen_TDS_TC2, width=Inches(6.8), height=Inches(4.5))
-            run.add_picture(imagen_TDS_TC3, width=Inches(6.8), height=Inches(4.5))
-            run.add_picture(imagen_TDS_TC4, width=Inches(6.8), height=Inches(4.5))
-            run.add_picture(imagen_TDS_TC5, width=Inches(6.8), height=Inches(4.5))
-            run.add_picture(imagen_TDS_TC6, width=Inches(6.8), height=Inches(4.5))
-            run.add_picture(imagen_TDS_TC7, width=Inches(6.8), height=Inches(4.5))
-            run.add_picture(imagen_TDS_TC8, width=Inches(6.8), height=Inches(4.5))
-            run.add_picture(imagen_TDS_TC9, width=Inches(6.8), height=Inches(4.5))
             return True 
         return False
 
@@ -320,7 +317,7 @@ class DocumentEditorfr:
         return False
 
     # añadir TDS del Pipeshor
-    def añadir_TDS_P(self, texto_apendice, imagen_TDS_P1, imagen_TDS_P2, imagen_TDS_P3, imagen_TDS_P4, imagen_TDS_P5, imagen_TDS_P6, imagen_TDS_P7, imagen_TDS_P8, imagen_TDS_P9, imagen_TDS_P10, imagen_TDS_P11, imagen_TDS_P12, imagen_TDS_P13, imagen_TDS_P14, imagen_TDS_P15, imagen_TDS_P16, imagen_TDS_P17, imagen_TDS_P18, imagen_TDS_P19, imagen_TDS_P20, imagen_TDS_P21, imagen_TDS_P22, imagen_TDS_P23, imagen_TDS_P24, imagen_TDS_P25, imagen_TDS_P26, imagen_TDS_P27, imagen_TDS_P28, imagen_TDS_P29, imagen_TDS_P30, imagen_TDS_P31, imagen_TDS_P32, imagen_TDS_P33, imagen_TDS_P34, imagen_TDS_P35):
+    def añadir_TDS_P(self, texto_apendice, imagen_TDS_P1, imagen_TDS_P2, imagen_TDS_P3, imagen_TDS_P4, imagen_TDS_P5, imagen_TDS_P6, imagen_TDS_P7, imagen_TDS_P8, imagen_TDS_P9, imagen_TDS_P10, imagen_TDS_P11, imagen_TDS_P12, imagen_TDS_P13, imagen_TDS_P14, imagen_TDS_P15, imagen_TDS_P16, imagen_TDS_P17, imagen_TDS_P18, imagen_TDS_P19, imagen_TDS_P20, imagen_TDS_P21, imagen_TDS_P22, imagen_TDS_P23, imagen_TDS_P24, imagen_TDS_P25, imagen_TDS_P26, imagen_TDS_P27, imagen_TDS_P28, imagen_TDS_P29, imagen_TDS_P30, imagen_TDS_P31, imagen_TDS_P32, imagen_TDS_P33, imagen_TDS_P34):
         target_index = self.buscar_txt_añTDS(texto_apendice)
         if target_index != -1:
             target_paragraph = self.document.paragraphs[target_index]
@@ -359,7 +356,6 @@ class DocumentEditorfr:
             run.add_picture(imagen_TDS_P32, width=Inches(6.8), height=Inches(4.5))
             run.add_picture(imagen_TDS_P33, width=Inches(6.8), height=Inches(4.5))
             run.add_picture(imagen_TDS_P34, width=Inches(6.8), height=Inches(4.5))
-            run.add_picture(imagen_TDS_P35, width=Inches(6.8), height=Inches(4.5))
             return True 
         return False
 
@@ -398,21 +394,35 @@ class DocumentEditorfr:
         return False
 
     # añadir TDS del INCYE 300
-    def añadir_TDS_I3(self, texto_apendice, imagen_TDS_I31, imagen_TDS_I32, imagen_TDS_I33, imagen_TDS_I34, imagen_TDS_I35, imagen_TDS_I36, imagen_TDS_I37, imagen_TDS_I38, imagen_TDS_I39, imagen_TDS_I310):
+    def añadir_TDS_I3(self, texto_apendice, imagen_TDS_I31, imagen_TDS_I32):
         target_index = self.buscar_txt_añTDS(texto_apendice)
         if target_index != -1:
             target_paragraph = self.document.paragraphs[target_index]
             run = target_paragraph.add_run()
-            run.add_picture(imagen_TDS_I31, width=Inches(6.8), height=Inches(9.1))
-            run.add_picture(imagen_TDS_I32, width=Inches(6.8), height=Inches(9.1))
-            run.add_picture(imagen_TDS_I33, width=Inches(6.8), height=Inches(9.1))
-            run.add_picture(imagen_TDS_I34, width=Inches(6.8), height=Inches(9.1))
-            run.add_picture(imagen_TDS_I35, width=Inches(6.8), height=Inches(9.1))
-            run.add_picture(imagen_TDS_I36, width=Inches(6.8), height=Inches(9.1))
-            run.add_picture(imagen_TDS_I37, width=Inches(6.8), height=Inches(9.1))
-            run.add_picture(imagen_TDS_I38, width=Inches(6.8), height=Inches(9.1))
-            run.add_picture(imagen_TDS_I39, width=Inches(6.8), height=Inches(9.1))
-            run.add_picture(imagen_TDS_I310, width=Inches(6.8), height=Inches(9.1))
+            run.add_picture(imagen_TDS_I31, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_I32, width=Inches(6.8), height=Inches(4.5))
+            return True 
+        return False
+
+    # añadir TDS del INCYE 300
+    def añadir_TDS_I4(self, texto_apendice, imagen_TDS_I41, imagen_TDS_I42):
+        target_index = self.buscar_txt_añTDS(texto_apendice)
+        if target_index != -1:
+            target_paragraph = self.document.paragraphs[target_index]
+            run = target_paragraph.add_run()
+            run.add_picture(imagen_TDS_I41,width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_I42, width=Inches(6.8), height=Inches(4.5))
+            return True 
+        return False
+    
+    # añadir TDS del INCYE 300
+    def añadir_TDS_I6(self, texto_apendice, imagen_TDS_I61, imagen_TDS_I62):
+        target_index = self.buscar_txt_añTDS(texto_apendice)
+        if target_index != -1:
+            target_paragraph = self.document.paragraphs[target_index]
+            run = target_paragraph.add_run()
+            run.add_picture(imagen_TDS_I61, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_I62, width=Inches(6.8), height=Inches(4.5))
             return True 
         return False
 
@@ -523,7 +533,7 @@ class Applicationfr(tk.Frame):
         self.select_button.pack()
 
         # Modificar button 
-        self.fill_button = tk.Button(text="Modificar", command=self.fill_template, font=("Helvetica", 16), bg="#FF6E40", fg="white",
+        self.fill_button = tk.Button(text="Modificar", command=self.fill_templatefr, font=("Helvetica", 16), bg="#FF6E40", fg="white",
                                padx=70,
                                pady=20)
         self.fill_button.pack()
@@ -535,7 +545,7 @@ class Applicationfr(tk.Frame):
             folder = folder.replace('\\', '/')
             self.output_path = folder + f"/{codigo}-Note_de_calcul.docx"
 
-    def fill_template(self):
+    def fill_templatefr(self):
         # Las entradas de texto
         nombre_cliente = self.nombre_cliente_entry.get()
         ptje_axial = self.ptje_entry.get()
@@ -674,7 +684,7 @@ class Applicationfr(tk.Frame):
             texto_V3 = "Les liernes périmétrales seront exécutées avec de poutres INCYE600, constituées de poutres HEB600 renforcées renforcés avec une triple âme. Fabriqués en acier S275."
             imagen_V = "C:/Memorias y servidor/Aplicacion de Memorias/Imagenes/perfil.JPG"
             imagen_V2 = "C:/Memorias y servidor/Aplicacion de Memorias/Imagenes/perfilSA.JPG"
-            texto_apendice = "Y MECÁNICAS PERFILES INCYE"
+            texto_apendice = "3. ANNEXES"
 
             # texto para meter las fórmulas de la temperatura
             textotemp = "Si nous considérons une jonction rigide et parfaite entre toutes les pièces des butons et entre les butons et l’écran, l’effort axial additionnel du à la température est le suivant :"
@@ -710,99 +720,95 @@ class Applicationfr(tk.Frame):
             imagen_TDS_SS28 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/SS/ANEJO SS-28.jpg"
             
             # Imagenes del TDS del INCYE 300
-            imagen_TDS_I31 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/RMD300/TI 14 02 E - RMD300 Tri Web Beams-01.jpg"
-            imagen_TDS_I32 ="C:/Memorias y servidor/Aplicacion de Memorias/TDSs/RMD300/TI 14 02 E - RMD300 Tri Web Beams-02.jpg"
-            imagen_TDS_I33 ="C:/Memorias y servidor/Aplicacion de Memorias/TDSs/RMD300/TI 14 02 E - RMD300 Tri Web Beams-03.jpg"
-            imagen_TDS_I34 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/RMD300/TI 14 02 E - RMD300 Tri Web Beams-04.jpg"
-            imagen_TDS_I35 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/RMD300/TI 14 02 E - RMD300 Tri Web Beams-05.jpg"
-            imagen_TDS_I36 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/RMD300/TI 14 02 E - RMD300 Tri Web Beams-06.jpg"
-            imagen_TDS_I37 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/RMD300/TI 14 02 E - RMD300 Tri Web Beams-07.jpg"
-            imagen_TDS_I38 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/RMD300/TI 14 02 E - RMD300 Tri Web Beams-08.jpg"
-            imagen_TDS_I39 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/RMD300/TI 14 02 E - RMD300 Tri Web Beams-09.jpg"
-            imagen_TDS_I310 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/RMD300/TI 14 02 E - RMD300 Tri Web Beams-10.jpg"
+            imagen_TDS_I31 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/INCYE300/210427_Joints liernes_page-0009.jpg"
+            imagen_TDS_I32 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/INCYE300/210427_Joints liernes_page-0010.jpg"
+
+            # Imagenes del TDS del INCYE 450
+            imagen_TDS_I41 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/INCYE450/210427_Joints liernes_page-0014.jpg"
+            imagen_TDS_I42 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/INCYE450/210427_Joints liernes_page-0015.jpg"
+
+            # Imagenes del TDS del INCYE 600
+            imagen_TDS_I61 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/INCYE600/210427_Joints liernes_page-0019.jpg"
+            imagen_TDS_I62 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/INCYE600/210427_Joints liernes_page-0020.jpg"
 
             # Imagenes TDS del Tensor Cuadrado
-            imagen_TDS_TC1 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Tensor Cuadrado/211129_Puntal_cuadrado_Anejos-1.jpg"
-            imagen_TDS_TC2 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Tensor Cuadrado/211129_Puntal_cuadrado_Anejos-2.jpg"
-            imagen_TDS_TC3 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Tensor Cuadrado/211129_Puntal_cuadrado_Anejos-3.jpg"
-            imagen_TDS_TC4 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Tensor Cuadrado/211129_Puntal_cuadrado_Anejos-4.jpg"
-            imagen_TDS_TC5 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Tensor Cuadrado/211129_Puntal_cuadrado_Anejos-5.jpg"
-            imagen_TDS_TC6 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Tensor Cuadrado/211129_Puntal_cuadrado_Anejos-6.jpg"
-            imagen_TDS_TC7 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Tensor Cuadrado/211129_Puntal_cuadrado_Anejos-7.jpg"
-            imagen_TDS_TC8 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Tensor Cuadrado/211129_Puntal_cuadrado_Anejos-8.jpg"
-            imagen_TDS_TC9 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Tensor Cuadrado/211129_Puntal_cuadrado_Anejos-9.jpg"
+            imagen_TDS_TC1 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/TC/Tendeur carré 80_page-0001.jpg"
 
             # Imagenes TDS Pipeshor
-            imagen_TDS_P1 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-01.jpg"
-            imagen_TDS_P2 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-02.jpg"
-            imagen_TDS_P3= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-03.jpg"
-            imagen_TDS_P4= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-04.jpg"
-            imagen_TDS_P5= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-05.jpg"
-            imagen_TDS_P6= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-06.jpg"
-            imagen_TDS_P7= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-07.jpg"
-            imagen_TDS_P8= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-08.jpg"
-            imagen_TDS_P9= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-09.jpg"
-            imagen_TDS_P10= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-10.jpg"
-            imagen_TDS_P11= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-11.jpg"
-            imagen_TDS_P12= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-12.jpg"
-            imagen_TDS_P13= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-13.jpg"
-            imagen_TDS_P14= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-14.jpg"
-            imagen_TDS_P15= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-15.jpg"
-            imagen_TDS_P16= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-16.jpg"
-            imagen_TDS_P17= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-17.jpg"
-            imagen_TDS_P18= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-18.jpg"
-            imagen_TDS_P19= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-19.jpg"
-            imagen_TDS_P20= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-20.jpg"
-            imagen_TDS_P21= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-21.jpg"
-            imagen_TDS_P22= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-22.jpg"
-            imagen_TDS_P23= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-23.jpg"
-            imagen_TDS_P24= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-24.jpg"
-            imagen_TDS_P25= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-25.jpg"
-            imagen_TDS_P26= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-26.jpg"
-            imagen_TDS_P27= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-27.jpg"
-            imagen_TDS_P28= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-28.jpg"
-            imagen_TDS_P29= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-29.jpg"
-            imagen_TDS_P30= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-30.jpg"
-            imagen_TDS_P31= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-31.jpg" 
-            imagen_TDS_P32= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-32.jpg"
-            imagen_TDS_P33= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-33.jpg"
-            imagen_TDS_P34= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-34.jpg"
-            imagen_TDS_P35= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-35.jpg"
+            imagen_TDS_P1 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/PS_fr/200903_Pipeshor_français_T_rafa_page-0001.jpg"
+            imagen_TDS_P2 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/PS_fr/200903_Pipeshor_français_T_rafa_page-0002.jpg"
+            imagen_TDS_P3= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/PS_fr/200903_Pipeshor_français_T_rafa_page-0003.jpg"
+            imagen_TDS_P4= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/PS_fr/200903_Pipeshor_français_T_rafa_page-0004.jpg"
+            imagen_TDS_P5= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/PS_fr/200903_Pipeshor_français_T_rafa_page-0005.jpg"
+            imagen_TDS_P6= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/PS_fr/200903_Pipeshor_français_T_rafa_page-0006.jpg"
+            imagen_TDS_P7= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/PS_fr/200903_Pipeshor_français_T_rafa_page-0007.jpg"
+            imagen_TDS_P8= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/PS_fr/200903_Pipeshor_français_T_rafa_page-0008.jpg"
+            imagen_TDS_P9= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/PS_fr/200903_Pipeshor_français_T_rafa_page-0009.jpg"
+            imagen_TDS_P10= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/PS_fr/200903_Pipeshor_français_T_rafa_page-0010.jpg"
+            imagen_TDS_P11= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/PS_fr/200903_Pipeshor_français_T_rafa_page-0011.jpg"
+            imagen_TDS_P12= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/PS_fr/200903_Pipeshor_français_T_rafa_page-0012.jpg"
+            imagen_TDS_P13= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/PS_fr/200903_Pipeshor_français_T_rafa_page-0013.jpg"
+            imagen_TDS_P14= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/PS_fr/200903_Pipeshor_français_T_rafa_page-0014.jpg"
+            imagen_TDS_P15= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/PS_fr/200903_Pipeshor_français_T_rafa_page-0015.jpg"
+            imagen_TDS_P16= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/PS_fr/200903_Pipeshor_français_T_rafa_page-0016.jpg"
+            imagen_TDS_P17= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/PS_fr/200903_Pipeshor_français_T_rafa_page-0017.jpg"
+            imagen_TDS_P18= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/PS_fr/200903_Pipeshor_français_T_rafa_page-0018.jpg"
+            imagen_TDS_P19= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/PS_fr/200903_Pipeshor_français_T_rafa_page-0019.jpg"
+            imagen_TDS_P20= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/PS_fr/200903_Pipeshor_français_T_rafa_page-0020.jpg"
+            imagen_TDS_P21= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/PS_fr/200903_Pipeshor_français_T_rafa_page-0021.jpg"
+            imagen_TDS_P22= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/PS_fr/200903_Pipeshor_français_T_rafa_page-0022.jpg"
+            imagen_TDS_P23= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/PS_fr/200903_Pipeshor_français_T_rafa_page-0023.jpg"
+            imagen_TDS_P24= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/PS_fr/200903_Pipeshor_français_T_rafa_page-0024.jpg"
+            imagen_TDS_P25= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/PS_fr/200903_Pipeshor_français_T_rafa_page-0025.jpg"
+            imagen_TDS_P26= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/PS_fr/200903_Pipeshor_français_T_rafa_page-0026.jpg"
+            imagen_TDS_P27= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/PS_fr/200903_Pipeshor_français_T_rafa_page-0027.jpg"
+            imagen_TDS_P28= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/PS_fr/200903_Pipeshor_français_T_rafa_page-0028.jpg"
+            imagen_TDS_P29= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/PS_fr/200903_Pipeshor_français_T_rafa_page-0029.jpg"
+            imagen_TDS_P30= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/PS_fr/200903_Pipeshor_français_T_rafa_page-0030.jpg"
+            imagen_TDS_P31= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/PS_fr/200903_Pipeshor_français_T_rafa_page-0031.jpg"
+            imagen_TDS_P32= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/PS_fr/200903_Pipeshor_français_T_rafa_page-0032.jpg"
+            imagen_TDS_P33= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/PS_fr/200903_Pipeshor_français_T_rafa_page-0033.jpg"
+            imagen_TDS_P34= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/PS_fr/200903_Pipeshor_français_T_rafa_page-0034.jpg"
 
 
-            # añadir Imagenes TDS Granshor
-            imagen_TDS_GS1 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Granshor/201116_Granshor_Anejos-01.jpg"
-            imagen_TDS_GS2 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Granshor/201116_Granshor_Anejos-02.jpg"
-            imagen_TDS_GS3 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Granshor/201116_Granshor_Anejos-03.jpg"
-            imagen_TDS_GS4 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Granshor/201116_Granshor_Anejos-04.jpg"
-            imagen_TDS_GS5 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Granshor/201116_Granshor_Anejos-05.jpg"
-            imagen_TDS_GS6 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Granshor/201116_Granshor_Anejos-06.jpg"
-            imagen_TDS_GS7 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Granshor/201116_Granshor_Anejos-07.jpg"
-            imagen_TDS_GS8 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Granshor/201116_Granshor_Anejos-08.jpg"
-            imagen_TDS_GS9 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Granshor/201116_Granshor_Anejos-09.jpg"
-            imagen_TDS_GS10 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Granshor/201116_Granshor_Anejos-10.jpg"
-            imagen_TDS_GS11 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Granshor/201116_Granshor_Anejos-11.jpg"
-            imagen_TDS_GS12 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Granshor/201116_Granshor_Anejos-12.jpg"
-            imagen_TDS_GS13 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Granshor/201116_Granshor_Anejos-13.jpg"
-            imagen_TDS_GS14 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Granshor/201116_Granshor_Anejos-14.jpg"
-            imagen_TDS_GS15 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Granshor/201116_Granshor_Anejos-15.jpg"
-            imagen_TDS_GS16 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Granshor/201116_Granshor_Anejos-16.jpg"
-            imagen_TDS_GS17 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Granshor/201116_Granshor_Anejos-17.jpg"
-            imagen_TDS_GS18 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Granshor/201116_Granshor_Anejos-18.jpg"
-            imagen_TDS_GS19 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Granshor/201116_Granshor_Anejos-19.jpg"
-            imagen_TDS_GS20 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Granshor/201116_Granshor_Anejos-20.jpg"
-            imagen_TDS_GS21 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Granshor/201116_Granshor_Anejos-21.jpg"
-            imagen_TDS_GS22 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Granshor/201116_Granshor_Anejos-22.jpg"
-            imagen_TDS_GS23 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Granshor/201116_Granshor_Anejos-23.jpg"
-            imagen_TDS_GS24 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Granshor/201116_Granshor_Anejos-24.jpg"
-            imagen_TDS_GS25 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Granshor/201116_Granshor_Anejos-25.jpg"
-            imagen_TDS_GS26 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Granshor/201116_Granshor_Anejos-26.jpg"
-            imagen_TDS_GS27 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Granshor/201116_Granshor_Anejos-27.jpg"
-            imagen_TDS_GS28 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Granshor/201116_Granshor_Anejos-28.jpg"
-            imagen_TDS_GS29 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Granshor/201116_Granshor_Anejos-29.jpg"
-            imagen_TDS_GS30 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Granshor/201116_Granshor_Anejos-30.jpg"
-            imagen_TDS_GS31 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Granshor/201116_Granshor_Anejos-31.jpg"
-            imagen_TDS_GS32 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Granshor/201116_Granshor_Anejos-32.jpg"
+            # añadir Imagenes TDS Granshor   "C:\Memorias y servidor\Aplicacion de Memorias\TDSs_fr/GS_fr/Granshor 2.0.2_fr_page-0001.jpg"
+            imagen_TDS_GS1 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/GS_fr/Granshor 2.0.2_fr_page-0001.jpg"
+            imagen_TDS_GS2 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/GS_fr/Granshor 2.0.2_fr_page-0002.jpg"
+            imagen_TDS_GS3 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/GS_fr/Granshor 2.0.2_fr_page-0003.jpg"
+            imagen_TDS_GS4 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/GS_fr/Granshor 2.0.2_fr_page-0004.jpg"
+            imagen_TDS_GS5 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/GS_fr/Granshor 2.0.2_fr_page-0005.jpg"
+            imagen_TDS_GS6 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/GS_fr/Granshor 2.0.2_fr_page-0006.jpg"
+            imagen_TDS_GS7 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/GS_fr/Granshor 2.0.2_fr_page-0007.jpg"
+            imagen_TDS_GS8 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/GS_fr/Granshor 2.0.2_fr_page-0008.jpg"
+            imagen_TDS_GS9 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/GS_fr/Granshor 2.0.2_fr_page-0009.jpg"
+            imagen_TDS_GS10 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/GS_fr/Granshor 2.0.2_fr_page-0010.jpg"
+            imagen_TDS_GS11 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/GS_fr/Granshor 2.0.2_fr_page-0011.jpg"
+            imagen_TDS_GS12 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/GS_fr/Granshor 2.0.2_fr_page-0012.jpg"
+            imagen_TDS_GS13 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/GS_fr/Granshor 2.0.2_fr_page-0013.jpg"
+            imagen_TDS_GS14 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/GS_fr/Granshor 2.0.2_fr_page-0014.jpg"
+            imagen_TDS_GS15 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/GS_fr/Granshor 2.0.2_fr_page-0015.jpg"
+            imagen_TDS_GS16 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/GS_fr/Granshor 2.0.2_fr_page-0016.jpg"
+            imagen_TDS_GS17 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/GS_fr/Granshor 2.0.2_fr_page-0017.jpg"
+            imagen_TDS_GS18 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/GS_fr/Granshor 2.0.2_fr_page-0018.jpg"
+            imagen_TDS_GS19 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/GS_fr/Granshor 2.0.2_fr_page-0019.jpg"
+            imagen_TDS_GS20 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/GS_fr/Granshor 2.0.2_fr_page-0020.jpg"
+            imagen_TDS_GS21 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/GS_fr/Granshor 2.0.2_fr_page-0021.jpg"
+            imagen_TDS_GS22 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/GS_fr/Granshor 2.0.2_fr_page-0022.jpg"
+            imagen_TDS_GS23 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/GS_fr/Granshor 2.0.2_fr_page-0023.jpg"
+            imagen_TDS_GS24 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/GS_fr/Granshor 2.0.2_fr_page-0024.jpg"
+            imagen_TDS_GS25 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/GS_fr/Granshor 2.0.2_fr_page-0025.jpg"
+            imagen_TDS_GS26 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/GS_fr/Granshor 2.0.2_fr_page-0026.jpg"
+            imagen_TDS_GS27 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/GS_fr/Granshor 2.0.2_fr_page-0027.jpg"
+            imagen_TDS_GS28 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/GS_fr/Granshor 2.0.2_fr_page-0028.jpg"
+            imagen_TDS_GS29 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/GS_fr/Granshor 2.0.2_fr_page-0029.jpg"
+            imagen_TDS_GS30 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/GS_fr/Granshor 2.0.2_fr_page-0030.jpg"
+            imagen_TDS_GS31 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/GS_fr/Granshor 2.0.2_fr_page-0031.jpg"
+            imagen_TDS_GS32 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/GS_fr/Granshor 2.0.2_fr_page-0032.jpg"
+            imagen_TDS_GS33 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/GS_fr/Granshor 2.0.2_fr_page-0033.jpg"
+            imagen_TDS_GS34 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/GS_fr/Granshor 2.0.2_fr_page-0034.jpg"
+            imagen_TDS_GS35 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/GS_fr/Granshor 2.0.2_fr_page-0035.jpg"
+            imagen_TDS_GS36 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/GS_fr/Granshor 2.0.2_fr_page-0036.jpg"
+            imagen_TDS_GS37 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/GS_fr/Granshor 2.0.2_fr_page-0037.jpg"
 
 
             # Imagenes TDS Megaprop
@@ -856,17 +862,21 @@ class Applicationfr(tk.Frame):
                 added_image_tempGS = document_editor.añadir_im_tempGS(textotemp, imagentemp_GS)
                 print("image added", added_image_tempGS)            
             if checkbox_values[0]: # Tensor cuadrado / INCYE 80
-                added_imagen_TDS_TC = document_editor.añadir_TDS_TC(texto_apendice, imagen_TDS_TC1, imagen_TDS_TC2, imagen_TDS_TC3, imagen_TDS_TC4, imagen_TDS_TC5, imagen_TDS_TC6, imagen_TDS_TC7, imagen_TDS_TC8, imagen_TDS_TC9)
+                added_imagen_TDS_TC = document_editor.añadir_TDS_TC(texto_apendice, imagen_TDS_TC1)
             if checkbox_values[1]: # Superslim
                 added_imagen_TDS_SS = document_editor.añadir_TDS_SS(texto_apendice, imagen_TDS_SS1, imagen_TDS_SS2, imagen_TDS_SS3, imagen_TDS_SS4, imagen_TDS_SS5, imagen_TDS_SS6, imagen_TDS_SS7, imagen_TDS_SS8, imagen_TDS_SS9, imagen_TDS_SS10, imagen_TDS_SS11, imagen_TDS_SS12, imagen_TDS_SS13, imagen_TDS_SS14, imagen_TDS_SS15, imagen_TDS_SS16, imagen_TDS_SS17, imagen_TDS_SS18, imagen_TDS_SS19, imagen_TDS_SS20, imagen_TDS_SS21, imagen_TDS_SS22, imagen_TDS_SS23, imagen_TDS_SS24, imagen_TDS_SS25, imagen_TDS_SS26, imagen_TDS_SS27, imagen_TDS_SS28)
             if checkbox_values[2]: # Megaprop
                 added_imagen_TDS_MP = document_editor.añadir_TDS_MP(texto_apendice, imagen_TDS_MP1, imagen_TDS_MP2, imagen_TDS_MP3, imagen_TDS_MP4, imagen_TDS_MP5, imagen_TDS_MP6, imagen_TDS_MP7, imagen_TDS_MP8, imagen_TDS_MP9, imagen_TDS_MP10, imagen_TDS_MP11)    
             if checkbox_values2[0]: # Granshor
-                added_imagen_TDS_GS = document_editor.añadir_TDS_GS(texto_apendice, imagen_TDS_GS1, imagen_TDS_GS2, imagen_TDS_GS3, imagen_TDS_GS4, imagen_TDS_GS5, imagen_TDS_GS6, imagen_TDS_GS7, imagen_TDS_GS8, imagen_TDS_GS9, imagen_TDS_GS10, imagen_TDS_GS11, imagen_TDS_GS12, imagen_TDS_GS13, imagen_TDS_GS14, imagen_TDS_GS15, imagen_TDS_GS16, imagen_TDS_GS17, imagen_TDS_GS18, imagen_TDS_GS19, imagen_TDS_GS20, imagen_TDS_GS21, imagen_TDS_GS22, imagen_TDS_GS23, imagen_TDS_GS24, imagen_TDS_GS25, imagen_TDS_GS26, imagen_TDS_GS27, imagen_TDS_GS28, imagen_TDS_GS29, imagen_TDS_GS30, imagen_TDS_GS31, imagen_TDS_GS32)
+                added_imagen_TDS_GS = document_editor.añadir_TDS_GS(texto_apendice, imagen_TDS_GS1, imagen_TDS_GS2, imagen_TDS_GS3, imagen_TDS_GS4, imagen_TDS_GS5, imagen_TDS_GS6, imagen_TDS_GS7, imagen_TDS_GS8, imagen_TDS_GS9, imagen_TDS_GS10, imagen_TDS_GS11, imagen_TDS_GS12, imagen_TDS_GS13, imagen_TDS_GS14, imagen_TDS_GS15, imagen_TDS_GS16, imagen_TDS_GS17, imagen_TDS_GS18, imagen_TDS_GS19, imagen_TDS_GS20, imagen_TDS_GS21, imagen_TDS_GS22, imagen_TDS_GS23, imagen_TDS_GS24, imagen_TDS_GS25, imagen_TDS_GS26, imagen_TDS_GS27, imagen_TDS_GS28, imagen_TDS_GS29, imagen_TDS_GS30, imagen_TDS_GS31, imagen_TDS_GS32, imagen_TDS_GS33, imagen_TDS_GS34, imagen_TDS_GS35, imagen_TDS_GS36, imagen_TDS_GS37)
             if checkbox_values2[1]: # INCYE 300
-                added_imagen_TDS_I3 = document_editor.añadir_TDS_I3(texto_apendice, imagen_TDS_I31, imagen_TDS_I32, imagen_TDS_I33, imagen_TDS_I34, imagen_TDS_I35, imagen_TDS_I36, imagen_TDS_I37, imagen_TDS_I38, imagen_TDS_I39, imagen_TDS_I310)
+                added_imagen_TDS_I3 = document_editor.añadir_TDS_I3(texto_apendice, imagen_TDS_I31, imagen_TDS_I32)
+            if checkbox_values2[2]: # INCYE 450
+                added_imagen_TDS_I4 = document_editor.añadir_TDS_I4(texto_apendice, imagen_TDS_I41, imagen_TDS_I42)
+            if checkbox_values2[3]: # INCYE 300
+                added_imagen_TDS_I6 = document_editor.añadir_TDS_I6(texto_apendice, imagen_TDS_I61, imagen_TDS_I62)
             if checkbox_values[3] or checkbox_values[4] or checkbox_values[5]: # Pipeshor
-                added_image_TDS_P = document_editor.añadir_TDS_P(texto_apendice, imagen_TDS_P1, imagen_TDS_P2, imagen_TDS_P3, imagen_TDS_P4, imagen_TDS_P5, imagen_TDS_P6, imagen_TDS_P7, imagen_TDS_P8, imagen_TDS_P9, imagen_TDS_P10, imagen_TDS_P11, imagen_TDS_P12, imagen_TDS_P13, imagen_TDS_P14, imagen_TDS_P15, imagen_TDS_P16, imagen_TDS_P17, imagen_TDS_P18, imagen_TDS_P19, imagen_TDS_P20, imagen_TDS_P21, imagen_TDS_P22, imagen_TDS_P23, imagen_TDS_P24, imagen_TDS_P25, imagen_TDS_P26, imagen_TDS_P27, imagen_TDS_P28, imagen_TDS_P29, imagen_TDS_P30, imagen_TDS_P31, imagen_TDS_P32, imagen_TDS_P33, imagen_TDS_P34, imagen_TDS_P35)           
+                added_image_TDS_P = document_editor.añadir_TDS_P(texto_apendice, imagen_TDS_P1, imagen_TDS_P2, imagen_TDS_P3, imagen_TDS_P4, imagen_TDS_P5, imagen_TDS_P6, imagen_TDS_P7, imagen_TDS_P8, imagen_TDS_P9, imagen_TDS_P10, imagen_TDS_P11, imagen_TDS_P12, imagen_TDS_P13, imagen_TDS_P14, imagen_TDS_P15, imagen_TDS_P16, imagen_TDS_P17, imagen_TDS_P18, imagen_TDS_P19, imagen_TDS_P20, imagen_TDS_P21, imagen_TDS_P22, imagen_TDS_P23, imagen_TDS_P24, imagen_TDS_P25, imagen_TDS_P26, imagen_TDS_P27, imagen_TDS_P28, imagen_TDS_P29, imagen_TDS_P30, imagen_TDS_P31, imagen_TDS_P32, imagen_TDS_P33, imagen_TDS_P34)           
 
             # asignamos el valor False a todas al comienzo para que no tomen valor directamente
             added_image_tempMP = False
@@ -875,7 +885,7 @@ class Applicationfr(tk.Frame):
             added_image_tempP6 = False
             added_image_tempGS = False
 
-            if (added_image_tempMP or added_image_tempP4L or added_image_tempP4S or added_image_tempP6 or added_image_tempGS or added_imagen_SS or added_imagen_MP or added_imagen_GS or added_imagen_TC or added_imagen_PS4 or added_imagen_PS2 or added_imagen_V or added_imagen_V2 or added_imagen_PS6 or added_imagen_TDS_SS or added_imagen_TDS_I3 or added_imagen_TDS_TC or added_image_TDS_P or added_imagen_TDS_GS or added_imagen_TDS_MP):
+            if (added_image_tempMP or added_image_tempP4L or added_image_tempP4S or added_image_tempP6 or added_image_tempGS or added_imagen_SS or added_imagen_MP or added_imagen_GS or added_imagen_TC or added_imagen_PS4 or added_imagen_PS2 or added_imagen_V or added_imagen_V2 or added_imagen_PS6 or added_imagen_TDS_SS or added_imagen_TDS_I3  or added_imagen_TDS_I4 or added_imagen_TDS_I6 or added_imagen_TDS_TC or added_image_TDS_P or added_imagen_TDS_GS or added_imagen_TDS_MP):
                 if self.output_path:
                     document_editor.save_document(self.output_path)
             else:
