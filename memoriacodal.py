@@ -382,7 +382,6 @@ class Application(tk.Frame):
         self.master.configure(background="#F5F5F5")
         self.pack(fill=tk.BOTH, expand=True)
         self.create_widgets()
-
                 # Button styling 
 
 
@@ -473,7 +472,7 @@ class Application(tk.Frame):
         self.select_button.pack(side="bottom")
 
         # Modificar button 
-        self.fill_button = tk.Button(text="Modificar", command=self.fill_template, font=("Helvetica", 16), bg="#3986F3", fg="white",
+        self.fill_button = tk.Button(text="Crear", command=self.fill_template, font=("Helvetica", 16), bg="#3986F3", fg="white",
                                padx=70,
                                pady=20)
         self.fill_button.pack(side=["bottom"])
@@ -1315,7 +1314,7 @@ class Applicationfr(tk.Frame):
         self.select_button.pack(side="bottom")
 
         # Modificar button 
-        self.fill_button = tk.Button(text="Modificar", command=self.fill_templatefr, font=("Helvetica", 16), bg="#FF6E40", fg="white",
+        self.fill_button = tk.Button(text="Crear", command=self.fill_templatefr, font=("Helvetica", 16), bg="#FF6E40", fg="white",
                                padx=70,
                                pady=20)
         self.fill_button.pack(side="bottom")
@@ -1748,9 +1747,9 @@ class MainApp(tk.Tk):
     app_french.pack(in_=french_frame, fill="both", expand=True)
 
     # Create buttons  
-    spanish_button = tk.Button(spanish_tab, text="Modificar", 
+    spanish_button = tk.Button(spanish_tab, text="Crear", 
                                command=app_spanish.fill_template)
-    french_button = tk.Button(french_tab, text="Modificar",
+    french_button = tk.Button(french_tab, text="Crear",
                               command=app_french.fill_templatefr)
 
     # Pack buttons in tabs
