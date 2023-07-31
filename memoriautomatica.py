@@ -217,6 +217,20 @@ class DocumentEditor:
             run.add_picture(imagen_TDS_TC9, width=Inches(6.8), height=Inches(4.5))
             return True 
         return False
+    
+######################################## TDS de tensores telescópicos #####################################################################################################################
+
+    def añadir_TDS_TT(self, texto_apendice, imagen_TDS_TT1, imagen_TDS_TT2, imagen_TDS_TT3, imagen_TDS_TT4):
+        target_index = self.buscar_txt_añTDS(texto_apendice)
+        if target_index != -1:
+            target_paragraph = self.document.paragraphs[target_index]
+            run = target_paragraph.add_run()
+            run.add_picture(imagen_TDS_TT1, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_TT2, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_TT3, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_TT4, width=Inches(6.8), height=Inches(4.5))
+            return True 
+        return False
 
 
     ############################################################ Pipeshor ########################################################
@@ -315,14 +329,14 @@ class DocumentEditor:
     ######################################################## Vigas Incye #############################################################################
 
     # A�ade la imagen de las Vigas de reparto
-    def buscar_txt_V(self, texto_V, texto_V3=None):
+    def buscar_txt_V(self, texto_V, texto_V2=None, texto_V3=None):
         for i, paragraph in enumerate(self.document.paragraphs):
-            if texto_V in paragraph.text or (texto_V3 and texto_V3 in paragraph.text):
+            if texto_V in paragraph.text or (texto_V2 and texto_V2 in paragraph.text) or (texto_V3 and texto_V3 in paragraph.text):
                 return i
         return -1
 
-    def añadir_im_V(self, texto_V, imagen_V, texto_V3=None):
-        target_index = self.buscar_txt_V(texto_V, texto_V3)
+    def añadir_im_V(self, texto_V, imagen_V, texto_V2=None, texto_V3=None):
+        target_index = self.buscar_txt_V(texto_V, texto_V2, texto_V3)
         if target_index != -1:
             target_paragraph = self.document.paragraphs[target_index]
             run = target_paragraph.add_run()
@@ -375,13 +389,12 @@ class Application(tk.Frame):
     def __init__(self, master=None):
         super().__init__(master)
         self.master = master
-        self.master.title("Generador de Notas de Calculo")
-        self.master.geometry("830x820")
+        self.master.title("Nota de Calculo de ACODALAMIENTO")
+        self.master.geometry("880x830")
         self.master.configure(background="#F5F5F5")
         self.pack(fill=tk.BOTH, expand=True)
         self.create_widgets()
                 # Button styling 
-
 
     def create_widgets(self):
 
@@ -417,14 +430,6 @@ class Application(tk.Frame):
         self.nombre_cliente_entry = tk.Entry(self.cliente_frame, font=("Helvetica", 14))
         self.nombre_cliente_entry.pack(side=tk.RIGHT, padx=15, expand=True, fill=tk.X)
 
-        # porcentaje de la carga axial
-        self.ptje_frame = tk.Frame(self, bg="#F5F5F5")
-        self.ptje_frame.pack(pady=10)
-        self.ptje_label = tk.Label(self.ptje_frame, text="Porcentaje de carga axial:", font=("Helvetica", 14), bg="#F5F5F5", fg="#333333")
-        self.ptje_label.pack(side=tk.LEFT, padx=15)
-        self.ptje_entry = tk.Entry(self.ptje_frame, font=("Helvetica", 14))
-        self.ptje_entry.pack(side=tk.RIGHT, padx=15, expand=True, fill=tk.X)
-
         # Seleccionar familia de materiales
         self.familia_frame = tk.Frame(self, bg="#F5F5F5")
         self.familia_frame.pack(pady=15)
@@ -440,7 +445,7 @@ class Application(tk.Frame):
 
         self.checkboxes_frame2 = tk.Frame(self, bg="#F5F5F5")
         self.checkboxes_frame2.pack(pady=15)
-        self.checkbar2 = Checkbar(self.checkboxes_frame2, ['Granshor', 'INCYE 300', 'INCYE 450 SA', 'INCYE 450 TA', 'INCYE 600'], checkbox_font=("Helvetica", 14))
+        self.checkbar2 = Checkbar(self.checkboxes_frame2, ['Granshor', 'INCYE 300', 'INCYE 450 SA', 'INCYE 450 TA', 'INCYE 600', 'T. Telescópico'], checkbox_font=("Helvetica", 14))
         self.checkbar2.pack(side=tk.TOP, fill=tk.X, padx=15)
         self.checkbar2.config(relief=tk.GROOVE, bd=4)
 
@@ -451,7 +456,7 @@ class Application(tk.Frame):
         self.label1 = ttk.Label(self.combobox_frame, text="Autor de la hoja de cálculo", font=("Arial", 14))
         self.label1.grid(column=0, row=0, padx=11, pady=11)
         self.opcion_autor = tk.StringVar()
-        opciones = ("Julián Vallejo.", "David Lara.", "Ezequiel Sánchez.", "Andrés Rodríguez.", "Jorge Nebreda.", "Alberto Aldama.", "Adelaida Sáez.", "Alejandro Ángel Builes.", "Juan José Morón.", "Manuel González.", "Rafael Mansilla.")
+        opciones = ("José M. Maldonado", "David Lara.", "Ezequiel Sánchez.", "Andrés Rodríguez.", "Jorge Nebreda.", "Alberto Aldama.", "Adelaida Sáez.", "Alejandro Ángel Builes.", "Juan José Morón.", "Manuel González.", "Rafael Mansilla.")
         self.combobox_autor = ttk.Combobox(self.combobox_frame, width=30, textvariable=self.opcion_autor, values=opciones, font=("Arial", 12), style='Custom.TCombobox')
         self.combobox_autor.current(0)
         self.combobox_autor.grid(column=0, row=1, padx=11, pady=11)
@@ -469,8 +474,8 @@ class Application(tk.Frame):
                                pady=9)
         self.select_button.pack()
 
-        # Modificar button 
-        self.fill_button = tk.Button(text="Modificar", command=self.fill_template, font=("Helvetica", 16), bg="#3986F3", fg="white",
+        # Modificar button bg="#3986F3"
+        self.fill_button = tk.Button(text="Crear", command=self.fill_template, font=("Helvetica", 16), bg="#FF6E40", fg="white",
                                padx=70,
                                pady=20)
         self.fill_button.pack()
@@ -485,7 +490,6 @@ class Application(tk.Frame):
     def fill_template(self):
         # Las entradas de texto
         nombre_cliente = self.nombre_cliente_entry.get()
-        ptje_axial = self.ptje_entry.get()
         obra = self.obra_entry.get()
         Direccion_obra = self.Direccion_obra_entry.get()
         codigo = self.codigo_entry.get()
@@ -493,21 +497,21 @@ class Application(tk.Frame):
         selected_option = self.combobox_autor.get()
         
         additional_info = {
-        "Julián Vallejo.": "Julián Vallejo Luna.\nIngeniero de Caminos, CC. y PP.\nDpto. Ingeniería INCYE.",
-        "David Lara.": "David Lara.\nIngeniero de Caminos, CC. y PP.\nDpto. Ingeniería INCYE.",
-        "Ezequiel Sánchez.": "Ezequiel Sánchez.\nIngeniero de Caminos, CC. y PP.\nDpto. Ingeniería INCYE.",
-        "Andrés Rodríguez.": "Andrés Rodríguez Pérez.\nIngeniero de Caminos, CC. y PP.\nDpto. Ingeniería INCYE.",
-        "Jorge Nebreda.": "Jorge Nebreda.\nIngeniero Industrial\nDpto. Ingeniería INCYE.",
-        "Alberto Aldama.": "Alberto Aldama Martínez.\nIngeniero Industrial\nDpto. Ingeniería INCYE.",
+        "José M. Maldonado": "José Manuel Maldonado.\nMáster Ingeniero de Caminos, CC. y PP.\nDpto. Ingeniería INCYE.",
+        "David Lara.": "David Lara.\nMáster Ingeniero de Caminos, CC. y PP.\nDpto. Ingeniería INCYE.",
+        "Ezequiel Sánchez.": "Ezequiel Sánchez.\nIngeniero Industrial.\nDpto. Ingeniería INCYE.",
+        "Andrés Rodríguez.": "Andrés Rodríguez Pérez.\nIngeniero Téc. Industrial\nDpto. Ingeniería INCYE.",
+        "Jorge Nebreda.": "Jorge Nebreda.\nIngeniero de Caminos, CC. y PP.\nDpto. Ingeniería INCYE.",
+        "Alberto Aldama.": "Alberto Aldama Martínez.\nIngeniero Industrial.\nDpto. Ingeniería INCYE.",
         "Adelaida Sáez.": "Adelaida Sáez Castejón.\nIng Téc. Industrial.\nDpto. Ingeniería INCYE.",
         "Alejandro Ángel Builes.": "Alejandro Ángel Builes.\nIngeniero Civil.\nDpto. Ingeniería INCYE.",
         "Juan José Morón.": "Juan José Morón Blanco.\nDelineante.\nDpto. Ingeniería INCYE.",
         "Manuel González.": "Manuel González-Arquiso Madrigal.\nIng. Téc. Agrícola.\nDpto. Ingeniería INCYE.",
-        "Rafael Mansilla.": "Rafael Mansilla Correa.\nIngeniero de Caminos, CC. y PP.\nDpto. Ingeniería INCYE."
+        "Rafael Mansilla.": "Rafael Mansilla Correa.\nMáster Ingeniero de Caminos, CC. y PP.\nDpto. Ingeniería INCYE."
         }
 
         additional_info2 = {
-        "Julián Vallejo.": "JVL",
+        "José M. Maldonado": "JMM",
         "David Lara.": "DLM",
         "Ezequiel Sánchez.": "ESG",
         "Andrés Rodríguez.": "ARP",
@@ -543,7 +547,7 @@ class Application(tk.Frame):
         document = MailMerge(template)
 
         # Sustituimos valores
-        document.merge(Nombre_Cliente=nombre_cliente, Obra=obra, Direccion_Obra=Direccion_obra, Codigo_Obra=codigo, pt_axial=ptje_axial, Fecha=formatted_date, Dia=dia, Mes=mes, Anyo=anyo, Autor_NotaC=autor_nota, Revisor_NotaC=revisor_nota, Inic_AutorNC = siglas_autor, Inic_RevNC = siglas_rev)
+        document.merge(Nombre_Cliente=nombre_cliente, Obra=obra, Direccion_Obra=Direccion_obra, Codigo_Obra=codigo, Fecha=formatted_date, Dia=dia, Mes=mes, Anyo=anyo, Autor_NotaC=autor_nota, Revisor_NotaC=revisor_nota, Inic_AutorNC = siglas_autor, Inic_RevNC = siglas_rev)
 
         # Obtener los valores de las checkboxes
         checkbox_values = list(self.checkbar.state())
@@ -616,12 +620,8 @@ class Application(tk.Frame):
             texto_V2 = "Las vigas de reparto perimetrales se realizarán mediante la utilización de vigas INCYE450, consistentes en vigas HEB450 reforzadas. Las vigas pueden tener alma simple o tener triple alma"
             texto_V3 = "Las vigas de reparto perimetrales se realizarán mediante la utilización de vigas INCYE600, consistentes en vigas HEB600 reforzadas."
             imagen_V = "C:/Memorias y servidor/Aplicacion de Memorias/Imagenes/perfil.JPG"
-            imagen_V2 = "C:/Memorias y servidor/Aplicacion de Memorias/Imagenes/perfilSA.JPG"
             texto_apendice = "Y MECÁNICAS PERFILES INCYE"
-
-            # texto para la variación de la fuerza axial debido a las temperaturas
-            textotemp = "Si consideramos una unión rígida y perfecta entre todas las partes de los puntales, y también entre los mismos puntales y la pantalla, el esfuerzo axial adicional debido a la temperatura es el siguiente:"
-            
+         
             # Imagenes TDS del SuperSlim
             imagen_TDS_SS1 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/SS/ANEJO SS-01.jpg"
             imagen_TDS_SS2 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/SS/ANEJO SS-02.jpg"
@@ -761,6 +761,12 @@ class Application(tk.Frame):
             imagen_TDS_MP10 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Megaprop/TDS Megaprop INCYE-10.jpg"
             imagen_TDS_MP11 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Megaprop/TDS Megaprop INCYE-11.jpg"
 
+            # Imágenes TDS Tensores Telescópicos
+            imagen_TDS_TT1 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Telescopicos/TDS Tensor Corto  Largo_page-0001.jpg"
+            imagen_TDS_TT2 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Telescopicos/TDS Tensor XL  SSLIM_page-0001.jpg"
+            imagen_TDS_TT3 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Telescopicos/TDS Tensores Telescópicos_page-0001.jpg"
+            imagen_TDS_TT4 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Telescopicos/TDS Tensores Telescópicos_page-0002.jpg"
+
 
             document_editor = DocumentEditor(document_path)
             added_imagen_SS = document_editor.añadir_im_SS(texto_SS, imagen_SS)
@@ -769,8 +775,7 @@ class Application(tk.Frame):
             added_imagen_TC = document_editor.añadir_im_TC(texto_TC, imagen_TC)
             added_imagen_PS4 = document_editor.añadir_im_PS4(texto_PS4, imagen_PS4)
             added_imagen_PS2 = document_editor.añadir_im_PS2(texto_PS2, imagen_PS2)
-            added_imagen_V = document_editor.añadir_im_V(texto_V, imagen_V, texto_V3)
-            added_imagen_V2 = document_editor.añadir_im_V2(texto_V2, imagen_V2)
+            added_imagen_V = document_editor.añadir_im_V(texto_V, imagen_V, texto_V2, texto_V3)
             added_imagen_PS6 = document_editor.añadir_im_PS6(texto_PS6, imagen_PS6)
 
             if checkbox_values[0]: # Tensor cuadrado / INCYE 80
@@ -785,9 +790,10 @@ class Application(tk.Frame):
                 added_imagen_TDS_I3 = document_editor.añadir_TDS_I3(texto_apendice, imagen_TDS_I31, imagen_TDS_I32, imagen_TDS_I33, imagen_TDS_I34, imagen_TDS_I35, imagen_TDS_I36, imagen_TDS_I37, imagen_TDS_I38, imagen_TDS_I39, imagen_TDS_I310)
             if checkbox_values[3] or checkbox_values[4] or checkbox_values[5]: # Pipeshor
                 added_image_TDS_P = document_editor.añadir_TDS_P(texto_apendice, imagen_TDS_P1, imagen_TDS_P2, imagen_TDS_P3, imagen_TDS_P4, imagen_TDS_P5, imagen_TDS_P6, imagen_TDS_P7, imagen_TDS_P8, imagen_TDS_P9, imagen_TDS_P10, imagen_TDS_P11, imagen_TDS_P12, imagen_TDS_P13, imagen_TDS_P14, imagen_TDS_P15, imagen_TDS_P16, imagen_TDS_P17, imagen_TDS_P18, imagen_TDS_P19, imagen_TDS_P20, imagen_TDS_P21, imagen_TDS_P22, imagen_TDS_P23, imagen_TDS_P24, imagen_TDS_P25, imagen_TDS_P26, imagen_TDS_P27, imagen_TDS_P28, imagen_TDS_P29, imagen_TDS_P30, imagen_TDS_P31, imagen_TDS_P32, imagen_TDS_P33, imagen_TDS_P34, imagen_TDS_P35)
-
+            if checkbox_values2[5]:
+                added_image_TDS_TT = document_editor.añadir_TDS_TT(texto_apendice, imagen_TDS_TT1, imagen_TDS_TT2, imagen_TDS_TT3, imagen_TDS_TT4)
             
-            if added_imagen_SS or added_imagen_MP or added_imagen_GS or added_imagen_TC or added_imagen_PS4 or added_imagen_PS2 or added_imagen_V or added_imagen_V2 or added_imagen_PS6 or added_imagen_TDS_SS or added_imagen_TDS_I3 or added_imagen_TDS_TC or added_image_TDS_P or added_imagen_TDS_GS or added_imagen_TDS_MP:
+            if added_imagen_SS or added_imagen_MP or added_imagen_GS or added_imagen_TC or added_imagen_PS4 or added_imagen_PS2 or added_imagen_V or added_imagen_PS6 or added_imagen_TDS_SS or added_imagen_TDS_I3 or added_imagen_TDS_TC or added_image_TDS_P or added_imagen_TDS_GS or added_imagen_TDS_MP or added_image_TDS_TT:
                 if self.output_path:
                     document_editor.save_document(self.output_path)
             else:

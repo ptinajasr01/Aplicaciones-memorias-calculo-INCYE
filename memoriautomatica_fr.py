@@ -12,7 +12,7 @@ from docx.shared import Inches
 from docx2pdf import convert
 from tkinter import filedialog
 
-locale.setlocale(locale.LC_ALL, '')
+locale.setlocale(locale.LC_ALL, 'fr_FR')
 
 class DocumentEditorfr:
     def __init__(self, document_path):
@@ -137,6 +137,18 @@ class DocumentEditorfr:
             run.add_picture(imagen_TDS_MP11, width=Inches(6.8), height=Inches(9.1))
             return True 
         return False
+    
+######################################## TDS de tensores telescópicos #####################################################################################################################
+
+    def añadir_TDS_TT(self, texto_apendice, imagen_TDS_TT1):
+        target_index = self.buscar_txt_añTDS(texto_apendice)
+        if target_index != -1:
+            target_paragraph = self.document.paragraphs[target_index]
+            run = target_paragraph.add_run()
+            run.add_picture(imagen_TDS_TT1, width=Inches(6.8), height=Inches(4.5))
+            return True 
+        return False
+
 
     ########################################################## Granshor ###############################################################
 
@@ -363,14 +375,14 @@ class DocumentEditorfr:
     ######################################################## Vigas Incye #############################################################################
 
     # A�ade la imagen de las Vigas de reparto
-    def buscar_txt_V(self, texto_V, texto_V3=None):
+    def buscar_txt_V(self, texto_V, texto_V2=None, texto_V3=None):
         for i, paragraph in enumerate(self.document.paragraphs):
-            if texto_V in paragraph.text or (texto_V3 and texto_V3 in paragraph.text):
+            if texto_V in paragraph.text or (texto_V2 and texto_V2 in paragraph.text) or (texto_V3 and texto_V3 in paragraph.text):
                 return i
         return -1
 
-    def añadir_im_V(self, texto_V, imagen_V, texto_V3=None):
-        target_index = self.buscar_txt_V(texto_V, texto_V3)
+    def añadir_im_V(self, texto_V, imagen_V, texto_V2=None, texto_V3=None):
+        target_index = self.buscar_txt_V(texto_V, texto_V2, texto_V3)
         if target_index != -1:
             target_paragraph = self.document.paragraphs[target_index]
             run = target_paragraph.add_run()
@@ -438,8 +450,8 @@ class Applicationfr(tk.Frame):
     def __init__(self, master=None):
         super().__init__(master)
         self.master = master
-        self.master.title("Generador de Notas de Calculo (FRANCIA)")
-        self.master.geometry("830x820")
+        self.master.title("Nota de Calculo ACODALAMIENTO (FRANCIA)")
+        self.master.geometry("880x830")
         self.master.configure(background="#F5F5F5")
         self.pack(fill=tk.BOTH, expand=True)
         self.create_widgets()
@@ -503,7 +515,7 @@ class Applicationfr(tk.Frame):
 
         self.checkboxes_frame2 = tk.Frame(self, bg="#F5F5F5")
         self.checkboxes_frame2.pack(pady=15)
-        self.checkbar2 = Checkbar(self.checkboxes_frame2, ['Granshor', 'INCYE 300', 'INCYE 450 SA', 'INCYE 450 TA', 'INCYE 600'], checkbox_font=("Helvetica", 14))
+        self.checkbar2 = Checkbar(self.checkboxes_frame2, ['Granshor', 'INCYE 300', 'INCYE 450 SA', 'INCYE 450 TA', 'INCYE 600', 'T.Telescopico'], checkbox_font=("Helvetica", 14))
         self.checkbar2.pack(side=tk.TOP, fill=tk.X, padx=15)
         self.checkbar2.config(relief=tk.GROOVE, bd=4)
 
@@ -514,7 +526,7 @@ class Applicationfr(tk.Frame):
         self.label1 = ttk.Label(self.combobox_frame, text="Autor de la hoja de cálculo", font=("Arial", 14))
         self.label1.grid(column=0, row=0, padx=11, pady=11)
         self.opcion_autor = tk.StringVar()
-        opciones = ("Julián Vallejo.", "David Lara.", "Ezequiel Sánchez.", "Andrés Rodríguez.", "Jorge Nebreda.", "Alberto Aldama.", "Adelaida Sáez.", "Alejandro Ángel Builes.", "Juan José Morón.", "Manuel González.", "Rafael Mansilla.")
+        opciones = ("José M. Maldonado", "David Lara.", "Ezequiel Sánchez.", "Andrés Rodríguez.", "Jorge Nebreda.", "Alberto Aldama.", "Adelaida Sáez.", "Alejandro Ángel Builes.", "Juan José Morón.", "Manuel González.", "Rafael Mansilla.")
         self.combobox_autor = ttk.Combobox(self.combobox_frame, width=30, textvariable=self.opcion_autor, values=opciones, font=("Arial", 12), style='Custom.TCombobox')
         self.combobox_autor.current(0)
         self.combobox_autor.grid(column=0, row=1, padx=11, pady=11)
@@ -533,7 +545,7 @@ class Applicationfr(tk.Frame):
         self.select_button.pack()
 
         # Modificar button 
-        self.fill_button = tk.Button(text="Modificar", command=self.fill_templatefr, font=("Helvetica", 16), bg="#FF6E40", fg="white",
+        self.fill_button = tk.Button(text="Crear", command=self.fill_templatefr, font=("Helvetica", 16), bg="#3986F3", fg="white",
                                padx=70,
                                pady=20)
         self.fill_button.pack()
@@ -556,10 +568,10 @@ class Applicationfr(tk.Frame):
         selected_option = self.combobox_autor.get()
         
         additional_info = {
-        "Julián Vallejo.": "Julián Vallejo Luna.\nIngénieur Civil.\nDpt. Ingénierie INCYE.",
+        "José M. Maldonado": "José Manuel Maldonado.\nIngénieur Civil.\nDpt. Ingénierie INCYE.",
         "David Lara.": "David Lara.\nIngénieur Civil.\nDpt. Ingénierie INCYE.",
         "Ezequiel Sánchez.": "Ezequiel Sánchez.\nIngénieur industriel.\nDpto. Ingénierie INCYE.",
-        "Andrés Rodríguez.": "Andrés Rodríguez Pérez.\nIngénieur Civil.\nDpt. Ingénierie INCYE.",
+        "Andrés Rodríguez.": "Andrés Rodríguez Pérez.\nIng Tech. Industriel.\nDpt. Ingénierie INCYE.",
         "Jorge Nebreda.": "Jorge Nebreda.\nIngénieur Civil.\nDpt. Ingénierie INCYE.",
         "Alberto Aldama.": "Alberto Aldama Martínez.\nIngénieur Industriel.\nDpt. Ingénierie INCYE.",
         "Adelaida Sáez.": "Adelaida Sáez Castejón.\nIng Tech. Industriel.\nDpt. Ingénierie INCYE.",
@@ -570,7 +582,7 @@ class Applicationfr(tk.Frame):
         }
 
         additional_info2 = {
-        "Julián Vallejo.": "JVL",
+        "José M. Maldonado": "JMM",
         "David Lara.": "DLM",
         "Ezequiel Sánchez.": "ESG",
         "Andrés Rodríguez.": "ARP",
@@ -684,7 +696,7 @@ class Applicationfr(tk.Frame):
             texto_V3 = "Les liernes périmétrales seront exécutées avec de poutres INCYE600, constituées de poutres HEB600 renforcées renforcés avec une triple âme. Fabriqués en acier S275."
             imagen_V = "C:/Memorias y servidor/Aplicacion de Memorias/Imagenes/perfil.JPG"
             imagen_V2 = "C:/Memorias y servidor/Aplicacion de Memorias/Imagenes/perfilSA.JPG"
-            texto_apendice = "3. ANNEXES"
+            texto_apendice = "3.ANNEXES"
 
             # texto para meter las fórmulas de la temperatura
             textotemp = "Si nous considérons une jonction rigide et parfaite entre toutes les pièces des butons et entre les butons et l’écran, l’effort axial additionnel du à la température est le suivant :"
@@ -831,6 +843,9 @@ class Applicationfr(tk.Frame):
             imagentemp_P4S = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/tempP4S.jpg"
             imagentemp_P6 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/tempP6.jpg"
 
+            # Imagen TDS Telescopico
+            imagen_TDS_TT1 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs_fr/Telescopico/Tendeur télescopique_page-0001.jpg"
+
 
             document_editor = DocumentEditorfr(document_path)
             added_imagen_SS = document_editor.añadir_im_SS(texto_SS, imagen_SS)
@@ -839,8 +854,7 @@ class Applicationfr(tk.Frame):
             added_imagen_TC = document_editor.añadir_im_TC(texto_TC, imagen_TC)
             added_imagen_PS4 = document_editor.añadir_im_PS4(texto_PS4, imagen_PS4)
             added_imagen_PS2 = document_editor.añadir_im_PS2(texto_PS2, imagen_PS2)
-            added_imagen_V = document_editor.añadir_im_V(texto_V, imagen_V, texto_V3)
-            added_imagen_V2 = document_editor.añadir_im_V2(texto_V2, imagen_V2)
+            added_imagen_V = document_editor.añadir_im_V(texto_V, imagen_V, texto_V2, texto_V3)
             added_imagen_PS6 = document_editor.añadir_im_PS6(texto_PS6, imagen_PS6)
 
             paragraph_index = document_editor.buscar_txt_temp(textotemp)
@@ -877,6 +891,9 @@ class Applicationfr(tk.Frame):
                 added_imagen_TDS_I6 = document_editor.añadir_TDS_I6(texto_apendice, imagen_TDS_I61, imagen_TDS_I62)
             if checkbox_values[3] or checkbox_values[4] or checkbox_values[5]: # Pipeshor
                 added_image_TDS_P = document_editor.añadir_TDS_P(texto_apendice, imagen_TDS_P1, imagen_TDS_P2, imagen_TDS_P3, imagen_TDS_P4, imagen_TDS_P5, imagen_TDS_P6, imagen_TDS_P7, imagen_TDS_P8, imagen_TDS_P9, imagen_TDS_P10, imagen_TDS_P11, imagen_TDS_P12, imagen_TDS_P13, imagen_TDS_P14, imagen_TDS_P15, imagen_TDS_P16, imagen_TDS_P17, imagen_TDS_P18, imagen_TDS_P19, imagen_TDS_P20, imagen_TDS_P21, imagen_TDS_P22, imagen_TDS_P23, imagen_TDS_P24, imagen_TDS_P25, imagen_TDS_P26, imagen_TDS_P27, imagen_TDS_P28, imagen_TDS_P29, imagen_TDS_P30, imagen_TDS_P31, imagen_TDS_P32, imagen_TDS_P33, imagen_TDS_P34)           
+            if checkbox_values2[5]:
+                added_image_TDS_TT = document_editor.añadir_TDS_TT(texto_apendice, imagen_TDS_TT1)
+
 
             # asignamos el valor False a todas al comienzo para que no tomen valor directamente
             added_image_tempMP = False
@@ -885,7 +902,7 @@ class Applicationfr(tk.Frame):
             added_image_tempP6 = False
             added_image_tempGS = False
 
-            if (added_image_tempMP or added_image_tempP4L or added_image_tempP4S or added_image_tempP6 or added_image_tempGS or added_imagen_SS or added_imagen_MP or added_imagen_GS or added_imagen_TC or added_imagen_PS4 or added_imagen_PS2 or added_imagen_V or added_imagen_V2 or added_imagen_PS6 or added_imagen_TDS_SS or added_imagen_TDS_I3  or added_imagen_TDS_I4 or added_imagen_TDS_I6 or added_imagen_TDS_TC or added_image_TDS_P or added_imagen_TDS_GS or added_imagen_TDS_MP):
+            if (added_image_tempMP or added_image_tempP4L or added_image_tempP4S or added_image_tempP6 or added_image_tempGS or added_imagen_SS or added_imagen_MP or added_imagen_GS or added_imagen_TC or added_imagen_PS4 or added_imagen_PS2 or added_imagen_V or added_imagen_PS6 or added_imagen_TDS_SS or added_imagen_TDS_I3  or added_imagen_TDS_I4 or added_imagen_TDS_I6 or added_imagen_TDS_TC or added_image_TDS_P or added_imagen_TDS_GS or added_imagen_TDS_MP or added_image_TDS_TT):
                 if self.output_path:
                     document_editor.save_document(self.output_path)
             else:
