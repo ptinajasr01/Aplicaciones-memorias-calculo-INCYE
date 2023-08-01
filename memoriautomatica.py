@@ -12,6 +12,7 @@ from docx.shared import Inches
 from docx2pdf import convert
 from tkinter import filedialog
 
+
 locale.setlocale(locale.LC_ALL, '')
 
 class DocumentEditor:
@@ -796,10 +797,12 @@ class Application(tk.Frame):
             if added_imagen_SS or added_imagen_MP or added_imagen_GS or added_imagen_TC or added_imagen_PS4 or added_imagen_PS2 or added_imagen_V or added_imagen_PS6 or added_imagen_TDS_SS or added_imagen_TDS_I3 or added_imagen_TDS_TC or added_image_TDS_P or added_imagen_TDS_GS or added_imagen_TDS_MP or added_image_TDS_TT:
                 if self.output_path:
                     document_editor.save_document(self.output_path)
+                    #pdf_output_path = self.output_path.replace(".docx", ".pdf") 
+                    #convert(self.output_path, pdf_output_path)
             else:
                 print("The target paragraph was not found in the document. Image not added.")
 
-        messagebox.showinfo("Completado", "El documento se ha modificado y guardado con éxito.")
+        messagebox.showinfo("Completado!", "La nota de cálculo ha sido creada y guardada con éxito.")
         
 
 class Checkbar(Frame):
