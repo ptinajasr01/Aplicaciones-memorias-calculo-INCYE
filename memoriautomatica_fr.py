@@ -443,8 +443,8 @@ class DocumentEditorfr:
 
     def save_document(self, output_path):
         self.document.save(output_path)
-        #pdf_output_path = os.path.splitext(output_path)[0] + ".pdf"
-        #convert(output_path, pdf_output_path)        
+        pdf_output_path = os.path.splitext(output_path)[0] + ".pdf"
+        convert(output_path, pdf_output_path)        
 
 class Applicationfr(tk.Frame):
     def __init__(self, master=None):
