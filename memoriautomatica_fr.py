@@ -523,7 +523,7 @@ class Applicationfr(tk.Frame):
         self.combobox_frame = tk.Frame(self, bg="#F5F5F5")
         self.combobox_frame.pack(pady=15)
 
-        self.label1 = ttk.Label(self.combobox_frame, text="Autor de la hoja de cálculo", font=("Arial", 14))
+        self.label1 = ttk.Label(self.combobox_frame, text="Autor de la nota de cálculo", font=("Arial", 14))
         self.label1.grid(column=0, row=0, padx=11, pady=11)
         self.opcion_autor = tk.StringVar()
         opciones = ("José M. Maldonado", "David Lara.", "Ezequiel Sánchez.", "Andrés Rodríguez.", "Jorge Nebreda.", "Alberto Aldama.", "Adelaida Sáez.", "Alejandro Ángel Builes.", "Juan José Morón.", "Manuel González.", "Rafael Mansilla.")
@@ -532,7 +532,7 @@ class Applicationfr(tk.Frame):
         self.combobox_autor.grid(column=0, row=1, padx=11, pady=11)
 
         # Comboboxes button frame 
-        self.label_revisor = ttk.Label(self.combobox_frame, text="Revisor de la hoja de cálculo", font=("Arial", 14))
+        self.label_revisor = ttk.Label(self.combobox_frame, text="Revisor de la nota de cálculo", font=("Arial", 14))
         self.label_revisor.grid(column=0, row=2, padx=11, pady=11)
         self.opcion_revisor = tk.StringVar()
         self.combobox_revisor = ttk.Combobox(self.combobox_frame, width=30, textvariable=self.opcion_revisor, values=opciones, font=("Arial", 12), style='Custom.TCombobox')
