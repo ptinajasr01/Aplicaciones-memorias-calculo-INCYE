@@ -544,7 +544,7 @@ class Application(tk.Frame):
         anyo = current_date.strftime("%Y") # mis primeras 
 
         # cargamos la plantilla
-        template = "C:/Memorias y servidor/Memorias Generadas/MemoriaIncyePrueba12.docx"
+        template = "C:/Memorias y servidor/Memorias Generadas/MemoriaIncyePrueba13.docx"
         document = MailMerge(template)
 
         # Sustituimos valores
@@ -578,10 +578,12 @@ class Application(tk.Frame):
             document.merge(I450="Las vigas de reparto perimetrales se realizarán mediante la utilización de vigas INCYE450, consistentes en vigas HEB450 reforzadas. Las vigas pueden tener alma simple o tener triple alma")
         if checkbox_values2[4]:  # INCYE600
             document.merge(I600="Las vigas de reparto perimetrales se realizarán mediante la utilización de vigas INCYE600, consistentes en vigas HEB600 reforzadas.")
-        if checkbox_values[1]:      # Texto del SS en la metodolog�a de cálculo
+        if checkbox_values[1] and not checkbox_values[2]:      # Texto del SS en la metodolog�a de cálculo
             document.merge(SST="Nota: En el Technical Data Sheet del sistema Superslim los valores incluidos en las gráficas son valores en Estado Límite de Servicio, es decir, son valores ya minorados por un coeficiente de 1,50. Para comparar frente a cargas mayoradas es necesario multiplicar los valores admisibles de las gráficas por 1,50 para no tener en cuenta un factor de mayoración duplicado.")
-        if checkbox_values[2]:      # Texto del MP en la metodolog�a de c�culo
-            document.merge(MPT="Nota: En el Technical Data Sheet del sistema Megaprop los valores incluidos en las gráficas son valores en Estado Límite de Servicio, es decir, son valores ya minorados por un coeficiente de 1,50. Para comparar frente a cargas mayoradas es necesario multiplicar los valores admisibles de las gráficas por 1,50 para no tener en cuenta un factor de mayoración duplicado.")
+        if checkbox_values[2] and not checkbox_values[1]:      # Texto del MP en la metodolog�a de c�culo
+            document.merge(SST="Nota: En el Technical Data Sheet del sistema Megaprop los valores incluidos en las gráficas son valores en Estado Límite de Servicio, es decir, son valores ya minorados por un coeficiente de 1,50. Para comparar frente a cargas mayoradas es necesario multiplicar los valores admisibles de las gráficas por 1,50 para no tener en cuenta un factor de mayoración duplicado.")
+        if checkbox_values[1] and checkbox_values[2]:
+            document.merge(SST="Nota: En el Technical Data Sheet del sistema Superslim, así como en el del Megaprop, los valores incluidos en las gráficas son valores en Estado Límite de Servicio, es decir, son valores ya minorados por un coeficiente de 1,50. Para comparar frente a cargas mayoradas es necesario multiplicar los valores admisibles de las gráficas por 1,50 para no tener en cuenta un factor de mayoración duplicado.")
         if checkbox_values2[1] or checkbox_values2[2] or checkbox_values2[3] or checkbox_values2[4]:   # Texto de los perfiles en la metodolog�a de cálculo
             document.merge(PERF="Para la comprobación de los perfiles se obtendrán los esfuerzos en cada uno de ellos y se compararán con sus valores admisibles.")
 
