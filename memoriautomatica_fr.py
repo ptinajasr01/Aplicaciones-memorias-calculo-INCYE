@@ -145,7 +145,7 @@ class DocumentEditorfr:
         if target_index != -1:
             target_paragraph = self.document.paragraphs[target_index]
             run = target_paragraph.add_run()
-            run.add_picture(imagen_TDS_TT1, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_TT1, width=Inches(6.8), height=Inches(9.1))
             return True 
         return False
 
@@ -614,7 +614,7 @@ class Applicationfr(tk.Frame):
         anyo = current_date.strftime("%Y") # mis primeras 
 
         # cargamos la plantilla
-        template = "C:/Memorias y servidor/Memorias Generadas/MemoriaIncyePruebafr.docx"
+        template = "C:/Memorias y servidor/Memorias Generadas/MemoriaIncyePruebafr13.docx"
         document = MailMerge(template)
 
         # Sustituimos valores
