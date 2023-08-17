@@ -359,24 +359,341 @@ class DocumentEditor:
             run.add_picture(imagen_V2, width=Inches(6.9), height=Inches(2.4))
             return True
         return False
-    # añadir TDS del INCYE 300
-    def añadir_TDS_I3(self, texto_apendice, imagen_TDS_I31, imagen_TDS_I32, imagen_TDS_I33, imagen_TDS_I34, imagen_TDS_I35, imagen_TDS_I36, imagen_TDS_I37, imagen_TDS_I38, imagen_TDS_I39, imagen_TDS_I310):
+
+
+    # añadir TDS de VIGAS
+    
+    def añadir_TDS_1111(self, texto_apendice, imagen_TDS_V1, imagen_TDS_V2, imagen_TDS_V3, imagen_TDS_V4, imagen_TDS_V5, imagen_TDS_V6, imagen_TDS_V7, imagen_TDS_V8, imagen_TDS_V9, imagen_TDS_V10, imagen_TDS_V11, imagen_TDS_V12, imagen_TDS_V13, imagen_TDS_V14, imagen_TDS_V15, imagen_TDS_V16, imagen_TDS_V17, imagen_TDS_V18):
         target_index = self.buscar_txt_añTDS(texto_apendice)
         if target_index != -1:
             target_paragraph = self.document.paragraphs[target_index]
             run = target_paragraph.add_run()
-            run.add_picture(imagen_TDS_I31, width=Inches(6.8), height=Inches(9.1))
-            run.add_picture(imagen_TDS_I32, width=Inches(6.8), height=Inches(9.1))
-            run.add_picture(imagen_TDS_I33, width=Inches(6.8), height=Inches(9.1))
-            run.add_picture(imagen_TDS_I34, width=Inches(6.8), height=Inches(9.1))
-            run.add_picture(imagen_TDS_I35, width=Inches(6.8), height=Inches(9.1))
-            run.add_picture(imagen_TDS_I36, width=Inches(6.8), height=Inches(9.1))
-            run.add_picture(imagen_TDS_I37, width=Inches(6.8), height=Inches(9.1))
-            run.add_picture(imagen_TDS_I38, width=Inches(6.8), height=Inches(9.1))
-            run.add_picture(imagen_TDS_I39, width=Inches(6.8), height=Inches(9.1))
-            run.add_picture(imagen_TDS_I310, width=Inches(6.8), height=Inches(9.1))
+            run.add_picture(imagen_TDS_V1, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V2, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V3, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V4, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V5, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V6, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V7, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V8, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V9, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V10, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V11, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V12, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V13, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V14, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V15, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V16, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V17, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V18, width=Inches(6.8), height=Inches(4.5))
             return True 
         return False
+
+    def añadir_TDS_1101(self, texto_apendice, imagen_TDS_V1, imagen_TDS_V2, imagen_TDS_V3, imagen_TDS_V4, imagen_TDS_V5, imagen_TDS_V6, imagen_TDS_V7, imagen_TDS_V8, imagen_TDS_V9, imagen_TDS_V10, imagen_TDS_V11, imagen_TDS_V12, imagen_TDS_V16, imagen_TDS_V17, imagen_TDS_V18):
+        target_index = self.buscar_txt_añTDS(texto_apendice)
+        if target_index != -1:
+            target_paragraph = self.document.paragraphs[target_index]
+            run = target_paragraph.add_run()
+            run.add_picture(imagen_TDS_V1, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V2, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V3, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V4, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V5, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V6, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V7, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V8, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V9, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V10, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V11, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V12, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V16, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V17, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V18, width=Inches(6.8), height=Inches(4.5))
+            return True 
+        return False 
+
+    def añadir_TDS_1100(self, texto_apendice, imagen_TDS_V1, imagen_TDS_V2, imagen_TDS_V3, imagen_TDS_V4, imagen_TDS_V5, imagen_TDS_V6, imagen_TDS_V7, imagen_TDS_V8, imagen_TDS_V9, imagen_TDS_V10, imagen_TDS_V11, imagen_TDS_V12):
+        target_index = self.buscar_txt_añTDS(texto_apendice)
+        if target_index != -1:
+            target_paragraph = self.document.paragraphs[target_index]
+            run = target_paragraph.add_run()
+            run.add_picture(imagen_TDS_V1, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V2, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V3, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V4, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V5, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V6, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V7, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V8, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V9, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V10, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V11, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V12, width=Inches(6.8), height=Inches(4.5))
+            return True 
+        return False 
+
+    def añadir_TDS_1110(self, texto_apendice, imagen_TDS_V1, imagen_TDS_V2, imagen_TDS_V3, imagen_TDS_V4, imagen_TDS_V5, imagen_TDS_V6, imagen_TDS_V7, imagen_TDS_V8, imagen_TDS_V9, imagen_TDS_V10, imagen_TDS_V11, imagen_TDS_V12, imagen_TDS_V13, imagen_TDS_V14, imagen_TDS_V15):
+        target_index = self.buscar_txt_añTDS(texto_apendice)
+        if target_index != -1:
+            target_paragraph = self.document.paragraphs[target_index]
+            run = target_paragraph.add_run()
+            run.add_picture(imagen_TDS_V1, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V2, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V3, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V4, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V5, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V6, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V7, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V8, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V9, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V10, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V11, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V12, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V13, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V14, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V15, width=Inches(6.8), height=Inches(4.5))
+            return True 
+        return False 
+
+    def añadir_TDS_1000(self, texto_apendice, imagen_TDS_V1, imagen_TDS_V2, imagen_TDS_V3, imagen_TDS_V4, imagen_TDS_V5, imagen_TDS_V6, imagen_TDS_V7, imagen_TDS_V8, imagen_TDS_V9):
+        target_index = self.buscar_txt_añTDS(texto_apendice)
+        if target_index != -1:
+            target_paragraph = self.document.paragraphs[target_index]
+            run = target_paragraph.add_run()
+            run.add_picture(imagen_TDS_V1, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V2, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V3, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V4, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V5, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V6, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V7, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V8, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V9, width=Inches(6.8), height=Inches(4.5))
+            return True 
+        return False 
+
+    def añadir_TDS_1001(self, texto_apendice, imagen_TDS_V1, imagen_TDS_V2, imagen_TDS_V3, imagen_TDS_V4, imagen_TDS_V5, imagen_TDS_V6, imagen_TDS_V7, imagen_TDS_V8, imagen_TDS_V9, imagen_TDS_V16, imagen_TDS_V17, imagen_TDS_V18):
+        target_index = self.buscar_txt_añTDS(texto_apendice)
+        if target_index != -1:
+            target_paragraph = self.document.paragraphs[target_index]
+            run = target_paragraph.add_run()
+            run.add_picture(imagen_TDS_V1, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V2, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V3, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V4, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V5, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V6, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V7, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V8, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V9, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V16, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V17, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V18, width=Inches(6.8), height=Inches(4.5))
+            return True 
+        return False 
+
+    def añadir_TDS_1010(self, texto_apendice, imagen_TDS_V1, imagen_TDS_V2, imagen_TDS_V3, imagen_TDS_V4, imagen_TDS_V5, imagen_TDS_V6, imagen_TDS_V7, imagen_TDS_V8, imagen_TDS_V9, imagen_TDS_V13, imagen_TDS_V14, imagen_TDS_V15):
+        target_index = self.buscar_txt_añTDS(texto_apendice)
+        if target_index != -1:
+            target_paragraph = self.document.paragraphs[target_index]
+            run = target_paragraph.add_run()
+            run.add_picture(imagen_TDS_V1, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V2, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V3, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V4, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V5, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V6, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V7, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V8, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V9, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V13, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V14, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V15, width=Inches(6.8), height=Inches(4.5))
+            return True 
+        return False 
+
+    def añadir_TDS_1011(self, texto_apendice, imagen_TDS_V1, imagen_TDS_V2, imagen_TDS_V3, imagen_TDS_V4, imagen_TDS_V5, imagen_TDS_V6, imagen_TDS_V7, imagen_TDS_V8, imagen_TDS_V9, imagen_TDS_V13, imagen_TDS_V14, imagen_TDS_V15, imagen_TDS_V16, imagen_TDS_V17, imagen_TDS_V18):
+        target_index = self.buscar_txt_añTDS(texto_apendice)
+        if target_index != -1:
+            target_paragraph = self.document.paragraphs[target_index]
+            run = target_paragraph.add_run()
+            run.add_picture(imagen_TDS_V1, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V2, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V3, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V4, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V5, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V6, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V7, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V8, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V9, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V13, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V14, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V15, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V16, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V17, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V18, width=Inches(6.8), height=Inches(4.5))
+            return True 
+        return False 
+
+    def añadir_TDS_0111(self, texto_apendice, imagen_TDS_V1, imagen_TDS_V2, imagen_TDS_V3, imagen_TDS_V4, imagen_TDS_V5, imagen_TDS_V6, imagen_TDS_V10, imagen_TDS_V11, imagen_TDS_V12, imagen_TDS_V13, imagen_TDS_V14, imagen_TDS_V15, imagen_TDS_V16, imagen_TDS_V17, imagen_TDS_V18):
+        target_index = self.buscar_txt_añTDS(texto_apendice)
+        if target_index != -1:
+            target_paragraph = self.document.paragraphs[target_index]
+            run = target_paragraph.add_run()
+            run.add_picture(imagen_TDS_V1, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V2, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V3, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V4, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V5, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V6, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V10, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V11, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V12, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V13, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V14, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V15, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V16, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V17, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V18, width=Inches(6.8), height=Inches(4.5))
+            return True 
+        return False 
+
+    def añadir_TDS_0101(self, texto_apendice, imagen_TDS_V1, imagen_TDS_V2, imagen_TDS_V3, imagen_TDS_V4, imagen_TDS_V5, imagen_TDS_V6, imagen_TDS_V10, imagen_TDS_V11, imagen_TDS_V12, imagen_TDS_V16, imagen_TDS_V17, imagen_TDS_V18):
+        target_index = self.buscar_txt_añTDS(texto_apendice)
+        if target_index != -1:
+            target_paragraph = self.document.paragraphs[target_index]
+            run = target_paragraph.add_run()
+            run.add_picture(imagen_TDS_V1, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V2, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V3, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V4, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V5, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V6, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V10, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V11, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V12, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V16, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V17, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V18, width=Inches(6.8), height=Inches(4.5))
+            return True 
+        return False 
+
+    def añadir_TDS_0110(self, texto_apendice, imagen_TDS_V1, imagen_TDS_V2, imagen_TDS_V3, imagen_TDS_V4, imagen_TDS_V5, imagen_TDS_V6, imagen_TDS_V10, imagen_TDS_V11, imagen_TDS_V12, imagen_TDS_V13, imagen_TDS_V14, imagen_TDS_V15):
+        target_index = self.buscar_txt_añTDS(texto_apendice)
+        if target_index != -1:
+            target_paragraph = self.document.paragraphs[target_index]
+            run = target_paragraph.add_run()
+            run.add_picture(imagen_TDS_V1, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V2, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V3, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V4, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V5, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V6, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V10, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V11, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V12, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V13, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V14, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V15, width=Inches(6.8), height=Inches(4.5))
+            return True 
+        return False 
+
+    def añadir_TDS_0100(self, texto_apendice, imagen_TDS_V1, imagen_TDS_V2, imagen_TDS_V3, imagen_TDS_V4, imagen_TDS_V5, imagen_TDS_V6, imagen_TDS_V10, imagen_TDS_V11, imagen_TDS_V12):
+        target_index = self.buscar_txt_añTDS(texto_apendice)
+        if target_index != -1:
+            target_paragraph = self.document.paragraphs[target_index]
+            run = target_paragraph.add_run()
+            run.add_picture(imagen_TDS_V1, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V2, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V3, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V4, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V5, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V6, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V10, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V11, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V12, width=Inches(6.8), height=Inches(4.5))
+            return True 
+        return False 
+
+    def añadir_TDS_0000(self, texto_apendice, imagen_TDS_V1, imagen_TDS_V2, imagen_TDS_V3, imagen_TDS_V4, imagen_TDS_V5, imagen_TDS_V6, imagen_TDS_V7, imagen_TDS_V8, imagen_TDS_V9, imagen_TDS_V10, imagen_TDS_V11, imagen_TDS_V12, imagen_TDS_V13, imagen_TDS_V14, imagen_TDS_V15, imagen_TDS_V16, imagen_TDS_V17, imagen_TDS_V18):
+        target_index = self.buscar_txt_añTDS(texto_apendice)
+        if target_index != -1:
+            target_paragraph = self.document.paragraphs[target_index]
+            run = target_paragraph.add_run()
+            run.add_picture(imagen_TDS_V1, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V2, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V3, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V4, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V5, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V6, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V7, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V8, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V9, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V10, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V11, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V12, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V13, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V14, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V15, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V16, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V17, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V18, width=Inches(6.8), height=Inches(4.5))
+            return True 
+        return False 
+
+    def añadir_TDS_0010(self, texto_apendice, imagen_TDS_V1, imagen_TDS_V2, imagen_TDS_V3, imagen_TDS_V4, imagen_TDS_V5, imagen_TDS_V6, imagen_TDS_V13, imagen_TDS_V14, imagen_TDS_V15):
+        target_index = self.buscar_txt_añTDS(texto_apendice)
+        if target_index != -1:
+            target_paragraph = self.document.paragraphs[target_index]
+            run = target_paragraph.add_run()
+            run.add_picture(imagen_TDS_V1, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V2, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V3, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V4, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V5, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V6, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V13, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V14, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V15, width=Inches(6.8), height=Inches(4.5))
+            return True 
+        return False 
+
+    def añadir_TDS_0001(self, texto_apendice, imagen_TDS_V1, imagen_TDS_V2, imagen_TDS_V3, imagen_TDS_V4, imagen_TDS_V5, imagen_TDS_V6, imagen_TDS_V16, imagen_TDS_V17, imagen_TDS_V18):
+        target_index = self.buscar_txt_añTDS(texto_apendice)
+        if target_index != -1:
+            target_paragraph = self.document.paragraphs[target_index]
+            run = target_paragraph.add_run()
+            run.add_picture(imagen_TDS_V1, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V2, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V3, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V4, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V5, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V6, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V16, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V17, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V18, width=Inches(6.8), height=Inches(4.5))
+            return True 
+        return False 
+
+    def añadir_TDS_0011(self, texto_apendice, imagen_TDS_V1, imagen_TDS_V2, imagen_TDS_V3, imagen_TDS_V4, imagen_TDS_V5, imagen_TDS_V6, imagen_TDS_V13, imagen_TDS_V14, imagen_TDS_V15, imagen_TDS_V16, imagen_TDS_V17, imagen_TDS_V18):
+        target_index = self.buscar_txt_añTDS(texto_apendice)
+        if target_index != -1:
+            target_paragraph = self.document.paragraphs[target_index]
+            run = target_paragraph.add_run()
+            run.add_picture(imagen_TDS_V1, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V2, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V3, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V4, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V5, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V6, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V13, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V14, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V15, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V16, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V17, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_V18, width=Inches(6.8), height=Inches(4.5))
+            return True 
+        return False  
 
 
     ################################################### Guardado del documento ######################################################################
@@ -656,16 +973,24 @@ class Application(tk.Frame):
             imagen_TDS_SS28 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/SS/ANEJO SS-28.jpg"
             
             # Imagenes del TDS del INCYE 300
-            imagen_TDS_I31 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/RMD300/TI 14 02 E - RMD300 Tri Web Beams-01.jpg"
-            imagen_TDS_I32 ="C:/Memorias y servidor/Aplicacion de Memorias/TDSs/RMD300/TI 14 02 E - RMD300 Tri Web Beams-02.jpg"
-            imagen_TDS_I33 ="C:/Memorias y servidor/Aplicacion de Memorias/TDSs/RMD300/TI 14 02 E - RMD300 Tri Web Beams-03.jpg"
-            imagen_TDS_I34 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/RMD300/TI 14 02 E - RMD300 Tri Web Beams-04.jpg"
-            imagen_TDS_I35 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/RMD300/TI 14 02 E - RMD300 Tri Web Beams-05.jpg"
-            imagen_TDS_I36 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/RMD300/TI 14 02 E - RMD300 Tri Web Beams-06.jpg"
-            imagen_TDS_I37 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/RMD300/TI 14 02 E - RMD300 Tri Web Beams-07.jpg"
-            imagen_TDS_I38 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/RMD300/TI 14 02 E - RMD300 Tri Web Beams-08.jpg"
-            imagen_TDS_I39 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/RMD300/TI 14 02 E - RMD300 Tri Web Beams-09.jpg"
-            imagen_TDS_I310 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/RMD300/TI 14 02 E - RMD300 Tri Web Beams-10.jpg"
+            imagen_TDS_V1 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/VIGAS/GRAL/221223_Juntas_Refuerzo_Anejos_page-0001.jpg"
+            imagen_TDS_V2 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/VIGAS/GRAL/221223_Juntas_Refuerzo_Anejos_page-0002.jpg"
+            imagen_TDS_V3 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/VIGAS/GRAL/221223_Juntas_Refuerzo_Anejos_page-0003.jpg"
+            imagen_TDS_V4 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/VIGAS/GRAL/221223_Juntas_Refuerzo_Anejos_page-0004.jpg"
+            imagen_TDS_V5 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/VIGAS/GRAL/221223_Juntas_Refuerzo_Anejos_page-0005.jpg"
+            imagen_TDS_V6 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/VIGAS/GRAL/221223_Juntas_Refuerzo_Anejos_page-0006.jpg"
+            imagen_TDS_V7 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/VIGAS/300/221223_Juntas_Refuerzo_Anejos_page-0007.jpg"
+            imagen_TDS_V8 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/VIGAS/300/221223_Juntas_Refuerzo_Anejos_page-0008.jpg"
+            imagen_TDS_V9 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/VIGAS/300/221223_Juntas_Refuerzo_Anejos_page-0009.jpg"
+            imagen_TDS_V10 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/VIGAS/450SA/221223_Juntas_Refuerzo_Anejos_page-0010.jpg"
+            imagen_TDS_V11 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/VIGAS/450SA/221223_Juntas_Refuerzo_Anejos_page-0011.jpg"
+            imagen_TDS_V12 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/VIGAS/450SA/221223_Juntas_Refuerzo_Anejos_page-0012.jpg"
+            imagen_TDS_V13 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/VIGAS/450TA/221223_Juntas_Refuerzo_Anejos_page-0013.jpg"
+            imagen_TDS_V14 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/VIGAS/450TA/221223_Juntas_Refuerzo_Anejos_page-0014.jpg"
+            imagen_TDS_V15 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/VIGAS/450TA/221223_Juntas_Refuerzo_Anejos_page-0015.jpg"
+            imagen_TDS_V16 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/VIGAS/600/221223_Juntas_Refuerzo_Anejos_page-0016.jpg"
+            imagen_TDS_V17 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/VIGAS/600/221223_Juntas_Refuerzo_Anejos_page-0017.jpg"
+            imagen_TDS_V18 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/VIGAS/600/221223_Juntas_Refuerzo_Anejos_page-0018.jpg"
 
             # Imagenes TDS del Tensor Cuadrado
             imagen_TDS_TC1 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Tensor Cuadrado/211129_Puntal_cuadrado_Anejos-1.jpg"
@@ -789,14 +1114,60 @@ class Application(tk.Frame):
                 added_imagen_TDS_MP = document_editor.añadir_TDS_MP(texto_apendice, imagen_TDS_MP1, imagen_TDS_MP2, imagen_TDS_MP3, imagen_TDS_MP4, imagen_TDS_MP5, imagen_TDS_MP6, imagen_TDS_MP7, imagen_TDS_MP8, imagen_TDS_MP9, imagen_TDS_MP10, imagen_TDS_MP11)
             if checkbox_values2[0]: # Granshor
                 added_imagen_TDS_GS = document_editor.añadir_TDS_GS(texto_apendice, imagen_TDS_GS1, imagen_TDS_GS2, imagen_TDS_GS3, imagen_TDS_GS4, imagen_TDS_GS5, imagen_TDS_GS6, imagen_TDS_GS7, imagen_TDS_GS8, imagen_TDS_GS9, imagen_TDS_GS10, imagen_TDS_GS11, imagen_TDS_GS12, imagen_TDS_GS13, imagen_TDS_GS14, imagen_TDS_GS15, imagen_TDS_GS16, imagen_TDS_GS17, imagen_TDS_GS18, imagen_TDS_GS19, imagen_TDS_GS20, imagen_TDS_GS21, imagen_TDS_GS22, imagen_TDS_GS23, imagen_TDS_GS24, imagen_TDS_GS25, imagen_TDS_GS26, imagen_TDS_GS27, imagen_TDS_GS28, imagen_TDS_GS29, imagen_TDS_GS30, imagen_TDS_GS31, imagen_TDS_GS32)
-            if checkbox_values2[1]: # INCYE 300
-                added_imagen_TDS_I3 = document_editor.añadir_TDS_I3(texto_apendice, imagen_TDS_I31, imagen_TDS_I32, imagen_TDS_I33, imagen_TDS_I34, imagen_TDS_I35, imagen_TDS_I36, imagen_TDS_I37, imagen_TDS_I38, imagen_TDS_I39, imagen_TDS_I310)
+            
+            # TDS VIGAS 
+            # 1111
+            if checkbox_values2[1] and checkbox_values2[2] and checkbox_values2[3] and checkbox_values2[4]: 
+                added_imagen_TDS_1111 = document_editor.añadir_TDS_1111(texto_apendice, imagen_TDS_V1, imagen_TDS_V2, imagen_TDS_V3, imagen_TDS_V4, imagen_TDS_V5, imagen_TDS_V6, imagen_TDS_V7, imagen_TDS_V8, imagen_TDS_V9, imagen_TDS_V10, imagen_TDS_V11, imagen_TDS_V12, imagen_TDS_V13, imagen_TDS_V14, imagen_TDS_V15, imagen_TDS_V16, imagen_TDS_V17, imagen_TDS_V18)
+            # 1101
+            if checkbox_values2[1] and checkbox_values2[2] and (not checkbox_values2[3]) and checkbox_values2[4]: 
+                added_imagen_TDS_1101 = document_editor.añadir_TDS_1101(texto_apendice, imagen_TDS_V1, imagen_TDS_V2, imagen_TDS_V3, imagen_TDS_V4, imagen_TDS_V5, imagen_TDS_V6, imagen_TDS_V7, imagen_TDS_V8, imagen_TDS_V9, imagen_TDS_V10, imagen_TDS_V11, imagen_TDS_V12, imagen_TDS_V16, imagen_TDS_V17, imagen_TDS_V18)        
+            # 1100
+            if checkbox_values2[1] and checkbox_values2[2] and (not checkbox_values2[3]) and (not checkbox_values2[4]): 
+                added_imagen_TDS_1100 = document_editor.añadir_TDS_1100(texto_apendice, imagen_TDS_V1, imagen_TDS_V2, imagen_TDS_V3, imagen_TDS_V4, imagen_TDS_V5, imagen_TDS_V6, imagen_TDS_V7, imagen_TDS_V8, imagen_TDS_V9, imagen_TDS_V10, imagen_TDS_V11, imagen_TDS_V12)
+            # 1110
+            if checkbox_values2[1] and checkbox_values2[2] and checkbox_values2[3] and (not checkbox_values2[4]): 
+                added_imagen_TDS_1110 = document_editor.añadir_TDS_1110(texto_apendice, imagen_TDS_V1, imagen_TDS_V2, imagen_TDS_V3, imagen_TDS_V4, imagen_TDS_V5, imagen_TDS_V6, imagen_TDS_V7, imagen_TDS_V8, imagen_TDS_V9, imagen_TDS_V10, imagen_TDS_V11, imagen_TDS_V12, imagen_TDS_V13, imagen_TDS_V14, imagen_TDS_V15)
+            # 1000
+            if checkbox_values2[1] and (not checkbox_values2[2]) and (not checkbox_values2[3]) and (not checkbox_values2[4]): 
+                added_imagen_TDS_1000 = document_editor.añadir_TDS_1000(texto_apendice, imagen_TDS_V1, imagen_TDS_V2, imagen_TDS_V3, imagen_TDS_V4, imagen_TDS_V5, imagen_TDS_V6, imagen_TDS_V7, imagen_TDS_V8, imagen_TDS_V9)
+            # 1001
+            if checkbox_values2[1] and (not checkbox_values2[2]) and (not checkbox_values2[3]) and checkbox_values2[4]: 
+                added_imagen_TDS_1001 = document_editor.añadir_TDS_1001(texto_apendice, imagen_TDS_V1, imagen_TDS_V2, imagen_TDS_V3, imagen_TDS_V4, imagen_TDS_V5, imagen_TDS_V6, imagen_TDS_V7, imagen_TDS_V8, imagen_TDS_V9, imagen_TDS_V16, imagen_TDS_V17, imagen_TDS_V18)
+            # 1010
+            if checkbox_values2[1] and (not checkbox_values2[2]) and checkbox_values2[3] and (not checkbox_values2[4]): 
+                added_imagen_TDS_1010 = document_editor.añadir_TDS_1010(texto_apendice, imagen_TDS_V1, imagen_TDS_V2, imagen_TDS_V3, imagen_TDS_V4, imagen_TDS_V5, imagen_TDS_V6, imagen_TDS_V7, imagen_TDS_V8, imagen_TDS_V9, imagen_TDS_V13, imagen_TDS_V14, imagen_TDS_V15)
+            # 1011
+            if checkbox_values2[1] and (not checkbox_values2[2]) and checkbox_values2[3] and checkbox_values2[4]: 
+                added_imagen_TDS_1011 = document_editor.añadir_TDS_1011(texto_apendice, imagen_TDS_V1, imagen_TDS_V2, imagen_TDS_V3, imagen_TDS_V4, imagen_TDS_V5, imagen_TDS_V6, imagen_TDS_V7, imagen_TDS_V8, imagen_TDS_V9, imagen_TDS_V13, imagen_TDS_V14, imagen_TDS_V15, imagen_TDS_V16, imagen_TDS_V17, imagen_TDS_V18)
+            # 0111
+            if (not checkbox_values2[1]) and checkbox_values2[2] and checkbox_values2[3] and checkbox_values2[4]: 
+                added_imagen_TDS_0111 = document_editor.añadir_TDS_0111(texto_apendice, imagen_TDS_V1, imagen_TDS_V2, imagen_TDS_V3, imagen_TDS_V4, imagen_TDS_V5, imagen_TDS_V6, imagen_TDS_V10, imagen_TDS_V11, imagen_TDS_V12, imagen_TDS_V13, imagen_TDS_V14, imagen_TDS_V15, imagen_TDS_V16, imagen_TDS_V17, imagen_TDS_V18)
+            # 0101
+            if (not checkbox_values2[1]) and checkbox_values2[2] and (not checkbox_values2[3]) and checkbox_values2[4]: 
+                added_imagen_TDS_0101 = document_editor.añadir_TDS_0101(texto_apendice, imagen_TDS_V1, imagen_TDS_V2, imagen_TDS_V3, imagen_TDS_V4, imagen_TDS_V5, imagen_TDS_V6, imagen_TDS_V10, imagen_TDS_V11, imagen_TDS_V12, imagen_TDS_V16, imagen_TDS_V17, imagen_TDS_V18)
+            # 0110
+            if (not checkbox_values2[1]) and checkbox_values2[2] and checkbox_values2[3] and (not checkbox_values2[4]): 
+                added_imagen_TDS_0110 = document_editor.añadir_TDS_0110(texto_apendice, imagen_TDS_V1, imagen_TDS_V2, imagen_TDS_V3, imagen_TDS_V4, imagen_TDS_V5, imagen_TDS_V6, imagen_TDS_V10, imagen_TDS_V11, imagen_TDS_V12, imagen_TDS_V13, imagen_TDS_V14, imagen_TDS_V15)
+            # 0100
+            if (not checkbox_values2[1]) and checkbox_values2[2] and (not checkbox_values2[3]) and (not checkbox_values2[4]): 
+                added_imagen_TDS_0100 = document_editor.añadir_TDS_0100(texto_apendice, imagen_TDS_V1, imagen_TDS_V2, imagen_TDS_V3, imagen_TDS_V4, imagen_TDS_V5, imagen_TDS_V6, imagen_TDS_V10, imagen_TDS_V11, imagen_TDS_V12)
+            # 0010
+            if (not checkbox_values2[1]) and (not checkbox_values2[2]) and checkbox_values2[3] and (not checkbox_values2[4]): 
+                added_imagen_TDS_0010 = document_editor.añadir_TDS_0010(texto_apendice, imagen_TDS_V1, imagen_TDS_V2, imagen_TDS_V3, imagen_TDS_V4, imagen_TDS_V5, imagen_TDS_V6, imagen_TDS_V13, imagen_TDS_V14, imagen_TDS_V15)
+            # 0001
+            if (not checkbox_values2[1]) and (not checkbox_values2[2]) and (not checkbox_values2[3]) and checkbox_values2[4]: 
+                added_imagen_TDS_0001 = document_editor.añadir_TDS_0001(texto_apendice, imagen_TDS_V1, imagen_TDS_V2, imagen_TDS_V3, imagen_TDS_V4, imagen_TDS_V5, imagen_TDS_V6, imagen_TDS_V16, imagen_TDS_V17, imagen_TDS_V18)
+            # 0011
+            if (not checkbox_values2[1]) and (not checkbox_values2[2]) and checkbox_values2[3] and checkbox_values2[4]: 
+                added_imagen_TDS_0011 = document_editor.añadir_TDS_0011(texto_apendice, imagen_TDS_V1, imagen_TDS_V2, imagen_TDS_V3, imagen_TDS_V4, imagen_TDS_V5, imagen_TDS_V6, imagen_TDS_V13, imagen_TDS_V14, imagen_TDS_V15, imagen_TDS_V16, imagen_TDS_V17, imagen_TDS_V18)
+
             if checkbox_values[3] or checkbox_values[4] or checkbox_values[5]: # Pipeshor
                 added_image_TDS_P = document_editor.añadir_TDS_P(texto_apendice, imagen_TDS_P1, imagen_TDS_P2, imagen_TDS_P3, imagen_TDS_P4, imagen_TDS_P5, imagen_TDS_P6, imagen_TDS_P7, imagen_TDS_P8, imagen_TDS_P9, imagen_TDS_P10, imagen_TDS_P11, imagen_TDS_P12, imagen_TDS_P13, imagen_TDS_P14, imagen_TDS_P15, imagen_TDS_P16, imagen_TDS_P17, imagen_TDS_P18, imagen_TDS_P19, imagen_TDS_P20, imagen_TDS_P21, imagen_TDS_P22, imagen_TDS_P23, imagen_TDS_P24, imagen_TDS_P25, imagen_TDS_P26, imagen_TDS_P27, imagen_TDS_P28, imagen_TDS_P29, imagen_TDS_P30, imagen_TDS_P31, imagen_TDS_P32, imagen_TDS_P33, imagen_TDS_P34, imagen_TDS_P35)
             if checkbox_values2[5]:
                 added_image_TDS_TT = document_editor.añadir_TDS_TT(texto_apendice, imagen_TDS_TT1, imagen_TDS_TT2, imagen_TDS_TT3, imagen_TDS_TT4)
             
-            if added_imagen_SS or added_imagen_MP or added_imagen_GS or added_imagen_TC or added_imagen_PS4 or added_imagen_PS2 or added_imagen_V or added_imagen_PS6 or added_imagen_TDS_SS or added_imagen_TDS_I3 or added_imagen_TDS_TC or added_image_TDS_P or added_imagen_TDS_GS or added_imagen_TDS_MP or added_image_TDS_TT:
+            if added_imagen_SS or added_imagen_MP or added_imagen_GS or added_imagen_TC or added_imagen_PS4 or added_imagen_PS2 or added_imagen_V or added_imagen_PS6 or added_imagen_TDS_SS or added_imagen_TDS_1111 or added_imagen_TDS_1101 or added_imagen_TDS_1100 or added_imagen_TDS_1110 or added_imagen_TDS_1000 or added_imagen_TDS_1001 or added_imagen_TDS_1010 or added_imagen_TDS_1011 or added_imagen_TDS_0111 or added_imagen_TDS_0101 or added_imagen_TDS_0110 or added_imagen_TDS_0100 or added_imagen_TDS_0010 or added_imagen_TDS_0001 or added_imagen_TDS_0011 or added_imagen_TDS_TC or added_image_TDS_P or added_imagen_TDS_GS or added_imagen_TDS_MP or added_image_TDS_TT:
                 if self.output_path:
                     document_editor.save_document(self.output_path)
                     #pdf_output_path = self.output_path.replace(".docx", ".pdf") 
