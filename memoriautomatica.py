@@ -19,6 +19,24 @@ class DocumentEditor:
     def __init__(self, document_path):
         self.document_path = document_path
         self.document = Document(self.document_path)
+
+    def remove_empty_paragraphs_between_range(self, start_index, end_index):
+        in_range = False
+
+        paragraphs_to_remove = []
+
+        for i, paragraph in enumerate(self.document.paragraphs):
+            if i == start_index:
+                in_range = True
+            elif i == end_index + 1:
+                in_range = False
+            
+            if in_range and not paragraph.text.strip():
+                paragraphs_to_remove.append(paragraph)
+        
+        for paragraph in paragraphs_to_remove:
+            p = paragraph._element
+            p.getparent().remove(p)
     
     # Localizamos el index number para meter los TDS
     def buscar_txt_añTDS(self, texto_apendice):
@@ -1167,8 +1185,13 @@ class Application(tk.Frame):
             if checkbox_values2[5]:
                 added_image_TDS_TT = document_editor.añadir_TDS_TT(texto_apendice, imagen_TDS_TT1, imagen_TDS_TT2, imagen_TDS_TT3, imagen_TDS_TT4)
             
+            start_paragraph_index = 41
+            end_paragraph_index = 52
+
             if added_imagen_SS or added_imagen_MP or added_imagen_GS or added_imagen_TC or added_imagen_PS4 or added_imagen_PS2 or added_imagen_V or added_imagen_PS6 or added_imagen_TDS_SS or added_imagen_TDS_1111 or added_imagen_TDS_1101 or added_imagen_TDS_1100 or added_imagen_TDS_1110 or added_imagen_TDS_1000 or added_imagen_TDS_1001 or added_imagen_TDS_1010 or added_imagen_TDS_1011 or added_imagen_TDS_0111 or added_imagen_TDS_0101 or added_imagen_TDS_0110 or added_imagen_TDS_0100 or added_imagen_TDS_0010 or added_imagen_TDS_0001 or added_imagen_TDS_0011 or added_imagen_TDS_TC or added_image_TDS_P or added_imagen_TDS_GS or added_imagen_TDS_MP or added_image_TDS_TT:
                 if self.output_path:
+                    document_editor.remove_empty_paragraphs_between_range(start_paragraph_index, end_paragraph_index)
+
                     document_editor.save_document(self.output_path)
                     #pdf_output_path = self.output_path.replace(".docx", ".pdf") 
                     #convert(self.output_path, pdf_output_path)
