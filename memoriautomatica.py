@@ -860,6 +860,20 @@ class Application(tk.Frame):
         "Rafael Mansilla.": "RMC"
         }
 
+        additional_info3 = {
+        "José M. Maldonado": "Málaga",
+        "David Lara.": "Madrid",
+        "Ezequiel Sánchez.": "Madrid",
+        "Andrés Rodríguez.": "Madrid",
+        "Jorge Nebreda.": "Madrid",
+        "Alberto Aldama.": "Bilbao",
+        "Adelaida Sáez.": "Valencia",
+        "Alejandro Ángel Builes.": "Madrid",
+        "Juan José Morón.": "Sevilla",
+        "Manuel González.": "Valladolid",
+        "Rafael Mansilla.": "Madrid"
+        }
+
         autor_nota = additional_info.get(selected_option, "")
         result = re.sub(' +', ' ', autor_nota)
         autor_nota = result
@@ -870,6 +884,7 @@ class Application(tk.Frame):
 
         siglas_autor = additional_info2.get(selected_option, "")
         siglas_rev = additional_info2.get(selected_option2, "")
+        ciudad = additional_info3.get(selected_option, "")
 
         # Fechas
         current_date = datetime.datetime.now()
@@ -883,7 +898,7 @@ class Application(tk.Frame):
         document = MailMerge(template)
 
         # Sustituimos valores
-        document.merge(Nombre_Cliente=nombre_cliente, Obra=obra, Direccion_Obra=Direccion_obra, Codigo_Obra=codigo, Fecha=formatted_date, Dia=dia, Mes=mes, Anyo=anyo, Autor_NotaC=autor_nota, Revisor_NotaC=revisor_nota, Inic_AutorNC = siglas_autor, Inic_RevNC = siglas_rev)
+        document.merge(Nombre_Cliente=nombre_cliente, Obra=obra, Direccion_Obra=Direccion_obra, Codigo_Obra=codigo, Fecha=formatted_date, Dia=dia, Mes=mes, Anyo=anyo, Autor_NotaC=autor_nota, Revisor_NotaC=revisor_nota, Inic_AutorNC = siglas_autor, Inic_RevNC = siglas_rev, Ciudad=ciudad)
 
         # Obtener los valores de las checkboxes
         checkbox_values = list(self.checkbar.state())
@@ -1186,7 +1201,7 @@ class Application(tk.Frame):
                 added_image_TDS_TT = document_editor.añadir_TDS_TT(texto_apendice, imagen_TDS_TT1, imagen_TDS_TT2, imagen_TDS_TT3, imagen_TDS_TT4)
             
             start_paragraph_index = 41
-            end_paragraph_index = 52
+            end_paragraph_index = 51
 
             if added_imagen_SS or added_imagen_MP or added_imagen_GS or added_imagen_TC or added_imagen_PS4 or added_imagen_PS2 or added_imagen_V or added_imagen_PS6 or added_imagen_TDS_SS or added_imagen_TDS_1111 or added_imagen_TDS_1101 or added_imagen_TDS_1100 or added_imagen_TDS_1110 or added_imagen_TDS_1000 or added_imagen_TDS_1001 or added_imagen_TDS_1010 or added_imagen_TDS_1011 or added_imagen_TDS_0111 or added_imagen_TDS_0101 or added_imagen_TDS_0110 or added_imagen_TDS_0100 or added_imagen_TDS_0010 or added_imagen_TDS_0001 or added_imagen_TDS_0011 or added_imagen_TDS_TC or added_image_TDS_P or added_imagen_TDS_GS or added_imagen_TDS_MP or added_image_TDS_TT:
                 if self.output_path:

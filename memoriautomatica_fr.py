@@ -613,6 +613,20 @@ class Applicationfr(tk.Frame):
         "Rafael Mansilla.": "RMC"
         }
 
+        additional_info3 = {
+        "José M. Maldonado": "Málaga",
+        "David Lara.": "Madrid",
+        "Ezequiel Sánchez.": "Madrid",
+        "Andrés Rodríguez.": "Madrid",
+        "Jorge Nebreda.": "Madrid",
+        "Alberto Aldama.": "Bilbao",
+        "Adelaida Sáez.": "Valencia",
+        "Alejandro Ángel Builes.": "Madrid",
+        "Juan José Morón.": "Sevilla",
+        "Manuel González.": "Valladolid",
+        "Rafael Mansilla.": "Madrid"
+        }
+
         autor_nota = additional_info.get(selected_option, "")
         result = re.sub(' +', ' ', autor_nota)
         autor_nota = result
@@ -623,6 +637,7 @@ class Applicationfr(tk.Frame):
 
         siglas_autor = additional_info2.get(selected_option, "")
         siglas_rev = additional_info2.get(selected_option2, "")
+        ciudad = additional_info3.get(selected_option, "")
 
         # Fechas
         current_date = datetime.datetime.now()
@@ -636,7 +651,7 @@ class Applicationfr(tk.Frame):
         document = MailMerge(template)
 
         # Sustituimos valores
-        document.merge(Nombre_Cliente=nombre_cliente, Obra=obra, Direccion_Obra=Direccion_obra, Codigo_Obra=codigo, pt_axial=ptje_axial, Fecha=formatted_date, Dia=dia, Mes=mes, Anyo=anyo, Autor_NotaC=autor_nota, Revisor_NotaC=revisor_nota, Inic_AutorNC = siglas_autor, Inic_RevNC = siglas_rev)
+        document.merge(Nombre_Cliente=nombre_cliente, Obra=obra, Direccion_Obra=Direccion_obra, Codigo_Obra=codigo, pt_axial=ptje_axial, Fecha=formatted_date, Dia=dia, Mes=mes, Anyo=anyo, Autor_NotaC=autor_nota, Revisor_NotaC=revisor_nota, Inic_AutorNC = siglas_autor, Inic_RevNC = siglas_rev, Ciudad=ciudad)
 
         # Obtener los valores de las checkboxes
         checkbox_values = list(self.checkbar.state())
