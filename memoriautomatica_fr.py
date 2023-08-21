@@ -570,10 +570,12 @@ class Applicationfr(tk.Frame):
 
     def select_output_path(self):
         codigo = self.codigo_entry.get()
+        current_date = datetime.datetime.now()
         folder = filedialog.askdirectory()
         if folder:
             folder = folder.replace('\\', '/')
-            self.output_path = folder + f"/{codigo}-Note_de_calcul.docx"
+            custom_date_format = current_date.strftime("%y%m%d")
+            self.output_path = folder + f"/{codigo}_Note_de_calcul_{custom_date_format}.docx"
 
     def fill_templatefr(self):
         # Las entradas de texto
