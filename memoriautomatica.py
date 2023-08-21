@@ -244,10 +244,10 @@ class DocumentEditor:
         if target_index != -1:
             target_paragraph = self.document.paragraphs[target_index]
             run = target_paragraph.add_run()
-            run.add_picture(imagen_TDS_TT1, width=Inches(6.8), height=Inches(4.5))
-            run.add_picture(imagen_TDS_TT2, width=Inches(6.8), height=Inches(4.5))
-            run.add_picture(imagen_TDS_TT3, width=Inches(6.8), height=Inches(4.5))
-            run.add_picture(imagen_TDS_TT4, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_TT1, width=Inches(6.8), height=Inches(9))
+            run.add_picture(imagen_TDS_TT2, width=Inches(6.8), height=Inches(9))
+            run.add_picture(imagen_TDS_TT3, width=Inches(6.8), height=Inches(9))
+            run.add_picture(imagen_TDS_TT4, width=Inches(6.8), height=Inches(9))
             return True 
         return False
 
