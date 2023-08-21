@@ -67,7 +67,7 @@ class DocumentEditorfr:
         if target_index != -1:
             target_paragraph = self.document.paragraphs[target_index]
             run = target_paragraph.add_run()
-            run.add_picture(imagen_SS, width=Inches(6.9), height=Inches(2.4))
+            run.add_picture(imagen_SS, width=Inches(6.9), height=Inches(2.1))
             return True
         return False
 
@@ -123,7 +123,7 @@ class DocumentEditorfr:
         if target_index != -1:
             target_paragraph = self.document.paragraphs[target_index]
             run = target_paragraph.add_run()
-            run.add_picture(imagen_MP, width=Inches(6.9), height=Inches(2.4))
+            run.add_picture(imagen_MP, width=Inches(6.9), height=Inches(2.1))
             return True
         return False
     
@@ -182,7 +182,7 @@ class DocumentEditorfr:
         if target_index != -1:
             target_paragraph = self.document.paragraphs[target_index]
             run = target_paragraph.add_run()
-            run.add_picture(imagen_GS, width=Inches(6.9), height=Inches(2.4))
+            run.add_picture(imagen_GS, width=Inches(6.9), height=Inches(2.1))
             return True
         return False
     
@@ -255,7 +255,7 @@ class DocumentEditorfr:
         if target_index != -1:
             target_paragraph = self.document.paragraphs[target_index]
             run = target_paragraph.add_run()
-            run.add_picture(imagen_TC, width=Inches(6.9), height=Inches(2.4))
+            run.add_picture(imagen_TC, width=Inches(6.9), height=Inches(2.1))
             return True
         return False
 
@@ -284,7 +284,7 @@ class DocumentEditorfr:
         if target_index != -1:
             target_paragraph = self.document.paragraphs[target_index]
             run = target_paragraph.add_run()
-            run.add_picture(imagen_PS4, width=Inches(6.9), height=Inches(2.4))
+            run.add_picture(imagen_PS4, width=Inches(6.9), height=Inches(2.1))
             return True
         return False
     
@@ -299,7 +299,7 @@ class DocumentEditorfr:
         if target_index != -1:
             target_paragraph = self.document.paragraphs[target_index]
             run = target_paragraph.add_run()
-            run.add_picture(imagen_PS2, width=Inches(6.9), height=Inches(2.4))
+            run.add_picture(imagen_PS2, width=Inches(6.9), height=Inches(2.5))
             return True
         return False
 
@@ -315,7 +315,7 @@ class DocumentEditorfr:
         if target_index != -1:
             target_paragraph = self.document.paragraphs[target_index]
             run = target_paragraph.add_run()
-            run.add_picture(imagen_PS6, width=Inches(6.9), height=Inches(2.4))
+            run.add_picture(imagen_PS6, width=Inches(6.9), height=Inches(2.1))
             return True
         return False
     
@@ -404,7 +404,7 @@ class DocumentEditorfr:
         if target_index != -1:
             target_paragraph = self.document.paragraphs[target_index]
             run = target_paragraph.add_run()
-            run.add_picture(imagen_V, width=Inches(6.9), height=Inches(2.4))
+            run.add_picture(imagen_V, width=Inches(6.9), height=Inches(2.1))
             return True
         return False
     
@@ -419,7 +419,7 @@ class DocumentEditorfr:
         if target_index != -1:
             target_paragraph = self.document.paragraphs[target_index]
             run = target_paragraph.add_run()
-            run.add_picture(imagen_V2, width=Inches(6.9), height=Inches(2.4))
+            run.add_picture(imagen_V2, width=Inches(6.9), height=Inches(2.1))
             return True
         return False
 
