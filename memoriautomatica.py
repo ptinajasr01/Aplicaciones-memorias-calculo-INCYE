@@ -1129,8 +1129,8 @@ class Application(tk.Frame):
             # Imágenes TDS Tensores Telescópicos
             imagen_TDS_TT1 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Telescopicos/TDS Tensor Corto  Largo_page-0001.jpg"
             imagen_TDS_TT2 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Telescopicos/TDS Tensor XL  SSLIM_page-0001.jpg"
-            imagen_TDS_TT3 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Telescopicos/TDS Tensores Telescópicos_page-0001.jpg"
-            imagen_TDS_TT4 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Telescopicos/TDS Tensores Telescópicos_page-0002.jpg"
+            imagen_TDS_TT3 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Telescopicos/TDS Tensores Telescopicos_page-0001.jpg"
+            imagen_TDS_TT4 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Telescopicos/TDS Tensores Telescopicos_page-0002.jpg"
 
 
             document_editor = DocumentEditor(document_path)
