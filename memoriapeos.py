@@ -204,72 +204,56 @@ class DocumentEditor:
     ##################################################### Alshor ###################################################################
 
     # A�ade la imagen del Alshor
-    def buscar_txt_TC(self, texto_TC):
+    def buscar_txt_AL(self, texto_AL):
         for i, paragraph in enumerate(self.document.paragraphs):
-            if texto_TC in paragraph.text:
+            if texto_AL in paragraph.text:
                 return i
         return -1
 
-    def añadir_im_TC(self, texto_TC, imagen_TC):
-        target_index = self.buscar_txt_GS(texto_TC)
+    def añadir_im_AL(self, texto_AL, imagen_AL):
+        target_index = self.buscar_txt_AL(texto_AL)
         if target_index != -1:
             target_paragraph = self.document.paragraphs[target_index]
             run = target_paragraph.add_run()
-            run.add_picture(imagen_TC, width=Inches(6.9), height=Inches(2.1))
+            run.add_picture(imagen_AL, width=Inches(6.9), height=Inches(2.1))
             return True
         return False
 
     # añadir TDS del Tensor Cuadrado
-    def añadir_TDS_TC(self, texto_apendice, imagen_TDS_TC1, imagen_TDS_TC2, imagen_TDS_TC3, imagen_TDS_TC4, imagen_TDS_TC5, imagen_TDS_TC6, imagen_TDS_TC7, imagen_TDS_TC8, imagen_TDS_TC9):
+    def añadir_TDS_AL(self, texto_apendice, imagen_TDS_AL1):
         target_index = self.buscar_txt_añTDS(texto_apendice)
         if target_index != -1:
             target_paragraph = self.document.paragraphs[target_index]
             run = target_paragraph.add_run()
-            run.add_picture(imagen_TDS_TC1, width=Inches(6.8), height=Inches(4.5))
-            run.add_picture(imagen_TDS_TC2, width=Inches(6.8), height=Inches(4.5))
-            run.add_picture(imagen_TDS_TC3, width=Inches(6.8), height=Inches(4.5))
-            run.add_picture(imagen_TDS_TC4, width=Inches(6.8), height=Inches(4.5))
-            run.add_picture(imagen_TDS_TC5, width=Inches(6.8), height=Inches(4.5))
-            run.add_picture(imagen_TDS_TC6, width=Inches(6.8), height=Inches(4.5))
-            run.add_picture(imagen_TDS_TC7, width=Inches(6.8), height=Inches(4.5))
-            run.add_picture(imagen_TDS_TC8, width=Inches(6.8), height=Inches(4.5))
-            run.add_picture(imagen_TDS_TC9, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_AL1, width=Inches(6.8), height=Inches(4.5))
             return True 
         return False
 
     ##################################################### Shoring ###################################################################
 
     # A�ade la imagen del Shoring
-    def buscar_txt_TC(self, texto_TC):
+    def buscar_txt_SH(self, texto_SH):
         for i, paragraph in enumerate(self.document.paragraphs):
-            if texto_TC in paragraph.text:
+            if texto_SH in paragraph.text:
                 return i
         return -1
 
-    def añadir_im_TC(self, texto_TC, imagen_TC):
-        target_index = self.buscar_txt_GS(texto_TC)
+    def añadir_im_SH(self, texto_SH, imagen_SH):
+        target_index = self.buscar_txt_GS(texto_SH)
         if target_index != -1:
             target_paragraph = self.document.paragraphs[target_index]
             run = target_paragraph.add_run()
-            run.add_picture(imagen_TC, width=Inches(6.9), height=Inches(2.1))
+            run.add_picture(imagen_SH, width=Inches(6.9), height=Inches(2.1))
             return True
         return False
 
     # añadir TDS del Tensor Cuadrado
-    def añadir_TDS_TC(self, texto_apendice, imagen_TDS_TC1, imagen_TDS_TC2, imagen_TDS_TC3, imagen_TDS_TC4, imagen_TDS_TC5, imagen_TDS_TC6, imagen_TDS_TC7, imagen_TDS_TC8, imagen_TDS_TC9):
+    def añadir_TDS_SH(self, texto_apendice, imagen_TDS_SH1):
         target_index = self.buscar_txt_añTDS(texto_apendice)
         if target_index != -1:
             target_paragraph = self.document.paragraphs[target_index]
             run = target_paragraph.add_run()
-            run.add_picture(imagen_TDS_TC1, width=Inches(6.8), height=Inches(4.5))
-            run.add_picture(imagen_TDS_TC2, width=Inches(6.8), height=Inches(4.5))
-            run.add_picture(imagen_TDS_TC3, width=Inches(6.8), height=Inches(4.5))
-            run.add_picture(imagen_TDS_TC4, width=Inches(6.8), height=Inches(4.5))
-            run.add_picture(imagen_TDS_TC5, width=Inches(6.8), height=Inches(4.5))
-            run.add_picture(imagen_TDS_TC6, width=Inches(6.8), height=Inches(4.5))
-            run.add_picture(imagen_TDS_TC7, width=Inches(6.8), height=Inches(4.5))
-            run.add_picture(imagen_TDS_TC8, width=Inches(6.8), height=Inches(4.5))
-            run.add_picture(imagen_TDS_TC9, width=Inches(6.8), height=Inches(4.5))
+            run.add_picture(imagen_TDS_SH1, width=Inches(6.8), height=Inches(4.5))
             return True 
         return False
 
@@ -428,7 +412,7 @@ class Application(tk.Frame):
         # Checkboxes
         self.checkboxes_frame = tk.Frame(self, bg="#F5F5F5")
         self.checkboxes_frame.pack(pady=15)
-        self.checkbar = Checkbar(self.checkboxes_frame, ['Alshor Plus',  'Shoring 75', 'SuperSlim', 'Megaprop'], checkbox_font=("Helvetica", 14))
+        self.checkbar = Checkbar(self.checkboxes_frame, ['Alshor Plus',  'KS', 'SuperSlim', 'Megaprop'], checkbox_font=("Helvetica", 14))
         self.checkbar.pack(side=tk.TOP, fill=tk.X, padx=15)
         self.checkbar.config(relief=tk.GROOVE, bd=4)
 
@@ -579,12 +563,56 @@ class Application(tk.Frame):
             document.merge(Pip6="El sistema Pipeshor 6 (área sección 234,4 cm2) está formado por tubos de 610 mm de diámetro y sus elementos asociados. Fabricado con acero de calidad S355 y un espesor de 12,5 milímetros.")
         if checkbox_values2[3]:  # Granshor
             document.merge(GS="El sistema Granshor (área sección 72,59 cm2/cordón x 2 cordones) es un sistema de de celosías modular y sus elementos asociados. Fabricado con acero S355.")
-        if checkbox_values[2] and not checkbox_values[3]:      # Texto del SS en la metodolog�a de cálculo
-            document.merge(SST="Nota: En el Technical Data Sheet del sistema Superslim los valores incluidos en las gráficas son valores en Estado Límite de Servicio, es decir, son valores ya minorados por un coeficiente de 1,50. Para comparar frente a cargas mayoradas es necesario multiplicar los valores admisibles de las gráficas por 1,50 para no tener en cuenta un factor de mayoración duplicado.")
-        if checkbox_values[3] and not checkbox_values[2]:      # Texto del MP en la metodolog�a de c�culo
+        
+        
+        
+        ## textos de la metodología de cálculo sabes?
+
+        # 1000
+        if checkbox_values[0] and not checkbox_values[1] and not checkbox_values[2] and not checkbox_values[3]:      
+            document.merge(SST="Nota: En el Technical Data Sheet del sistema Alshor los valores incluidos en las gráficas son valores en Estado Límite de Servicio, es decir, son valores ya minorados por un coeficiente de 1,50. Para comparar frente a cargas mayoradas es necesario multiplicar los valores admisibles de las gráficas por 1,50 para no tener en cuenta un factor de mayoración duplicado.")
+        # 1001
+        if checkbox_values[0] and not checkbox_values[1] and not checkbox_values[2] and checkbox_values[3]:    
+            document.merge(SST="Nota: En el Technical Data Sheet del sistema Alshor, así como los valores del Megaprop, los valores incluidos en las gráficas son valores en Estado Límite de Servicio, es decir, son valores ya minorados por un coeficiente de 1,50. Para comparar frente a cargas mayoradas es necesario multiplicar los valores admisibles de las gráficas por 1,50 para no tener en cuenta un factor de mayoración duplicado.")
+        # 1010
+        if checkbox_values[0] and not checkbox_values[1] and checkbox_values[2] and not checkbox_values[3]:
+            document.merge(SST="Nota: En el Technical Data Sheet del sistema Alshor, así como en el del Superslim, los valores incluidos en las gráficas son valores en Estado Límite de Servicio, es decir, son valores ya minorados por un coeficiente de 1,50. Para comparar frente a cargas mayoradas es necesario multiplicar los valores admisibles de las gráficas por 1,50 para no tener en cuenta un factor de mayoración duplicado.")
+        # 1011
+        if checkbox_values[0] and not checkbox_values[1] and checkbox_values[2] and checkbox_values[3]:
+            document.merge(SST="Nota: En el Technical Data Sheet del sistema Alshor, así como en el del Superslim y el Megaprop, los valores incluidos en las gráficas son valores en Estado Límite de Servicio, es decir, son valores ya minorados por un coeficiente de 1,50. Para comparar frente a cargas mayoradas es necesario multiplicar los valores admisibles de las gráficas por 1,50 para no tener en cuenta un factor de mayoración duplicado.")
+        # 1100
+        if checkbox_values[0] and checkbox_values[1] and not checkbox_values[2] and not checkbox_values[3]:
+            document.merge(SST="Nota: En el Technical Data Sheet del sistema Alshor, así como en el del KS, los valores incluidos en las gráficas son valores en Estado Límite de Servicio, es decir, son valores ya minorados por un coeficiente de 1,50. Para comparar frente a cargas mayoradas es necesario multiplicar los valores admisibles de las gráficas por 1,50 para no tener en cuenta un factor de mayoración duplicado.")
+        # 1101
+        if checkbox_values[0] and checkbox_values[1] and not checkbox_values[2] and checkbox_values[3]:
+            document.merge(SST="Nota: En el Technical Data Sheet del sistema Alshor, así como en el del KS y el Megaprop, los valores incluidos en las gráficas son valores en Estado Límite de Servicio, es decir, son valores ya minorados por un coeficiente de 1,50. Para comparar frente a cargas mayoradas es necesario multiplicar los valores admisibles de las gráficas por 1,50 para no tener en cuenta un factor de mayoración duplicado.")
+        # 1110
+        if checkbox_values[0] and checkbox_values[1] and checkbox_values[2] and not checkbox_values[3]:
+            document.merge(SST="Nota: En el Technical Data Sheet del sistema Alshor, así como en el del KS y el Superslim, los valores incluidos en las gráficas son valores en Estado Límite de Servicio, es decir, son valores ya minorados por un coeficiente de 1,50. Para comparar frente a cargas mayoradas es necesario multiplicar los valores admisibles de las gráficas por 1,50 para no tener en cuenta un factor de mayoración duplicado.")
+        # 1111
+        if checkbox_values[0] and checkbox_values[1] and checkbox_values[2] and checkbox_values[3]:
+            document.merge(SST="Nota: En el Technical Data Sheet del sistema Alshor, así como en el del Superslim, el KS y el Megaprop, los valores incluidos en las gráficas son valores en Estado Límite de Servicio, es decir, son valores ya minorados por un coeficiente de 1,50. Para comparar frente a cargas mayoradas es necesario multiplicar los valores admisibles de las gráficas por 1,50 para no tener en cuenta un factor de mayoración duplicado.")
+        # 0001
+        if not checkbox_values[0] and not checkbox_values[1] and not checkbox_values[2] and checkbox_values[3]:
             document.merge(SST="Nota: En el Technical Data Sheet del sistema Megaprop los valores incluidos en las gráficas son valores en Estado Límite de Servicio, es decir, son valores ya minorados por un coeficiente de 1,50. Para comparar frente a cargas mayoradas es necesario multiplicar los valores admisibles de las gráficas por 1,50 para no tener en cuenta un factor de mayoración duplicado.")
-        if checkbox_values[2] and checkbox_values[3]:
+        # 0010
+        if not checkbox_values[0] and not checkbox_values[1] and checkbox_values[2] and not checkbox_values[3]:
+            document.merge(SST="Nota: En el Technical Data Sheet del sistema Superslim los valores incluidos en las gráficas son valores en Estado Límite de Servicio, es decir, son valores ya minorados por un coeficiente de 1,50. Para comparar frente a cargas mayoradas es necesario multiplicar los valores admisibles de las gráficas por 1,50 para no tener en cuenta un factor de mayoración duplicado.")
+        # 0011
+        if not checkbox_values[0] and not checkbox_values[1] and checkbox_values[2] and checkbox_values[3]:
             document.merge(SST="Nota: En el Technical Data Sheet del sistema Superslim, así como en el del Megaprop, los valores incluidos en las gráficas son valores en Estado Límite de Servicio, es decir, son valores ya minorados por un coeficiente de 1,50. Para comparar frente a cargas mayoradas es necesario multiplicar los valores admisibles de las gráficas por 1,50 para no tener en cuenta un factor de mayoración duplicado.")
+        # 0100
+        if not checkbox_values[0] and checkbox_values[1] and not checkbox_values[2] and not checkbox_values[3]:
+            document.merge(SST="Nota: En el Technical Data Sheet del sistema KS los valores incluidos en las gráficas son valores en Estado Límite de Servicio, es decir, son valores ya minorados por un coeficiente de 1,50. Para comparar frente a cargas mayoradas es necesario multiplicar los valores admisibles de las gráficas por 1,50 para no tener en cuenta un factor de mayoración duplicado.")
+        # 0101
+        if not checkbox_values[0] and checkbox_values[1] and not checkbox_values[2] and checkbox_values[3]:
+            document.merge(SST="Nota: En el Technical Data Sheet del sistema KS, así como en el del Megaprop, los valores incluidos en las gráficas son valores en Estado Límite de Servicio, es decir, son valores ya minorados por un coeficiente de 1,50. Para comparar frente a cargas mayoradas es necesario multiplicar los valores admisibles de las gráficas por 1,50 para no tener en cuenta un factor de mayoración duplicado.")
+        # 0110
+        if not checkbox_values[0] and checkbox_values[1] and checkbox_values[2] and not checkbox_values[3]:
+            document.merge(SST="Nota: En el Technical Data Sheet del sistema KS, así como en el del Superslim, los valores incluidos en las gráficas son valores en Estado Límite de Servicio, es decir, son valores ya minorados por un coeficiente de 1,50. Para comparar frente a cargas mayoradas es necesario multiplicar los valores admisibles de las gráficas por 1,50 para no tener en cuenta un factor de mayoración duplicado.")
+        # 0111
+        if not checkbox_values[0] and checkbox_values[1] and checkbox_values[2] and checkbox_values[3]:
+            document.merge(SST="Nota: En el Technical Data Sheet del sistema KS, así como en el del Superslim y el Megaprop, los valores incluidos en las gráficas son valores en Estado Límite de Servicio, es decir, son valores ya minorados por un coeficiente de 1,50. Para comparar frente a cargas mayoradas es necesario multiplicar los valores admisibles de las gráficas por 1,50 para no tener en cuenta un factor de mayoración duplicado.")
 
         # Ruta de guardado
         doc_modified = "C:/Memorias y servidor/Apeos/Plantilla_apeos.docx"
@@ -615,7 +643,16 @@ class Application(tk.Frame):
             texto_PS4 = "El sistema Pipeshor 4L, con área de sección 100.13 cm2, es un sistema de puntales formados por módulos de tubos de 406 mm de diámetro y sus elementos asociados. Fabricado con acero S355 de 8 milímetros de espesor."
             imagen_PS4 = "C:/Memorias y servidor/Aplicacion de Memorias/Imagenes/pipeshor.JPG"
             imagen_PS2 = "C:/Memorias y servidor/Aplicacion de Memorias/Imagenes/pipeshors.JPG"
-         
+
+            # texto e imágenes del Alshor
+            texto_AL = "El sistema Alshor Plus es un sistema de cimbra de aluminio con una capacidad de carga de hasta 120 kN por pie, compuesto por gatos ajustables, verticales, bastidores y cazoletas. Junto con el sistema Alshor Plus se utilizarán vigas Albeam como vigas de reparto."
+            imagen_AL = "C:/Memorias y servidor/Apeos/Imágenes/alshor.png"
+
+
+            # texto e imagenes del Shoring 75
+            texto_SH = "El sistema Kwikstage Shoring 75 es un sistema de cimbra de acero con una capacidad de carga de hasta 75 kN, compuesto por bases ajustables, verticales, espigas, horizontales y horquillas ajustables. Junto con el sistema Kwikstage Shoring 75 se utilizarán vigas Superslim como vigas de reparto."
+            imagen_SH = "C:/Memorias y servidor/Apeos/Imágenes/KS.png"
+
             # Imagenes TDS del SuperSlim
             imagen_TDS_SS1 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/SS/ANEJO SS-01.jpg"
             imagen_TDS_SS2 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/SS/ANEJO SS-02.jpg"
@@ -740,6 +777,8 @@ class Application(tk.Frame):
             added_imagen_PS4 = document_editor.añadir_im_PS4(texto_PS4, imagen_PS4)
             added_imagen_PS2 = document_editor.añadir_im_PS2(texto_PS2, imagen_PS2)
             added_imagen_PS6 = document_editor.añadir_im_PS6(texto_PS6, imagen_PS6)
+            added_imagen_AL = document_editor.añadir_im_AL(texto_AL, imagen_AL)
+            added_imagen_SH = document_editor.añadir_im_KS(texto_SH, imagen_SH)
 
             if checkbox_values[1]: # Superslim
                 added_imagen_TDS_SS = document_editor.añadir_TDS_SS(texto_apendice, imagen_TDS_SS1, imagen_TDS_SS2, imagen_TDS_SS3, imagen_TDS_SS4, imagen_TDS_SS5, imagen_TDS_SS6, imagen_TDS_SS7, imagen_TDS_SS8, imagen_TDS_SS9, imagen_TDS_SS10, imagen_TDS_SS11, imagen_TDS_SS12, imagen_TDS_SS13, imagen_TDS_SS14, imagen_TDS_SS15, imagen_TDS_SS16, imagen_TDS_SS17, imagen_TDS_SS18, imagen_TDS_SS19, imagen_TDS_SS20, imagen_TDS_SS21, imagen_TDS_SS22, imagen_TDS_SS23, imagen_TDS_SS24, imagen_TDS_SS25, imagen_TDS_SS26, imagen_TDS_SS27, imagen_TDS_SS28)
@@ -747,14 +786,13 @@ class Application(tk.Frame):
                 added_imagen_TDS_MP = document_editor.añadir_TDS_MP(texto_apendice, imagen_TDS_MP1, imagen_TDS_MP2, imagen_TDS_MP3, imagen_TDS_MP4, imagen_TDS_MP5, imagen_TDS_MP6, imagen_TDS_MP7, imagen_TDS_MP8, imagen_TDS_MP9, imagen_TDS_MP10, imagen_TDS_MP11)
             if checkbox_values2[0]: # Granshor
                 added_imagen_TDS_GS = document_editor.añadir_TDS_GS(texto_apendice, imagen_TDS_GS1, imagen_TDS_GS2, imagen_TDS_GS3, imagen_TDS_GS4, imagen_TDS_GS5, imagen_TDS_GS6, imagen_TDS_GS7, imagen_TDS_GS8, imagen_TDS_GS9, imagen_TDS_GS10, imagen_TDS_GS11, imagen_TDS_GS12, imagen_TDS_GS13, imagen_TDS_GS14, imagen_TDS_GS15, imagen_TDS_GS16, imagen_TDS_GS17, imagen_TDS_GS18, imagen_TDS_GS19, imagen_TDS_GS20, imagen_TDS_GS21, imagen_TDS_GS22, imagen_TDS_GS23, imagen_TDS_GS24, imagen_TDS_GS25, imagen_TDS_GS26, imagen_TDS_GS27, imagen_TDS_GS28, imagen_TDS_GS29, imagen_TDS_GS30, imagen_TDS_GS31, imagen_TDS_GS32)
-            
             if checkbox_values[3] or checkbox_values[4] or checkbox_values[5]: # Pipeshor
                 added_image_TDS_P = document_editor.añadir_TDS_P(texto_apendice, imagen_TDS_P1, imagen_TDS_P2, imagen_TDS_P3, imagen_TDS_P4, imagen_TDS_P5, imagen_TDS_P6, imagen_TDS_P7, imagen_TDS_P8, imagen_TDS_P9, imagen_TDS_P10, imagen_TDS_P11, imagen_TDS_P12, imagen_TDS_P13, imagen_TDS_P14, imagen_TDS_P15, imagen_TDS_P16, imagen_TDS_P17, imagen_TDS_P18, imagen_TDS_P19, imagen_TDS_P20, imagen_TDS_P21, imagen_TDS_P22, imagen_TDS_P23, imagen_TDS_P24, imagen_TDS_P25, imagen_TDS_P26, imagen_TDS_P27, imagen_TDS_P28, imagen_TDS_P29, imagen_TDS_P30, imagen_TDS_P31, imagen_TDS_P32, imagen_TDS_P33, imagen_TDS_P34, imagen_TDS_P35)
             
-            start_paragraph_index = 41
-            end_paragraph_index = 51
+            start_paragraph_index = 
+            end_paragraph_index = 
 
-            if added_imagen_SS or added_imagen_MP or added_imagen_GS or added_imagen_PS4 or added_imagen_PS2 or added_imagen_PS6 or added_imagen_TDS_SS or added_image_TDS_P or added_imagen_TDS_GS or added_imagen_TDS_MP:
+            if added_imagen_AL or added_imagen_SH or added_imagen_SS or added_imagen_MP or added_imagen_GS or added_imagen_PS4 or added_imagen_PS2 or added_imagen_PS6 or added_imagen_TDS_SS or added_image_TDS_P or added_imagen_TDS_GS or added_imagen_TDS_MP:
                 if self.output_path:
                     document_editor.remove_empty_paragraphs_between_range(start_paragraph_index, end_paragraph_index)
 
