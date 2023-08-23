@@ -48,10 +48,11 @@ class DocumentEditor:
         for page_num in range(len(template_pdf_reader.pages)):
             pdf_writer.add_page(template_pdf_reader.pages[page_num])
 
-
-        new_pdf_reader = PyPDF2.PdfReader(input_pdf_path)
-        for page_num in range(len(new_pdf_reader.pages)):
-            pdf_writer.add_page(new_pdf_reader.pages[page_num])
+        for path in input_pdf_path:
+            if path.lower().endswith('.pdf'):
+                new_pdf_reader = PyPDF2.PdfReader(path)
+                for page_num in range(len(new_pdf_reader.pages)):
+                    pdf_writer.add_page(new_pdf_reader.pages[page_num])
             
         with open(output_path, 'wb') as output_file: 
             pdf_writer.write(output_file)
@@ -479,9 +480,9 @@ class Application(tk.Frame):
         self.fill_button.pack()
 
     def select_apendice(self):
-        folder = filedialog.askopenfilename()
+        folder = filedialog.askopenfilenames()
         if folder:
-            self.apendice_path = folder 
+            self.apendice_paths = folder 
         
 
     def select_output_path(self):
@@ -826,10 +827,10 @@ class Application(tk.Frame):
             if added_imagen_AL or added_imagen_SH or added_imagen_SS or added_imagen_MP or added_imagen_GS or added_imagen_PS4 or added_imagen_PS2 or added_imagen_PS6 or added_imagen_TDS_SS or added_image_TDS_P or added_imagen_TDS_GS or added_imagen_TDS_MP:
                 if self.output_path:
                     document_editor.remove_empty_paragraphs_between_range(start_paragraph_index, end_paragraph_index)
-
+                    
                     document_editor.save_document(self.output_path)
                     pdf_path = os.path.splitext(self.output_path)[0] + ".pdf"
-                    document_editor.append_pdf(self.apendice_path, pdf_path) 
+                    document_editor.append_pdf(self.apendice_paths, pdf_path) 
                     #pdf_output_path = self.output_path.replace(".docx", ".pdf") 
                     #convert(self.output_path, pdf_output_path)
             else:
