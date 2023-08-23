@@ -215,7 +215,7 @@ class DocumentEditor:
         if target_index != -1:
             target_paragraph = self.document.paragraphs[target_index]
             run = target_paragraph.add_run()
-            run.add_picture(imagen_AL, width=Inches(4.9), height=Inches(4.1))
+            run.add_picture(imagen_AL, width=Inches(5.9), height=Inches(5.1))
             return True
         return False
 
@@ -243,7 +243,7 @@ class DocumentEditor:
         if target_index != -1:
             target_paragraph = self.document.paragraphs[target_index]
             run = target_paragraph.add_run()
-            run.add_picture(imagen_SH, width=Inches(4.9), height=Inches(4.1))
+            run.add_picture(imagen_SH, width=Inches(5.9), height=Inches(5.1))
             return True
         return False
 
@@ -789,8 +789,8 @@ class Application(tk.Frame):
             if checkbox_values2[0] or checkbox_values2[1] or checkbox_values2[2]: # Pipeshor
                 added_image_TDS_P = document_editor.añadir_TDS_P(texto_apendice, imagen_TDS_P1, imagen_TDS_P2, imagen_TDS_P3, imagen_TDS_P4, imagen_TDS_P5, imagen_TDS_P6, imagen_TDS_P7, imagen_TDS_P8, imagen_TDS_P9, imagen_TDS_P10, imagen_TDS_P11, imagen_TDS_P12, imagen_TDS_P13, imagen_TDS_P14, imagen_TDS_P15, imagen_TDS_P16, imagen_TDS_P17, imagen_TDS_P18, imagen_TDS_P19, imagen_TDS_P20, imagen_TDS_P21, imagen_TDS_P22, imagen_TDS_P23, imagen_TDS_P24, imagen_TDS_P25, imagen_TDS_P26, imagen_TDS_P27, imagen_TDS_P28, imagen_TDS_P29, imagen_TDS_P30, imagen_TDS_P31, imagen_TDS_P32, imagen_TDS_P33, imagen_TDS_P34, imagen_TDS_P35)
             
-            start_paragraph_index = 41
-            end_paragraph_index = 50 
+            start_paragraph_index = 40
+            end_paragraph_index = 49 
 
             if added_imagen_AL or added_imagen_SH or added_imagen_SS or added_imagen_MP or added_imagen_GS or added_imagen_PS4 or added_imagen_PS2 or added_imagen_PS6 or added_imagen_TDS_SS or added_image_TDS_P or added_imagen_TDS_GS or added_imagen_TDS_MP:
                 if self.output_path:
