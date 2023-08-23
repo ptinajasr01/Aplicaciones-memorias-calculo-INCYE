@@ -11,6 +11,7 @@ from docx import Document
 from docx.shared import Inches
 from docx2pdf import convert
 from tkinter import filedialog
+import PyPDF2
 
 locale.setlocale(locale.LC_ALL, 'fr_FR')
 
@@ -36,6 +37,22 @@ class DocumentEditorfr:
         for paragraph in paragraphs_to_remove:
             p = paragraph._element
             p.getparent().remove(p)
+
+    def append_pdf(self, input_pdf_path, output_path):
+        pdf_writer = PyPDF2.PdfWriter()
+        
+        template_pdf_reader = PyPDF2.PdfReader(output_path)
+        for page_num in range(len(template_pdf_reader.pages)):
+            pdf_writer.add_page(template_pdf_reader.pages[page_num])
+
+        for path in input_pdf_path:
+            if path.lower().endswith('.pdf'):
+                new_pdf_reader = PyPDF2.PdfReader(path)
+                for page_num in range(len(new_pdf_reader.pages)):
+                    pdf_writer.add_page(new_pdf_reader.pages[page_num])
+            
+        with open(output_path, 'wb') as output_file: 
+            pdf_writer.write(output_file)
     
     # Localizamos el index number para meter los TDS
     def buscar_txt_añTDS(self, texto_apendice):
@@ -469,7 +486,7 @@ class Applicationfr(tk.Frame):
         super().__init__(master)
         self.master = master
         self.master.title("Nota de Calculo ACODALAMIENTO (FRANCIA)")
-        self.master.geometry("880x830")
+        self.master.geometry("880x880")
         self.master.configure(background="#F5F5F5")
         self.pack(fill=tk.BOTH, expand=True)
         self.create_widgets()
@@ -562,11 +579,21 @@ class Applicationfr(tk.Frame):
                                pady=9)
         self.select_button.pack()
 
+        self.apendice_button = tk.Button(text="Seleccionar Apéndice 2:", command=self.select_apendice, font=("Helvetica", 16), bg="#F5F5F5", fg="black",
+                        padx=12,
+                        pady=4)
+        self.apendice_button.pack()
+
         # Modificar button 
         self.fill_button = tk.Button(text="Crear", command=self.fill_templatefr, font=("Helvetica", 16), bg="#3986F3", fg="white",
                                padx=70,
                                pady=20)
         self.fill_button.pack()
+
+    def select_apendice(self):
+        folder = filedialog.askopenfilenames()
+        if folder:
+            self.apendice_paths = folder 
 
     def select_output_path(self):
         codigo = self.codigo_entry.get()
@@ -944,6 +971,8 @@ class Applicationfr(tk.Frame):
                 if self.output_path:
                     document_editor.remove_empty_paragraphs_between_range(start_paragraph_index, end_paragraph_index)
                     document_editor.save_document(self.output_path)
+                    pdf_path = os.path.splitext(self.output_path)[0] + ".pdf"
+                    document_editor.append_pdf(self.apendice_paths, pdf_path) 
             else:
                 print("The target paragraph was not found in the document. Image not added.")
 
