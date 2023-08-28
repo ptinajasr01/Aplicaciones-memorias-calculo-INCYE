@@ -773,7 +773,7 @@ class Application(tk.Frame):
         super().__init__(master)
         self.master = master
         self.master.title("Nota de Calculo de ACODALAMIENTO")
-        self.master.geometry("880x830")
+        self.master.geometry("880x930")
         self.master.configure(background="#F5F5F5")
         self.pack(fill=tk.BOTH, expand=True)
         self.create_widgets()

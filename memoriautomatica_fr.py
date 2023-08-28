@@ -54,6 +54,35 @@ class DocumentEditorfr:
         with open(output_path, 'wb') as output_file: 
             pdf_writer.write(output_file)
     
+    def in_planos(self, insert_pdf_paths, output_path):
+        main_pdf = PyPDF2.PdfReader(output_path)
+
+        insert_page = None
+        for i in range(len(main_pdf.pages)):
+            page = main_pdf.pages[i]
+            text = page.extract_text()
+            if "3. ANNEXES" in text:
+                insert_page = i
+                break
+
+        pdf_writer = PyPDF2.PdfWriter()
+
+        for i in range(insert_page):
+            pdf_writer.add_page(main_pdf.pages[i])
+        
+        for path in insert_pdf_paths:
+            if path.lower().endswith('.pdf'):
+                insert_pdf = PyPDF2.PdfReader(path)
+                for i in range(len(insert_pdf.pages)):
+                    pdf_writer.add_page(insert_pdf.pages[i])
+                    i = i-1
+
+        for i in range(insert_page, len(main_pdf.pages)):
+            pdf_writer.add_page(main_pdf.pages[i])
+
+        with open(output_path, 'wb') as output_file:
+            pdf_writer.write(output_file)
+
     # Localizamos el index number para meter los TDS
     def buscar_txt_añTDS(self, texto_apendice):
         for i, paragraph in enumerate(self.document.paragraphs):
@@ -486,7 +515,7 @@ class Applicationfr(tk.Frame):
         super().__init__(master)
         self.master = master
         self.master.title("Nota de Calculo ACODALAMIENTO (FRANCIA)")
-        self.master.geometry("880x880")
+        self.master.geometry("880x930")
         self.master.configure(background="#F5F5F5")
         self.pack(fill=tk.BOTH, expand=True)
         self.create_widgets()
@@ -584,6 +613,11 @@ class Applicationfr(tk.Frame):
                         pady=4)
         self.apendice_button.pack()
 
+        self.apendice_button = tk.Button(text="Seleccionar PLANOS:", command=self.select_planos, font=("Helvetica", 16), bg="#F5F5F5", fg="black",
+                        padx=12,
+                        pady=4)
+        self.apendice_button.pack()
+
         # Modificar button 
         self.fill_button = tk.Button(text="Crear", command=self.fill_templatefr, font=("Helvetica", 16), bg="#3986F3", fg="white",
                                padx=70,
@@ -594,6 +628,11 @@ class Applicationfr(tk.Frame):
         folder = filedialog.askopenfilenames()
         if folder:
             self.apendice_paths = folder 
+
+    def select_planos(self):
+        folder = filedialog.askopenfilenames()
+        if folder:
+            self.planos_paths = folder
 
     def select_output_path(self):
         codigo = self.codigo_entry.get()
@@ -972,6 +1011,7 @@ class Applicationfr(tk.Frame):
                     document_editor.remove_empty_paragraphs_between_range(start_paragraph_index, end_paragraph_index)
                     document_editor.save_document(self.output_path)
                     pdf_path = os.path.splitext(self.output_path)[0] + ".pdf"
+                    document_editor.in_planos(self.planos_paths, pdf_path) 
                     document_editor.append_pdf(self.apendice_paths, pdf_path) 
             else:
                 print("The target paragraph was not found in the document. Image not added.")
