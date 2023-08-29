@@ -69,6 +69,9 @@ class DocumentEditorfr:
 
         for i in range(insert_page):
             pdf_writer.add_page(main_pdf.pages[i])
+
+        insert_pdf_paths = list(insert_pdf_paths)
+        insert_pdf_paths.sort(key=lambda x: os.path.basename(x))
         
         for path in insert_pdf_paths:
             if path.lower().endswith('.pdf'):
@@ -519,6 +522,8 @@ class Applicationfr(tk.Frame):
         self.master.configure(background="#F5F5F5")
         self.pack(fill=tk.BOTH, expand=True)
         self.create_widgets()
+        self.planos_paths = ()
+        self.apendice_paths = ()
                 # Button styling 
 
 
