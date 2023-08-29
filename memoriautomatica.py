@@ -92,7 +92,7 @@ class DocumentEditor:
     def buscar_txt_añTDS(self, texto_apendice):
         for i, paragraph in enumerate(self.document.paragraphs):
             if texto_apendice in paragraph.text:
-                return i+1
+                return i+10
         return -1
 
     def convert_to_pdf(word_file_path, pdf_file_path):

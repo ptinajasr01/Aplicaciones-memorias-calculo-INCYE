@@ -725,12 +725,12 @@ class Application(tk.Frame):
 
             # texto e imágenes del Alshor
             texto_AL = "El sistema Alshor Plus es un sistema de cimbra de aluminio con una capacidad de carga de hasta 120 kN por pie, compuesto por gatos ajustables, verticales, bastidores y cazoletas. Junto con el sistema Alshor Plus se utilizarán vigas Albeam como vigas de reparto."
-            imagen_AL = "C:/Memorias y servidor/Apeos/Imágenes/alshor.png"
+            imagen_AL = "C:/Memorias y servidor/Apeos/Imagenes/alshor.png"
 
 
             # texto e imagenes del Shoring 75
             texto_SH = "El sistema Kwikstage Shoring 75 es un sistema de cimbra de acero con una capacidad de carga de hasta 75 kN, compuesto por bases ajustables, verticales, espigas, horizontales y horquillas ajustables. Junto con el sistema Kwikstage Shoring 75 se utilizarán vigas Superslim como vigas de reparto."
-            imagen_SH = "C:/Memorias y servidor/Apeos/Imágenes/KS.png"
+            imagen_SH = "C:/Memorias y servidor/Apeos/Imagenes/KS.png"
 
             # Imagenes TDS del SuperSlim
             imagen_TDS_SS1 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/SS/ANEJO SS-01.jpg"
