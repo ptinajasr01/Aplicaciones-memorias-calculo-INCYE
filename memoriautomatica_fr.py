@@ -802,7 +802,7 @@ class Applicationfr(tk.Frame):
             texto_V3 = "Les liernes périmétrales seront exécutées avec de poutres INCYE600, constituées de poutres HEB600 renforcées renforcés avec une triple âme. Fabriqués en acier S275."
             imagen_V = "C:/Memorias y servidor/Aplicacion de Memorias/Imagenes/perfil.JPG"
             imagen_V2 = "C:/Memorias y servidor/Aplicacion de Memorias/Imagenes/perfilSA.JPG"
-            texto_apendice = "3.ANNEXES"
+            texto_apendice = "3. ANNEXES"
 
             # texto para meter las fórmulas de la temperatura
             textotemp = "Si nous considérons une jonction rigide et parfaite entre toutes les pièces des butons et entre les butons et l’écran, l’effort axial additionnel du à la température est le suivant :"
