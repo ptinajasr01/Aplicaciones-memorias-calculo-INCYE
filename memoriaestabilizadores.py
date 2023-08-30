@@ -254,158 +254,33 @@ class DocumentEditor:
             return True 
         return False
 
-    ##################################################### Alshor ###################################################################
+    ##################################################### Lolashor ###################################################################
 
-    # A�ade la imagen del Alshor
-    def buscar_txt_AL(self, texto_AL):
+    # A�ade la imagen del Lolashor
+    def buscar_txt_LS(self, texto_LS):
         for i, paragraph in enumerate(self.document.paragraphs):
-            if texto_AL in paragraph.text:
+            if texto_LS in paragraph.text:
                 return i
         return -1
 
-    def añadir_im_AL(self, texto_AL, imagen_AL):
-        target_index = self.buscar_txt_AL(texto_AL)
+    def añadir_im_LS(self, texto_LS, imagen_LS):
+        target_index = self.buscar_txt_LS(texto_LS)
         if target_index != -1:
             target_paragraph = self.document.paragraphs[target_index]
             run = target_paragraph.add_run()
-            run.add_picture(imagen_AL, width=Inches(6.9), height=Inches(3.9))
+            run.add_picture(imagen_LS, width=Inches(6.9), height=Inches(3.9))
             return True
         return False
 
     # añadir TDS del Tensor Cuadrado
-    def añadir_TDS_AL(self, texto_apendice, imagen_TDS_AL1):
+    def añadir_TDS_LS(self, texto_apendice, imagen_TDS_LS1):
         target_index = self.buscar_txt_añTDS(texto_apendice)
         if target_index != -1:
             target_paragraph = self.document.paragraphs[target_index]
             run = target_paragraph.add_run()
-            run.add_picture(imagen_TDS_AL1, width=Inches(6.8), height=Inches(2.5))
+            run.add_picture(imagen_TDS_LS1, width=Inches(6.8), height=Inches(2.5))
             return True 
         return False
-
-    ##################################################### Shoring ###################################################################
-
-    # A�ade la imagen del Shoring
-    def buscar_txt_SH(self, texto_SH):
-        for i, paragraph in enumerate(self.document.paragraphs):
-            if texto_SH in paragraph.text:
-                return i
-        return -1
-
-    def añadir_im_SH(self, texto_SH, imagen_SH):
-        target_index = self.buscar_txt_GS(texto_SH)
-        if target_index != -1:
-            target_paragraph = self.document.paragraphs[target_index]
-            run = target_paragraph.add_run()
-            run.add_picture(imagen_SH, width=Inches(5.9), height=Inches(5.1))
-            return True
-        return False
-
-    # añadir TDS del ALshor
-    def añadir_TDS_SH(self, texto_apendice, imagen_TDS_SH1, imagen_TDS_SH2, imagen_TDS_SH3, imagen_TDS_SH4, imagen_TDS_SH5):
-        target_index = self.buscar_txt_añTDS(texto_apendice)
-        if target_index != -1:
-            target_paragraph = self.document.paragraphs[target_index]
-            run = target_paragraph.add_run()
-            run.add_picture(imagen_TDS_SH1, width=Inches(6.8), height=Inches(9.1))
-            run.add_picture(imagen_TDS_SH2, width=Inches(6.8), height=Inches(9.1))
-            run.add_picture(imagen_TDS_SH3, width=Inches(6.8), height=Inches(9.1))
-            run.add_picture(imagen_TDS_SH4, width=Inches(6.8), height=Inches(9.1))
-            run.add_picture(imagen_TDS_SH5, width=Inches(6.8), height=Inches(9.1))
-            return True 
-        return False
-
-    ############################################################ Pipeshor ########################################################
-
-    def buscar_txt_PS4(self, texto_PS4):
-        for i, paragraph in enumerate(self.document.paragraphs):
-            if texto_PS4 in paragraph.text:
-                return i
-        return -1
-
-    def añadir_im_PS4(self, texto_PS4, imagen_PS4):
-        target_index = self.buscar_txt_PS4(texto_PS4)
-        if target_index != -1:
-            target_paragraph = self.document.paragraphs[target_index]
-            run = target_paragraph.add_run()
-            run.add_picture(imagen_PS4, width=Inches(6.9), height=Inches(2.1))
-            return True
-        return False
-    
-    def buscar_txt_PS2(self, texto_PS2):
-        for i, paragraph in enumerate(self.document.paragraphs):
-            if texto_PS2 in paragraph.text:
-                return i
-        return -1
-
-    def añadir_im_PS2(self, texto_PS2, imagen_PS2):
-        target_index = self.buscar_txt_PS4(texto_PS2)
-        if target_index != -1:
-            target_paragraph = self.document.paragraphs[target_index]
-            run = target_paragraph.add_run()
-            run.add_picture(imagen_PS2, width=Inches(6.9), height=Inches(2.5))
-            return True
-        return False
-
-    # A�ade imagen del PS6
-    def buscar_txt_PS6(self, texto_PS6):
-        for i, paragraph in enumerate(self.document.paragraphs):
-            if texto_PS6 in paragraph.text:
-                return i
-        return -1
-
-    def añadir_im_PS6(self, texto_PS6, imagen_PS6):
-        target_index = self.buscar_txt_PS6(texto_PS6)
-        if target_index != -1:
-            target_paragraph = self.document.paragraphs[target_index]
-            run = target_paragraph.add_run()
-            run.add_picture(imagen_PS6, width=Inches(6.9), height=Inches(2.1))
-            return True
-        return False
-
-    # añadir TDS del Pipeshor
-    def añadir_TDS_P(self, texto_apendice, imagen_TDS_P1, imagen_TDS_P2, imagen_TDS_P3, imagen_TDS_P4, imagen_TDS_P5, imagen_TDS_P6, imagen_TDS_P7, imagen_TDS_P8, imagen_TDS_P9, imagen_TDS_P10, imagen_TDS_P11, imagen_TDS_P12, imagen_TDS_P13, imagen_TDS_P14, imagen_TDS_P15, imagen_TDS_P16, imagen_TDS_P17, imagen_TDS_P18, imagen_TDS_P19, imagen_TDS_P20, imagen_TDS_P21, imagen_TDS_P22, imagen_TDS_P23, imagen_TDS_P24, imagen_TDS_P25, imagen_TDS_P26, imagen_TDS_P27, imagen_TDS_P28, imagen_TDS_P29, imagen_TDS_P30, imagen_TDS_P31, imagen_TDS_P32, imagen_TDS_P33, imagen_TDS_P34, imagen_TDS_P35):
-        target_index = self.buscar_txt_añTDS(texto_apendice)
-        if target_index != -1:
-            target_paragraph = self.document.paragraphs[target_index]
-            run = target_paragraph.add_run()
-            run.add_picture(imagen_TDS_P1, width=Inches(6.8), height=Inches(4.5))
-            run.add_picture(imagen_TDS_P2, width=Inches(6.8), height=Inches(4.5))
-            run.add_picture(imagen_TDS_P3, width=Inches(6.8), height=Inches(4.5))
-            run.add_picture(imagen_TDS_P4, width=Inches(6.8), height=Inches(4.5))
-            run.add_picture(imagen_TDS_P5, width=Inches(6.8), height=Inches(4.5))
-            run.add_picture(imagen_TDS_P6, width=Inches(6.8), height=Inches(4.5))
-            run.add_picture(imagen_TDS_P7, width=Inches(6.8), height=Inches(4.5))
-            run.add_picture(imagen_TDS_P8, width=Inches(6.8), height=Inches(4.5))
-            run.add_picture(imagen_TDS_P9, width=Inches(6.8), height=Inches(4.5))
-            run.add_picture(imagen_TDS_P10, width=Inches(6.8), height=Inches(4.5))
-            run.add_picture(imagen_TDS_P11, width=Inches(6.8), height=Inches(4.5))
-            run.add_picture(imagen_TDS_P12, width=Inches(6.8), height=Inches(4.5))
-            run.add_picture(imagen_TDS_P13, width=Inches(6.8), height=Inches(4.5))
-            run.add_picture(imagen_TDS_P14, width=Inches(6.8), height=Inches(4.5))
-            run.add_picture(imagen_TDS_P15, width=Inches(6.8), height=Inches(4.5))
-            run.add_picture(imagen_TDS_P16, width=Inches(6.8), height=Inches(4.5))
-            run.add_picture(imagen_TDS_P17, width=Inches(6.8), height=Inches(4.5))
-            run.add_picture(imagen_TDS_P18, width=Inches(6.8), height=Inches(4.5))
-            run.add_picture(imagen_TDS_P19, width=Inches(6.8), height=Inches(4.5))
-            run.add_picture(imagen_TDS_P20, width=Inches(6.8), height=Inches(4.5))
-            run.add_picture(imagen_TDS_P21, width=Inches(6.8), height=Inches(4.5))
-            run.add_picture(imagen_TDS_P22, width=Inches(6.8), height=Inches(4.5))
-            run.add_picture(imagen_TDS_P23, width=Inches(6.8), height=Inches(4.5))
-            run.add_picture(imagen_TDS_P24, width=Inches(6.8), height=Inches(4.5))
-            run.add_picture(imagen_TDS_P25, width=Inches(6.8), height=Inches(4.5))
-            run.add_picture(imagen_TDS_P26, width=Inches(6.8), height=Inches(4.5))
-            run.add_picture(imagen_TDS_P27, width=Inches(6.8), height=Inches(4.5))
-            run.add_picture(imagen_TDS_P28, width=Inches(6.8), height=Inches(4.5))
-            run.add_picture(imagen_TDS_P29, width=Inches(6.8), height=Inches(4.5))
-            run.add_picture(imagen_TDS_P30, width=Inches(6.8), height=Inches(4.5))
-            run.add_picture(imagen_TDS_P31, width=Inches(6.8), height=Inches(4.5))
-            run.add_picture(imagen_TDS_P32, width=Inches(6.8), height=Inches(4.5))
-            run.add_picture(imagen_TDS_P33, width=Inches(6.8), height=Inches(4.5))
-            run.add_picture(imagen_TDS_P34, width=Inches(6.8), height=Inches(4.5))
-            run.add_picture(imagen_TDS_P35, width=Inches(6.8), height=Inches(4.5))
-            return True 
-        return False
-
 
 
     ################################################### Guardado del documento ######################################################################
@@ -420,7 +295,7 @@ class Application(tk.Frame):
     def __init__(self, master=None):
         super().__init__(master)
         self.master = master
-        self.master.title("Nota de Calculo de APEO")
+        self.master.title("Nota de Calculo de ESTABILIZADORES")
         self.master.geometry("880x930")
         self.master.configure(background="#F5F5F5")
         self.pack(fill=tk.BOTH, expand=True)
@@ -433,64 +308,94 @@ class Application(tk.Frame):
 
         # C�digo de Obra
         self.codigo_frame = tk.Frame(self, bg="#F5F5F5")
-        self.codigo_frame.pack(pady=15)
+        self.codigo_frame.pack(pady=5)
         self.codigo_label = tk.Label(self.codigo_frame, text="Codigo de la obra:", font=("Helvetica", 14), bg="#F5F5F5", fg="#333333")
-        self.codigo_label.pack(side=tk.LEFT, padx=15)
+        self.codigo_label.pack(side=tk.LEFT, padx=5)
         self.codigo_entry = tk.Entry(self.codigo_frame, font=("Helvetica", 14))
-        self.codigo_entry.pack(side=tk.RIGHT, padx=15, expand=True, fill=tk.X)
+        self.codigo_entry.pack(side=tk.RIGHT, padx=5, expand=True, fill=tk.X)
 
         # Obra
         self.obra_frame = tk.Frame(self, bg="#F5F5F5")
-        self.obra_frame.pack(pady=15)
+        self.obra_frame.pack(pady=5)
         self.obra_label = tk.Label(self.obra_frame, text="Obra:", font=("Helvetica", 14), bg="#F5F5F5", fg="#333333")
-        self.obra_label.pack(side=tk.LEFT, padx=15)
+        self.obra_label.pack(side=tk.LEFT, padx=5)
         self.obra_entry = tk.Entry(self.obra_frame, font=("Helvetica", 14))
-        self.obra_entry.pack(side=tk.RIGHT, padx=15, expand=True, fill=tk.X)
+        self.obra_entry.pack(side=tk.RIGHT, padx=5, expand=True, fill=tk.X)
 
         # Direcci�n de la Obra
         self.dir_obra_frame = tk.Frame(self, bg="#F5F5F5")
-        self.dir_obra_frame.pack(pady=15)
+        self.dir_obra_frame.pack(pady=5)
         self.Direccion_obra_label = tk.Label(self.dir_obra_frame, text="Direccion de la Obra:", font=("Helvetica", 14), bg="#F5F5F5", fg="#333333")
-        self.Direccion_obra_label.pack(side=tk.LEFT, padx=15)
+        self.Direccion_obra_label.pack(side=tk.LEFT, padx=5)
         self.Direccion_obra_entry = tk.Entry(self.dir_obra_frame, font=("Helvetica", 14))
-        self.Direccion_obra_entry.pack(side=tk.RIGHT, padx=15, expand=True, fill=tk.X)
+        self.Direccion_obra_entry.pack(side=tk.RIGHT, padx=5, expand=True, fill=tk.X)
 
         # Cliente
         self.cliente_frame = tk.Frame(self, bg="#F5F5F5")
-        self.cliente_frame.pack(pady=15)
+        self.cliente_frame.pack(pady=5)
         self.nombre_cliente_label = tk.Label(self.cliente_frame, text="Cliente:", font=("Helvetica", 14), bg="#F5F5F5", fg="#333333")
-        self.nombre_cliente_label.pack(side=tk.LEFT, padx=15)
+        self.nombre_cliente_label.pack(side=tk.LEFT, padx=5)
         self.nombre_cliente_entry = tk.Entry(self.cliente_frame, font=("Helvetica", 14))
-        self.nombre_cliente_entry.pack(side=tk.RIGHT, padx=15, expand=True, fill=tk.X)
+        self.nombre_cliente_entry.pack(side=tk.RIGHT, padx=5, expand=True, fill=tk.X)
+
+        # Direcci�n de la Obra
+        self.dir_obra_frame = tk.Frame(self, bg="#F5F5F5")
+        self.dir_obra_frame.pack(pady=5)
+        self.Direccion_obra_label = tk.Label(self.dir_obra_frame, text="Altura de la fachada:", font=("Helvetica", 14), bg="#F5F5F5", fg="#333333")
+        self.Direccion_obra_label.pack(side=tk.LEFT, padx=5)
+        self.Direccion_obra_entry = tk.Entry(self.dir_obra_frame, font=("Helvetica", 14))
+        self.Direccion_obra_entry.pack(side=tk.RIGHT, padx=5, expand=True, fill=tk.X)
+
+        # Direcci�n de la Obra
+        self.dir_obra_frame = tk.Frame(self, bg="#F5F5F5")
+        self.dir_obra_frame.pack(pady=5)
+        self.Direccion_obra_label = tk.Label(self.dir_obra_frame, text="Porcentaje de huecos en fachada:", font=("Helvetica", 14), bg="#F5F5F5", fg="#333333")
+        self.Direccion_obra_label.pack(side=tk.LEFT, padx=5)
+        self.Direccion_obra_entry = tk.Entry(self.dir_obra_frame, font=("Helvetica", 14))
+        self.Direccion_obra_entry.pack(side=tk.RIGHT, padx=5, expand=True, fill=tk.X)
+
+        # Direcci�n de la Obra
+        self.dir_obra_frame = tk.Frame(self, bg="#F5F5F5")
+        self.dir_obra_frame.pack(pady=16)
+        self.Direccion_obra_label = tk.Label(self.dir_obra_frame, text="Coeficiente eólico:", font=("Helvetica", 14), bg="#F5F5F5", fg="#333333")
+        self.Direccion_obra_label.pack(side=tk.LEFT, padx=5)
+        self.Direccion_obra_entry = tk.Entry(self.dir_obra_frame, font=("Helvetica", 14))
+        self.Direccion_obra_entry.pack(side=tk.RIGHT, padx=5, expand=True, fill=tk.X)
 
         # Seleccionar familia de materiales
         self.familia_frame = tk.Frame(self, bg="#F5F5F5")
-        self.familia_frame.pack(pady=15)
-        self.familia_label = tk.Label(self.familia_frame, text="Seleccionar familia de materiales:", font=("Helvetica", 14), bg="#F5F5F5", fg="#333333")
-        self.familia_label.pack(side=tk.LEFT, padx=15)
+        self.familia_frame.pack(pady=7)
+        self.familia_label = tk.Label(self.familia_frame, text="Seleccionar tipo de obra:", font=("Helvetica", 14), bg="#F5F5F5", fg="#333333")
+        self.familia_label.pack(side=tk.LEFT, padx=7)
 
         # Checkboxes
         self.checkboxes_frame = tk.Frame(self, bg="#F5F5F5")
-        self.checkboxes_frame.pack(pady=15)
-        self.checkbar = Checkbar(self.checkboxes_frame, ['Alshor Plus',  'KS', 'SuperSlim', 'Megaprop'], checkbox_font=("Helvetica", 14))
-        self.checkbar.pack(side=tk.TOP, fill=tk.X, padx=15)
+        self.checkboxes_frame.pack(pady=7)
+        self.checkbar = Checkbar(self.checkboxes_frame, ['Torre contrapesos',  'Torre encepados', 'Rigidizador muros medianeros', 'Rigidizador fachada'], checkbox_font=("Helvetica", 14))
+        self.checkbar.pack(side=tk.TOP, fill=tk.X, padx=7)
         self.checkbar.config(relief=tk.GROOVE, bd=4)
 
+        # Seleccionar familia de materiales
+        self.familia_frame = tk.Frame(self, bg="#F5F5F5")
+        self.familia_frame.pack(pady=7)
+        self.familia_label = tk.Label(self.familia_frame, text="Seleccionar materiales utilizados:", font=("Helvetica", 14), bg="#F5F5F5", fg="#333333")
+        self.familia_label.pack(side=tk.LEFT, padx=7)
+
         self.checkboxes_frame2 = tk.Frame(self, bg="#F5F5F5")
-        self.checkboxes_frame2.pack(pady=15)
-        self.checkbar2 = Checkbar(self.checkboxes_frame2, ['Pipeshor 4L', 'Pipeshor 4S', 'Pipeshor 6', 'Granshor'], checkbox_font=("Helvetica", 14))
-        self.checkbar2.pack(side=tk.TOP, fill=tk.X, padx=15)
+        self.checkboxes_frame2.pack(pady=7)
+        self.checkbar2 = Checkbar(self.checkboxes_frame2, ['Superslim', 'Megaprop', 'Lolashor', 'Granshor'], checkbox_font=("Helvetica", 14))
+        self.checkbar2.pack(side=tk.TOP, fill=tk.X, padx=7)
         self.checkbar2.config(relief=tk.GROOVE, bd=4)
 
         # Comboboxes
         self.combobox_frame = tk.Frame(self, bg="#F5F5F5")
-        self.combobox_frame.pack(pady=15)
+        self.combobox_frame.pack(pady=7)
 
         self.label1 = ttk.Label(self.combobox_frame, text="Autor de la nota de cálculo", font=("Arial", 14))
         self.label1.grid(column=0, row=0, padx=11, pady=11)
         self.opcion_autor = tk.StringVar()
         opciones = ("José M. Maldonado", "David Lara.", "Ezequiel Sánchez.", "Andrés Rodríguez.", "Jorge Nebreda.", "Alberto Aldama.", "Adelaida Sáez.", "Alejandro Ángel Builes.", "Juan José Morón.", "Manuel González.", "Rafael Mansilla.")
-        self.combobox_autor = ttk.Combobox(self.combobox_frame, width=30, textvariable=self.opcion_autor, values=opciones, font=("Arial", 12), style='Custom.TCombobox')
+        self.combobox_autor = ttk.Combobox(self.combobox_frame, width=20, textvariable=self.opcion_autor, values=opciones, font=("Arial", 12), style='Custom.TCombobox')
         self.combobox_autor.current(0)
         self.combobox_autor.grid(column=0, row=1, padx=11, pady=11)
 
@@ -498,7 +403,7 @@ class Application(tk.Frame):
         self.label_revisor = ttk.Label(self.combobox_frame, text="Revisor de la nota de cálculo", font=("Arial", 14))
         self.label_revisor.grid(column=0, row=2, padx=11, pady=11)
         self.opcion_revisor = tk.StringVar()
-        self.combobox_revisor = ttk.Combobox(self.combobox_frame, width=30, textvariable=self.opcion_revisor, values=opciones, font=("Arial", 12), style='Custom.TCombobox')
+        self.combobox_revisor = ttk.Combobox(self.combobox_frame, width=20, textvariable=self.opcion_revisor, values=opciones, font=("Arial", 12), style='Custom.TCombobox')
         self.combobox_revisor.current(0)
         self.combobox_revisor.grid(column=0, row=3, padx=11, pady=11)
 
@@ -726,8 +631,8 @@ class Application(tk.Frame):
             imagen_PS2 = "C:/Memorias y servidor/Aplicacion de Memorias/Imagenes/pipeshors.JPG"
 
             # texto e imágenes del Alshor
-            texto_AL = "El sistema Alshor Plus es un sistema de cimbra de aluminio con una capacidad de carga de hasta 120 kN por pie, compuesto por gatos ajustables, verticales, bastidores y cazoletas. Junto con el sistema Alshor Plus se utilizarán vigas Albeam como vigas de reparto."
-            imagen_AL = "C:/Memorias y servidor/Apeos/Imágenes/alshor.png"
+            texto_LS = "El sistema Alshor Plus es un sistema de cimbra de aluminio con una capacidad de carga de hasta 120 kN por pie, compuesto por gatos ajustables, verticales, bastidores y cazoletas. Junto con el sistema Alshor Plus se utilizarán vigas Albeam como vigas de reparto."
+            imagen_LS = "C:/Memorias y servidor/Apeos/Imágenes/alshor.png"
 
 
             # texto e imagenes del Shoring 75
@@ -866,7 +771,7 @@ class Application(tk.Frame):
             added_imagen_PS4 = document_editor.añadir_im_PS4(texto_PS4, imagen_PS4)
             added_imagen_PS2 = document_editor.añadir_im_PS2(texto_PS2, imagen_PS2)
             added_imagen_PS6 = document_editor.añadir_im_PS6(texto_PS6, imagen_PS6)
-            added_imagen_AL = document_editor.añadir_im_AL(texto_AL, imagen_AL)
+            added_imagen_LS = document_editor.añadir_im_LS(texto_LS, imagen_LS)
             added_imagen_SH = document_editor.añadir_im_SH(texto_SH, imagen_SH)
 
             if checkbox_values[1]: # KS
@@ -883,7 +788,7 @@ class Application(tk.Frame):
             start_paragraph_index = 40
             end_paragraph_index = 49 
 
-            if added_imagen_AL or added_imagen_SH or added_imagen_SS or added_imagen_MP or added_imagen_GS or added_imagen_PS4 or added_imagen_PS2 or added_imagen_PS6 or added_image_TDS_SH or added_imagen_TDS_SS or added_image_TDS_P or added_imagen_TDS_GS or added_imagen_TDS_MP:
+            if added_imagen_LS or added_imagen_SH or added_imagen_SS or added_imagen_MP or added_imagen_GS or added_imagen_PS4 or added_imagen_PS2 or added_imagen_PS6 or added_image_TDS_SH or added_imagen_TDS_SS or added_image_TDS_P or added_imagen_TDS_GS or added_imagen_TDS_MP:
                 if self.output_path:
                     document_editor.remove_empty_paragraphs_between_range(start_paragraph_index, end_paragraph_index)
                     
