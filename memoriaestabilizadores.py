@@ -67,7 +67,7 @@ class DocumentEditor:
         for i in range(len(main_pdf.pages)):
             page = main_pdf.pages[i]
             text = page.extract_text()
-            if "APÉNDICE Nº 1" in text:
+            if "3. CARGA VIENTO" in text:
                 insert_page = i
                 break
 
@@ -296,7 +296,7 @@ class Application(tk.Frame):
         super().__init__(master)
         self.master = master
         self.master.title("Nota de Calculo de ESTABILIZADORES")
-        self.master.geometry("880x930")
+        self.master.geometry("880x1000")
         self.master.configure(background="#F5F5F5")
         self.pack(fill=tk.BOTH, expand=True)
         self.create_widgets()
@@ -338,29 +338,42 @@ class Application(tk.Frame):
         self.nombre_cliente_entry = tk.Entry(self.cliente_frame, font=("Helvetica", 14))
         self.nombre_cliente_entry.pack(side=tk.RIGHT, padx=5, expand=True, fill=tk.X)
 
-        # Direcci�n de la Obra
-        self.dir_obra_frame = tk.Frame(self, bg="#F5F5F5")
-        self.dir_obra_frame.pack(pady=5)
-        self.Direccion_obra_label = tk.Label(self.dir_obra_frame, text="Altura de la fachada:", font=("Helvetica", 14), bg="#F5F5F5", fg="#333333")
-        self.Direccion_obra_label.pack(side=tk.LEFT, padx=5)
-        self.Direccion_obra_entry = tk.Entry(self.dir_obra_frame, font=("Helvetica", 14))
-        self.Direccion_obra_entry.pack(side=tk.RIGHT, padx=5, expand=True, fill=tk.X)
+        # Altura de la fachada
+        self.alt_frame = tk.Frame(self, bg="#F5F5F5")
+        self.alt_frame.pack(pady=5)
+        self.alt_label = tk.Label(self.alt_frame, text="Altura de la fachada:", font=("Helvetica", 14), bg="#F5F5F5", fg="#333333")
+        self.alt_label.pack(side=tk.LEFT, padx=5)
+        self.alt_entry = tk.Entry(self.alt_frame, font=("Helvetica", 14))
+        self.alt_entry.pack(side=tk.RIGHT, padx=5, expand=True, fill=tk.X)
 
-        # Direcci�n de la Obra
-        self.dir_obra_frame = tk.Frame(self, bg="#F5F5F5")
-        self.dir_obra_frame.pack(pady=5)
-        self.Direccion_obra_label = tk.Label(self.dir_obra_frame, text="Porcentaje de huecos en fachada:", font=("Helvetica", 14), bg="#F5F5F5", fg="#333333")
-        self.Direccion_obra_label.pack(side=tk.LEFT, padx=5)
-        self.Direccion_obra_entry = tk.Entry(self.dir_obra_frame, font=("Helvetica", 14))
-        self.Direccion_obra_entry.pack(side=tk.RIGHT, padx=5, expand=True, fill=tk.X)
+        # Ptje huecos en fachada 
+        self.pctj_frame = tk.Frame(self, bg="#F5F5F5")
+        self.pctj_frame.pack(pady=5)
+        self.pctj_label = tk.Label(self.pctj_frame, text="Porcentaje de huecos en fachada:", font=("Helvetica", 14), bg="#F5F5F5", fg="#333333")
+        self.pctj_label.pack(side=tk.LEFT, padx=5)
+        self.pctj_entry = tk.Entry(self.pctj_frame, font=("Helvetica", 14))
+        self.pctj_entry.pack(side=tk.RIGHT, padx=5, expand=True, fill=tk.X)
 
-        # Direcci�n de la Obra
-        self.dir_obra_frame = tk.Frame(self, bg="#F5F5F5")
-        self.dir_obra_frame.pack(pady=16)
-        self.Direccion_obra_label = tk.Label(self.dir_obra_frame, text="Coeficiente eólico:", font=("Helvetica", 14), bg="#F5F5F5", fg="#333333")
-        self.Direccion_obra_label.pack(side=tk.LEFT, padx=5)
-        self.Direccion_obra_entry = tk.Entry(self.dir_obra_frame, font=("Helvetica", 14))
-        self.Direccion_obra_entry.pack(side=tk.RIGHT, padx=5, expand=True, fill=tk.X)
+        # Coef Eólico 
+        self.ceol_frame = tk.Frame(self, bg="#F5F5F5")
+        self.ceol_frame.pack(pady=16)
+        self.ceol_label = tk.Label(self.ceol_frame, text="Coeficiente eólico:", font=("Helvetica", 14), bg="#F5F5F5", fg="#333333")
+        self.ceol_label.pack(side=tk.LEFT, padx=5)
+        self.ceol_entry = tk.Entry(self.ceol_frame, font=("Helvetica", 14))
+        self.ceol_entry.pack(side=tk.RIGHT, padx=5, expand=True, fill=tk.X)
+
+        # Duracion de la obra
+        self.dur_frame = tk.Frame(self, bg="#F5F5F5")
+        self.dur_frame.pack(pady=7)
+        self.dur_label = tk.Label(self.dur_frame, text="Duración de la obra:", font=("Helvetica", 14), bg="#F5F5F5", fg="#333333")
+        self.dur_label.pack(side=tk.LEFT, padx=7)
+
+        # Checkboxes
+        self.checkboxes_frame3 = tk.Frame(self, bg="#F5F5F5")
+        self.checkboxes_frame3.pack(pady=7)
+        self.checkbar3 = Checkbar(self.checkboxes_frame3, ['Menor o igual a un año',  'Mayor a un año'], checkbox_font=("Helvetica", 14))
+        self.checkbar3.pack(side=tk.TOP, fill=tk.X, padx=7)
+        self.checkbar3.config(relief=tk.GROOVE, bd=4)
 
         # Seleccionar familia de materiales
         self.familia_frame = tk.Frame(self, bg="#F5F5F5")
@@ -456,6 +469,9 @@ class Application(tk.Frame):
         codigo = self.codigo_entry.get()
         selected_option2 = self.combobox_revisor.get()
         selected_option = self.combobox_autor.get()
+        altura = self.alt_entry.get()
+        huecos = self.pctj_entry.get()
+        c_eolico = self.ceol_entry.get()
         
         additional_info = {
         "José M. Maldonado": "José Manuel Maldonado.\nMáster Ingeniero de Caminos, CC. y PP.\nDpto. Ingeniería INCYE.",
@@ -519,96 +535,70 @@ class Application(tk.Frame):
         anyo = current_date.strftime("%Y") # mis primeras 
 
         # cargamos la plantilla
-        template = "C:/Memorias y servidor/Apeos/23A-----M_Nota_de_calculo_23----.docx"
+        template = "C:/Memorias y servidor/Estabilizadores/XXXXXXXXX_Nota de cálculo_211213 - copia2.docx"
         document = MailMerge(template)
 
         # Sustituimos valores
-        document.merge(Nombre_Cliente=nombre_cliente, Obra=obra, Direccion_Obra=Direccion_obra, Codigo_Obra=codigo, Fecha=formatted_date, Dia=dia, Mes=mes, Anyo=anyo, Autor_NotaC=autor_nota, Revisor_NotaC=revisor_nota, Inic_AutorNC = siglas_autor, Inic_RevNC = siglas_rev, Ciudad=ciudad)
+        document.merge(Nombre_Cliente=nombre_cliente, Obra=obra, Direccion_Obra=Direccion_obra, Codigo_Obra=codigo, Fecha=formatted_date, Dia=dia, Mes=mes, Anyo=anyo, Autor_NotaC=autor_nota, Revisor_NotaC=revisor_nota, Inic_AutorNC = siglas_autor, Inic_RevNC = siglas_rev, Ciudad=ciudad, Alt_Fach=altura, pctjehuecos=huecos, CoefEo=c_eolico)
 
         # Obtener los valores de las checkboxes
         checkbox_values = list(self.checkbar.state())
         checkbox_values2 = list(self.checkbar2.state())
+        checkbox_values3 = list(self.checkbar3.state())
 
         # Guardar los valores en el documento
         document.merge(Pipeshor6=checkbox_values[0], Pipeshor4L=checkbox_values[1], Pipeshor4S=checkbox_values[2], Megaprop=checkbox_values[3])
         document.merge(INCYE300=checkbox_values2[0], INCYE450=checkbox_values2[1], INCYE600=checkbox_values2[2], SuperSlim=checkbox_values2[3])
         
-        if checkbox_values[0]:   # Alshor Plus
-            document.merge(AL="El sistema Alshor Plus es un sistema de cimbra de aluminio con una capacidad de carga de hasta 120 kN por pie, compuesto por gatos ajustables, verticales, bastidores y cazoletas. Junto con el sistema Alshor Plus se utilizarán vigas Albeam como vigas de reparto.")
-        if checkbox_values[1]:  # Shoring 75
-            document.merge(SH="El sistema Kwikstage Shoring 75 es un sistema de cimbra de acero con una capacidad de carga de hasta 75 kN, compuesto por bases ajustables, verticales, espigas, horizontales y horquillas ajustables. Junto con el sistema Kwikstage Shoring 75 se utilizarán vigas Superslim como vigas de reparto.")
-        if checkbox_values[2]:   # SuperSlim
+        if checkbox_values[0]:   # Torre sobre contrapesos de hormigón
+            document.merge(Torre_CH="La solución analizada es un estabilizador a base de torres ancladas a contrapesos de hormigón. \n\nMediante este sistema, las acciones horizontales (presión de viento y potencial desplome) se derivan de la fachada a las correas metálicas perimetrales, conectadas a una serie de torres metálicas. Dichas torres trabajan a cortante y flexión (convertidos en esfuerzos axiles al tratarse de celosías) y bajan las cargas hasta un contrapeso de hormigón en masa (no ejecutado por Incye), cuyas dimensiones y peso son tales que impiden el vuelco y deslizamiento del conjunto. \n\nDentro de las soluciones de refuerzo de fachadas, suelen ser los sistemas más robustos y con los que se consigue una baja solicitación en las fachadas al aportar las torres una rigidez similar a los pilares del edificio en su configuración de servicio. En esencia, las torres actúan como imanes de la carga (contrafuertes) y así alivian a las fachadas. \n\nPor otro lado, esta solución facilita los trabajos de demolición en el interior del edificio al minimizar la ocupación interior. \n\nPor el contrario, la presencia de bloques implica la ocupación de la vía adyacente al edificio, sumado al coste de encofrado, hormigonado, picado y vertido controlado del hormigón. \n\nFinalmente, la presencia de bloques de mucho peso concentrado en un espacio reducido requiere, por parte de un técnico competente, la comprobación de las tensiones transmitidas al terreno, así como los posibles asientos inducidos en las inmediaciones de la fachada, o los bulbos de presión horizontal comunicada a la base de la fachada. Estas cuestiones cobran especial relevancia si existen galerías subterráneas, o terrenos de baja capacidad portante, o nivel freático alto, o si se piensa realizar una excavación bajo rasante para la ejecución de sótanos o un recalce de la fachada.")
+        if checkbox_values[1]:  # Torres sobre encepados
+            document.merge(Encep="La solución analizada es un estabilizador a base de torres ancladas a encepados. \n\nMediante este sistema, las acciones horizontales (presión de viento y potencial desplome) se derivan de la fachada a las correas metálicas perimetrales, conectadas a una serie de torres metálicas. Dichas torres trabajan a cortante y flexión (convertidos en esfuerzos axiles al tratarse de celosías) y bajan las cargas hasta un encepado de pilotes o micropilotes (no ejecutado por Incye), los cuales mandan la carga a niveles más profundos y resistentes del terreno. \n\nDentro de las soluciones de refuerzo de fachadas, suelen estar entre los sistemas más robustos y con los que se consigue una baja solicitación en las fachadas al aportar las torres una rigidez similar a los pilares del edificio en su configuración de servicio. En esencia, las torres actúan como imanes de la carga (contrafuertes) y así alivian a las fachadas. \n\nPor otro lado, esta solución facilita los trabajos de demolición en el interior del edificio al minimizar la ocupación interior. \n\nPor el contrario, la presencia de encepados implica la ocupación de la vía adyacente al edificio, sumado al coste de ejecución y posterior demolición de los propios encepados. \n\nEl uso de torres sobre encepados es poco habitual, principalmente por su coste y complejidad. Los encepados pueden ser necesarios cuando el terreno subsuperficial no presenta una capacidad portante suficiente como para admitir la instalación de un bloque de hormigón en masa sobre la acera. Por ejemplo, en zonas con un nivel freático elevado, terrenos fangosos, o suelos con galerías subterráneas a poca profundidad.")
+        if checkbox_values[2]:   # Rigidizador interior de fachada contra muros medianeros vecinos:
+            document.merge(Rigid_murosvec="La solución analizada es un rigidizador o arriostramiento interior con puntales apoyados en medianeras. \n\nMediante este sistema, las acciones horizontales (presión de viento y potencial desplome) se derivan de la fachada a las correas metálicas perimetrales, y de estas a puntales horizontales que transmiten las cargas a los muros medianeros vecinos. \n\nDentro de las soluciones de refuerzo de fachadas, son sistemas robustos a la vez que livianos ya que los puntales permiten la transmisión horizontal de la carga desde la fachada a puntos fijos cercanos por el camino más corto posible. De este modo, cada nivel de rigidización simula un forjado discontinuo a base de puntales metálicos tal que las acciones horizontales no llegan a la base de la fachada, por lo que ésta no se ve apenas solicitada. \n\nComo aspecto adverso, es necesario trabajar más tiempo dentro del edificio para montar esta solución, lo cual puede condicionar el inicio del derribo de forjados. Asimismo, las tareas de demolición pueden derivar en daños en los puntales por impacto de cascotes. \n\nAsimismo, para poder transmitir carga a medianeras del propio edificio, o a las medianeras o forjados de la finca vecina, es necesario solicitar previamente los permisos oportunos y comprobar la aptitud estructural de las superficies de apoyo pues, al ser habitualmente de fábrica antigua, suelen tener muy baja resistencia a la ejecución de anclajes que va a trabajar a cortante y tracción. Dichos anclajes son necesarios para conectar los puntales a las medianeras. \n\nUna solución habitual que atenúa el potencial daño causado por los anclajes directos a muros medianeros es la disposición de una retícula de correas horizontales y velas verticales sobre dichos muros, de manera que los puntales de rigidización inciden contra las vigas metálicas, las cuales difunden la carga entre múltiples puntos.")
+        if checkbox_values[3]:   # Rigidizador interior de fachada por vinculación de muros del propio edificio:
+            document.merge(Rigid_murosedif="La solución analizada es un rigidizador o arriostramiento interior con puntales interconectando las fachadas del propio edificio. \n\nMediante este sistema, las acciones horizontales (presión de viento y potencial desplome) se derivan de una fachada a otras del mismo edificio a las que se halla conectada mediante puntales. De este modo, la acción sobre una fachada se reparte entre varias y los puntales simplemente actúan como bielas conectoras. \n\nEsta tipología es habitual en edificios cuyas fachadas se conservan y forman un polígono cerrado o, como mínimo, una U. De este modo, cada nivel de rigidización simula un forjado discontinuo (diafragma) a base de puntales metálicos. La presencia de fachadas que hacen esquina provoca que unas se comporten como contrafuertes de las otras, lo cual justifica la idea de comunicar las fachadas para derivar las cargas hacia muros en vuelta. La vinculación entre fachadas mediante puntales horizontales conforma células triangulares de alta rigidez que trabajan como un conjunto rígido. \n\nDentro de las soluciones de refuerzo de fachadas, esta tipología no transmite carga a un elemento más o menos fiable en cuanto a rigidez y capacidad portante, sino que hace trabajar a varias fachadas a la vez, a veces en su propio plano, a veces en perpendicular a su plano. \n\nPor tanto, es importante recalcar que, mediante esta solución, la carga se reparte entre varias fachadas y son éstas las responsables de transferir la carga al terreno. Por tanto, las fachadas asumen una solicitación de cortante y flexión probablemente superior a la que experimentarán con el edificio en su configuración de servicio (con forjados y pilares que bajan la carga horizontal a la cimentación), y superior también a la que se verían sometidas con otras soluciones de refuerzo de fachada, como pueden ser los estabilizadores con torres. Debido a esto, cobra especial importancia la caracterización de las propiedades mecánicas y resistentes de las fachadas rigidizadas, por parte de un técnico competente.")
+        
+        if checkbox_values2[0]:   # SuperSlim
             document.merge(SS="El sistema Superslim (área neta de la sección 19,64 cm2) es un sistema de perfilería constituido por vigas compuestas formadas por dos perfiles en C, unidos mediante presillas situadas en distintas posiciones que configuran un sistema de vigas modulares de gran versatilidad.")
-        if checkbox_values[3]:   # Megaprop
+        if checkbox_values2[1]:   # Megaprop
             document.merge(MP="El sistema Megaprop (área sección 58,45 cm2) es un sistema de perfilería constituido por vigas compuestas formadas por dos perfiles en C, unidos mediante presillas situadas en distintas posiciones que configuran un sistema de vigas modulares de gran versatilidad. El acero utilizado para su fabricación es de la calidad S355.")
-        if checkbox_values2[0]:   # Pipeshor 4L
-            document.merge(Pip4L="El sistema Pipeshor 4L, con área de sección 100.13 cm2, es un sistema de puntales formados por módulos de tubos de 406 mm de diámetro y sus elementos asociados. Fabricado con acero S355 de 8 milímetros de espesor.")
-        if checkbox_values2[1]:   # Pipeshor 4S
-            document.merge(Pip4S="El sistema Pipeshor 4S, con área sección 196,24 cm2, es un sistema de puntales formados por módulos de tubos de 406 mm de diámetro y sus elementos asociados. Fabricado con acero S355 de 16 milímetros de espesor.")
-        if checkbox_values2[2]:  # Pipeshor 6
-            document.merge(Pip6="El sistema Pipeshor 6 (área sección 234,4 cm2) está formado por tubos de 610 mm de diámetro y sus elementos asociados. Fabricado con acero de calidad S355 y un espesor de 12,5 milímetros.")
-        if checkbox_values2[3]:  # Granshor
-            document.merge(GS="El sistema Granshor (área sección 72,59 cm2/cordón x 2 cordones) es un sistema de de celosías modular y sus elementos asociados. Fabricado con acero S355.")
-        
-        
-        
-        ## textos de la metodología de cálculo sabes?
+        if checkbox_values2[2]:  # Granshor
+            document.merge(GS="El sistema Granshor (área sección 72,59 cm2/cordón x 2 cordones) es un sistema de de celosías modular y sus elementos asociados. Fabricado con acero S355.")        
+        if checkbox_values2[3]:  # Lolashor
+            document.merge(Lola="texto del lolashor")
 
-        # 1000
-        if checkbox_values[0] and not checkbox_values[1] and not checkbox_values[2] and not checkbox_values[3]:      
-            document.merge(SST="Nota: En el Technical Data Sheet del sistema Alshor los valores incluidos en las gráficas son valores en Estado Límite de Servicio, es decir, son valores ya minorados por un coeficiente de 1,50. Para comparar frente a cargas mayoradas es necesario multiplicar los valores admisibles de las gráficas por 1,50 para no tener en cuenta un factor de mayoración duplicado.")
-        # 1001
-        if checkbox_values[0] and not checkbox_values[1] and not checkbox_values[2] and checkbox_values[3]:    
-            document.merge(SST="Nota: En el Technical Data Sheet del sistema Alshor, así como los valores del Megaprop, los valores incluidos en las gráficas son valores en Estado Límite de Servicio, es decir, son valores ya minorados por un coeficiente de 1,50. Para comparar frente a cargas mayoradas es necesario multiplicar los valores admisibles de las gráficas por 1,50 para no tener en cuenta un factor de mayoración duplicado.")
-        # 1010
-        if checkbox_values[0] and not checkbox_values[1] and checkbox_values[2] and not checkbox_values[3]:
-            document.merge(SST="Nota: En el Technical Data Sheet del sistema Alshor, así como en el del Superslim, los valores incluidos en las gráficas son valores en Estado Límite de Servicio, es decir, son valores ya minorados por un coeficiente de 1,50. Para comparar frente a cargas mayoradas es necesario multiplicar los valores admisibles de las gráficas por 1,50 para no tener en cuenta un factor de mayoración duplicado.")
-        # 1011
-        if checkbox_values[0] and not checkbox_values[1] and checkbox_values[2] and checkbox_values[3]:
-            document.merge(SST="Nota: En el Technical Data Sheet del sistema Alshor, así como en el del Superslim y el Megaprop, los valores incluidos en las gráficas son valores en Estado Límite de Servicio, es decir, son valores ya minorados por un coeficiente de 1,50. Para comparar frente a cargas mayoradas es necesario multiplicar los valores admisibles de las gráficas por 1,50 para no tener en cuenta un factor de mayoración duplicado.")
-        # 1100
-        if checkbox_values[0] and checkbox_values[1] and not checkbox_values[2] and not checkbox_values[3]:
-            document.merge(SST="Nota: En el Technical Data Sheet del sistema Alshor, así como en el del KS, los valores incluidos en las gráficas son valores en Estado Límite de Servicio, es decir, son valores ya minorados por un coeficiente de 1,50. Para comparar frente a cargas mayoradas es necesario multiplicar los valores admisibles de las gráficas por 1,50 para no tener en cuenta un factor de mayoración duplicado.")
-        # 1101
-        if checkbox_values[0] and checkbox_values[1] and not checkbox_values[2] and checkbox_values[3]:
-            document.merge(SST="Nota: En el Technical Data Sheet del sistema Alshor, así como en el del KS y el Megaprop, los valores incluidos en las gráficas son valores en Estado Límite de Servicio, es decir, son valores ya minorados por un coeficiente de 1,50. Para comparar frente a cargas mayoradas es necesario multiplicar los valores admisibles de las gráficas por 1,50 para no tener en cuenta un factor de mayoración duplicado.")
-        # 1110
-        if checkbox_values[0] and checkbox_values[1] and checkbox_values[2] and not checkbox_values[3]:
-            document.merge(SST="Nota: En el Technical Data Sheet del sistema Alshor, así como en el del KS y el Superslim, los valores incluidos en las gráficas son valores en Estado Límite de Servicio, es decir, son valores ya minorados por un coeficiente de 1,50. Para comparar frente a cargas mayoradas es necesario multiplicar los valores admisibles de las gráficas por 1,50 para no tener en cuenta un factor de mayoración duplicado.")
-        # 1111
-        if checkbox_values[0] and checkbox_values[1] and checkbox_values[2] and checkbox_values[3]:
-            document.merge(SST="Nota: En el Technical Data Sheet del sistema Alshor, así como en el del Superslim, el KS y el Megaprop, los valores incluidos en las gráficas son valores en Estado Límite de Servicio, es decir, son valores ya minorados por un coeficiente de 1,50. Para comparar frente a cargas mayoradas es necesario multiplicar los valores admisibles de las gráficas por 1,50 para no tener en cuenta un factor de mayoración duplicado.")
-        # 0001
-        if not checkbox_values[0] and not checkbox_values[1] and not checkbox_values[2] and checkbox_values[3]:
-            document.merge(SST="Nota: En el Technical Data Sheet del sistema Megaprop los valores incluidos en las gráficas son valores en Estado Límite de Servicio, es decir, son valores ya minorados por un coeficiente de 1,50. Para comparar frente a cargas mayoradas es necesario multiplicar los valores admisibles de las gráficas por 1,50 para no tener en cuenta un factor de mayoración duplicado.")
-        # 0010
-        if not checkbox_values[0] and not checkbox_values[1] and checkbox_values[2] and not checkbox_values[3]:
+
+        ## textos de la metodología de cálculo 
+
+        if checkbox_values2[0] and not checkbox_values2[1]:      # Texto del SS en la metodolog�a de cálculo
             document.merge(SST="Nota: En el Technical Data Sheet del sistema Superslim los valores incluidos en las gráficas son valores en Estado Límite de Servicio, es decir, son valores ya minorados por un coeficiente de 1,50. Para comparar frente a cargas mayoradas es necesario multiplicar los valores admisibles de las gráficas por 1,50 para no tener en cuenta un factor de mayoración duplicado.")
-        # 0011
-        if not checkbox_values[0] and not checkbox_values[1] and checkbox_values[2] and checkbox_values[3]:
+        if checkbox_values2[1] and not checkbox_values2[0]:      # Texto del MP en la metodolog�a de c�culo
+            document.merge(SST="Nota: En el Technical Data Sheet del sistema Megaprop los valores incluidos en las gráficas son valores en Estado Límite de Servicio, es decir, son valores ya minorados por un coeficiente de 1,50. Para comparar frente a cargas mayoradas es necesario multiplicar los valores admisibles de las gráficas por 1,50 para no tener en cuenta un factor de mayoración duplicado.")
+        if checkbox_values2[0] and checkbox_values2[1]:
             document.merge(SST="Nota: En el Technical Data Sheet del sistema Superslim, así como en el del Megaprop, los valores incluidos en las gráficas son valores en Estado Límite de Servicio, es decir, son valores ya minorados por un coeficiente de 1,50. Para comparar frente a cargas mayoradas es necesario multiplicar los valores admisibles de las gráficas por 1,50 para no tener en cuenta un factor de mayoración duplicado.")
-        # 0100
-        if not checkbox_values[0] and checkbox_values[1] and not checkbox_values[2] and not checkbox_values[3]:
-            document.merge(SST="Nota: En el Technical Data Sheet del sistema KS los valores incluidos en las gráficas son valores en Estado Límite de Servicio, es decir, son valores ya minorados por un coeficiente de 1,50. Para comparar frente a cargas mayoradas es necesario multiplicar los valores admisibles de las gráficas por 1,50 para no tener en cuenta un factor de mayoración duplicado.")
-        # 0101
-        if not checkbox_values[0] and checkbox_values[1] and not checkbox_values[2] and checkbox_values[3]:
-            document.merge(SST="Nota: En el Technical Data Sheet del sistema KS, así como en el del Megaprop, los valores incluidos en las gráficas son valores en Estado Límite de Servicio, es decir, son valores ya minorados por un coeficiente de 1,50. Para comparar frente a cargas mayoradas es necesario multiplicar los valores admisibles de las gráficas por 1,50 para no tener en cuenta un factor de mayoración duplicado.")
-        # 0110
-        if not checkbox_values[0] and checkbox_values[1] and checkbox_values[2] and not checkbox_values[3]:
-            document.merge(SST="Nota: En el Technical Data Sheet del sistema KS, así como en el del Superslim, los valores incluidos en las gráficas son valores en Estado Límite de Servicio, es decir, son valores ya minorados por un coeficiente de 1,50. Para comparar frente a cargas mayoradas es necesario multiplicar los valores admisibles de las gráficas por 1,50 para no tener en cuenta un factor de mayoración duplicado.")
-        # 0111
-        if not checkbox_values[0] and checkbox_values[1] and checkbox_values[2] and checkbox_values[3]:
-            document.merge(SST="Nota: En el Technical Data Sheet del sistema KS, así como en el del Superslim y el Megaprop, los valores incluidos en las gráficas son valores en Estado Límite de Servicio, es decir, son valores ya minorados por un coeficiente de 1,50. Para comparar frente a cargas mayoradas es necesario multiplicar los valores admisibles de las gráficas por 1,50 para no tener en cuenta un factor de mayoración duplicado.")
+
+        ## textos de la duracion y procedimiento de cálculo
+
+        if checkbox_values3[0] and not checkbox_values3[1]:
+            document.merge(duracion="menor")
+            document.merge(duracion2="10")
+
+        if not checkbox_values3[0] and checkbox_values3[1]:
+            document.merge(duracion="mayor")
+            document.merge(duracion2="50")
+        if checkbox_values[1]:
+            document.merge(textoproced="Con el momento de vuelco anterior se obtienen las dimensiones mínimas de los contrapesos para contrarrestar este vuelco.")
 
         # Ruta de guardado
-        doc_modified = "C:/Memorias y servidor/Apeos/Plantilla_apeos.docx"
+        doc_modified = "C:/Memorias y servidor/Estabilizadores/Plantilla_estab.docx"
         document.write(doc_modified)
 
         if __name__ == '__main__':
-            document_path = 'C:/Memorias y servidor/Apeos/Plantilla_apeos.docx'
+            document_path = 'C:/Memorias y servidor/Estabilizadores/Plantilla_estab.docx'
 
             # texto para meter pdfs
-            texto_apendice = "Y MECÁNICAS MATERIALES INCYE"
+            texto_apendice = "7. CARACTERÍSTICAS GEOMÉTRICAS Y MECÁNICAS PERFILES INCYE"
             
             # texto e imágenes del Superslim
             texto_SS = "El sistema Superslim (área neta de la sección 19,64 cm2) es un sistema de perfilería constituido por vigas compuestas formadas por dos perfiles en C, unidos mediante presillas situadas en distintas posiciones que configuran un sistema de vigas modulares de gran versatilidad."
@@ -621,23 +611,6 @@ class Application(tk.Frame):
             # texto e imágenes del Granshor
             texto_GS = "El sistema Granshor (área sección 72,59 cm2/cordón x 2 cordones) es un sistema de de celosías modular y sus elementos asociados. Fabricado con acero S355."
             imagen_GS = "C:/Memorias y servidor/Aplicacion de Memorias/Imagenes/granshor.JPG"
-
-            # textos e imágenes del Pipeshor
-            texto_PS6 = "El sistema Pipeshor 6 (área sección 234,4 cm2) está formado por tubos de 610 mm de diámetro y sus elementos asociados. Fabricado con acero de calidad S355 y un espesor de 12,5 milímetros."
-            imagen_PS6 = "C:/Memorias y servidor/Aplicacion de Memorias/Imagenes/pipeshor6.JPG"
-            texto_PS2 = "El sistema Pipeshor 4S, con área sección 196,24 cm2, es un sistema de puntales formados por módulos de tubos de 406 mm de diámetro y sus elementos asociados. Fabricado con acero S355 de 16 milímetros de espesor."
-            texto_PS4 = "El sistema Pipeshor 4L, con área de sección 100.13 cm2, es un sistema de puntales formados por módulos de tubos de 406 mm de diámetro y sus elementos asociados. Fabricado con acero S355 de 8 milímetros de espesor."
-            imagen_PS4 = "C:/Memorias y servidor/Aplicacion de Memorias/Imagenes/pipeshor.JPG"
-            imagen_PS2 = "C:/Memorias y servidor/Aplicacion de Memorias/Imagenes/pipeshors.JPG"
-
-            # texto e imágenes del Alshor
-            texto_LS = "El sistema Alshor Plus es un sistema de cimbra de aluminio con una capacidad de carga de hasta 120 kN por pie, compuesto por gatos ajustables, verticales, bastidores y cazoletas. Junto con el sistema Alshor Plus se utilizarán vigas Albeam como vigas de reparto."
-            imagen_LS = "C:/Memorias y servidor/Apeos/Imágenes/alshor.png"
-
-
-            # texto e imagenes del Shoring 75
-            texto_SH = "El sistema Kwikstage Shoring 75 es un sistema de cimbra de acero con una capacidad de carga de hasta 75 kN, compuesto por bases ajustables, verticales, espigas, horizontales y horquillas ajustables. Junto con el sistema Kwikstage Shoring 75 se utilizarán vigas Superslim como vigas de reparto."
-            imagen_SH = "C:/Memorias y servidor/Apeos/Imágenes/KS.png"
 
             # Imagenes TDS del SuperSlim
             imagen_TDS_SS1 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/SS/ANEJO SS-01.jpg"
@@ -668,44 +641,6 @@ class Application(tk.Frame):
             imagen_TDS_SS26 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/SS/ANEJO SS-26.jpg"
             imagen_TDS_SS27 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/SS/ANEJO SS-27.jpg"
             imagen_TDS_SS28 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/SS/ANEJO SS-28.jpg"
-
-            # Imagenes TDS Pipeshor
-            imagen_TDS_P1 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-01.jpg"
-            imagen_TDS_P2 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-02.jpg"
-            imagen_TDS_P3= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-03.jpg"
-            imagen_TDS_P4= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-04.jpg"
-            imagen_TDS_P5= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-05.jpg"
-            imagen_TDS_P6= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-06.jpg"
-            imagen_TDS_P7= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-07.jpg"
-            imagen_TDS_P8= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-08.jpg"
-            imagen_TDS_P9= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-09.jpg"
-            imagen_TDS_P10= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-10.jpg"
-            imagen_TDS_P11= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-11.jpg"
-            imagen_TDS_P12= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-12.jpg"
-            imagen_TDS_P13= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-13.jpg"
-            imagen_TDS_P14= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-14.jpg"
-            imagen_TDS_P15= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-15.jpg"
-            imagen_TDS_P16= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-16.jpg"
-            imagen_TDS_P17= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-17.jpg"
-            imagen_TDS_P18= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-18.jpg"
-            imagen_TDS_P19= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-19.jpg"
-            imagen_TDS_P20= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-20.jpg"
-            imagen_TDS_P21= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-21.jpg"
-            imagen_TDS_P22= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-22.jpg"
-            imagen_TDS_P23= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-23.jpg"
-            imagen_TDS_P24= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-24.jpg"
-            imagen_TDS_P25= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-25.jpg"
-            imagen_TDS_P26= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-26.jpg"
-            imagen_TDS_P27= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-27.jpg"
-            imagen_TDS_P28= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-28.jpg"
-            imagen_TDS_P29= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-29.jpg"
-            imagen_TDS_P30= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-30.jpg"
-            imagen_TDS_P31= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-31.jpg" 
-            imagen_TDS_P32= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-32.jpg"
-            imagen_TDS_P33= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-33.jpg"
-            imagen_TDS_P34= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-34.jpg"
-            imagen_TDS_P35= "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Pipeshor/201221_Pipeshor_Anejos-35.jpg"
-
 
             # añadir Imagenes TDS Granshor
             imagen_TDS_GS1 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Granshor/201116_Granshor_Anejos-01.jpg"
@@ -755,40 +690,23 @@ class Application(tk.Frame):
             imagen_TDS_MP10 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Megaprop/TDS Megaprop INCYE-10.jpg"
             imagen_TDS_MP11 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Megaprop/TDS Megaprop INCYE-11.jpg"
 
-            # Imagenes TDS KS
-            imagen_TDS_SH1 = "C:/Memorias y servidor/Apeos/TDSs/KS/TI 00 02 - Kwikstage Shoring (1)-1.jpg"
-            imagen_TDS_SH2 = "C:/Memorias y servidor/Apeos/TDSs/KS/TI 00 02 - Kwikstage Shoring (1)-2.jpg"
-            imagen_TDS_SH3 = "C:/Memorias y servidor/Apeos/TDSs/KS/TI 00 02 - Kwikstage Shoring (1)-3.jpg"
-            imagen_TDS_SH4 = "C:/Memorias y servidor/Apeos/TDSs/KS/TI 00 02 - Kwikstage Shoring (1)-4.jpg"
-            imagen_TDS_SH5 = "C:/Memorias y servidor/Apeos/TDSs/KS/TI 00 02 - Kwikstage Shoring (1)-5.jpg"
-
 
 
             document_editor = DocumentEditor(document_path)
             added_imagen_SS = document_editor.añadir_im_SS(texto_SS, imagen_SS)
             added_imagen_MP = document_editor.añadir_im_MP(texto_MP, imagen_MP)
             added_imagen_GS = document_editor.añadir_im_GS(texto_GS, imagen_GS)
-            added_imagen_PS4 = document_editor.añadir_im_PS4(texto_PS4, imagen_PS4)
-            added_imagen_PS2 = document_editor.añadir_im_PS2(texto_PS2, imagen_PS2)
-            added_imagen_PS6 = document_editor.añadir_im_PS6(texto_PS6, imagen_PS6)
-            added_imagen_LS = document_editor.añadir_im_LS(texto_LS, imagen_LS)
-            added_imagen_SH = document_editor.añadir_im_SH(texto_SH, imagen_SH)
 
-            if checkbox_values[1]: # KS
-                added_image_TDS_SH = document_editor.añadir_TDS_SH(texto_apendice, imagen_TDS_SH1, imagen_TDS_SH2, imagen_TDS_SH3, imagen_TDS_SH4, imagen_TDS_SH5)
             if checkbox_values[2]: # Superslim
                 added_imagen_TDS_SS = document_editor.añadir_TDS_SS(texto_apendice, imagen_TDS_SS1, imagen_TDS_SS2, imagen_TDS_SS3, imagen_TDS_SS4, imagen_TDS_SS5, imagen_TDS_SS6, imagen_TDS_SS7, imagen_TDS_SS8, imagen_TDS_SS9, imagen_TDS_SS10, imagen_TDS_SS11, imagen_TDS_SS12, imagen_TDS_SS13, imagen_TDS_SS14, imagen_TDS_SS15, imagen_TDS_SS16, imagen_TDS_SS17, imagen_TDS_SS18, imagen_TDS_SS19, imagen_TDS_SS20, imagen_TDS_SS21, imagen_TDS_SS22, imagen_TDS_SS23, imagen_TDS_SS24, imagen_TDS_SS25, imagen_TDS_SS26, imagen_TDS_SS27, imagen_TDS_SS28)
             if checkbox_values[3]: # Megaprop
                 added_imagen_TDS_MP = document_editor.añadir_TDS_MP(texto_apendice, imagen_TDS_MP1, imagen_TDS_MP2, imagen_TDS_MP3, imagen_TDS_MP4, imagen_TDS_MP5, imagen_TDS_MP6, imagen_TDS_MP7, imagen_TDS_MP8, imagen_TDS_MP9, imagen_TDS_MP10, imagen_TDS_MP11)
             if checkbox_values2[3]: # Granshor
                 added_imagen_TDS_GS = document_editor.añadir_TDS_GS(texto_apendice, imagen_TDS_GS1, imagen_TDS_GS2, imagen_TDS_GS3, imagen_TDS_GS4, imagen_TDS_GS5, imagen_TDS_GS6, imagen_TDS_GS7, imagen_TDS_GS8, imagen_TDS_GS9, imagen_TDS_GS10, imagen_TDS_GS11, imagen_TDS_GS12, imagen_TDS_GS13, imagen_TDS_GS14, imagen_TDS_GS15, imagen_TDS_GS16, imagen_TDS_GS17, imagen_TDS_GS18, imagen_TDS_GS19, imagen_TDS_GS20, imagen_TDS_GS21, imagen_TDS_GS22, imagen_TDS_GS23, imagen_TDS_GS24, imagen_TDS_GS25, imagen_TDS_GS26, imagen_TDS_GS27, imagen_TDS_GS28, imagen_TDS_GS29, imagen_TDS_GS30, imagen_TDS_GS31, imagen_TDS_GS32)
-            if checkbox_values2[0] or checkbox_values2[1] or checkbox_values2[2]: # Pipeshor
-                added_image_TDS_P = document_editor.añadir_TDS_P(texto_apendice, imagen_TDS_P1, imagen_TDS_P2, imagen_TDS_P3, imagen_TDS_P4, imagen_TDS_P5, imagen_TDS_P6, imagen_TDS_P7, imagen_TDS_P8, imagen_TDS_P9, imagen_TDS_P10, imagen_TDS_P11, imagen_TDS_P12, imagen_TDS_P13, imagen_TDS_P14, imagen_TDS_P15, imagen_TDS_P16, imagen_TDS_P17, imagen_TDS_P18, imagen_TDS_P19, imagen_TDS_P20, imagen_TDS_P21, imagen_TDS_P22, imagen_TDS_P23, imagen_TDS_P24, imagen_TDS_P25, imagen_TDS_P26, imagen_TDS_P27, imagen_TDS_P28, imagen_TDS_P29, imagen_TDS_P30, imagen_TDS_P31, imagen_TDS_P32, imagen_TDS_P33, imagen_TDS_P34, imagen_TDS_P35)
+            start_paragraph_index = 50
+            end_paragraph_index = 65 
 
-            start_paragraph_index = 40
-            end_paragraph_index = 49 
-
-            if added_imagen_LS or added_imagen_SH or added_imagen_SS or added_imagen_MP or added_imagen_GS or added_imagen_PS4 or added_imagen_PS2 or added_imagen_PS6 or added_image_TDS_SH or added_imagen_TDS_SS or added_image_TDS_P or added_imagen_TDS_GS or added_imagen_TDS_MP:
+            if added_imagen_SS or added_imagen_MP or added_imagen_GS or added_imagen_TDS_SS or added_imagen_TDS_GS or added_imagen_TDS_MP:
                 if self.output_path:
                     document_editor.remove_empty_paragraphs_between_range(start_paragraph_index, end_paragraph_index)
                     
