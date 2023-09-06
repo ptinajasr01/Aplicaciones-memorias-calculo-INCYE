@@ -67,12 +67,14 @@ class DocumentEditor:
         for i in range(len(main_pdf.pages)):
             page = main_pdf.pages[i]
             text = page.extract_text()
-            if "3. CARGA VIENTO" in text:
+            if "El cliente deberá supervisar los planos para corroborar que la geometría de planos y la real se corresponden, supervisar la tensión transmitida por el contrapeso y anclajes, la capacidad de la fachada y medianeras, etc., y avisar inmediatamente a INCYE en el caso de detectar algún error o producirse algún tipo de modificación de geometrías o cargas sobre la estructura de INCYE." in text:
                 insert_page = i
                 break
 
         pdf_writer = PyPDF2.PdfWriter()
 
+        if insert_page is None:
+            print("Insert page not found")
         for i in range(insert_page):
             pdf_writer.add_page(main_pdf.pages[i])
 
