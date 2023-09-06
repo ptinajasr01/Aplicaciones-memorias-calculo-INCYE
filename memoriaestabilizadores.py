@@ -67,7 +67,7 @@ class DocumentEditor:
         for i in range(len(main_pdf.pages)):
             page = main_pdf.pages[i]
             text = page.extract_text()
-            if "El cliente deberá supervisar los planos para corroborar que la geometría de planos y la real se corresponden, supervisar la tensión transmitida por el contrapeso y anclajes, la capacidad de la fachada y medianeras, etc., y avisar inmediatamente a INCYE en el caso de detectar algún error o producirse algún tipo de modificación de geometrías o cargas sobre la estructura de INCYE." in text:
+            if "3. CARGA VIENTO" in text:
                 insert_page = i
                 break
 
@@ -692,12 +692,13 @@ class Application(tk.Frame):
             imagen_TDS_MP10 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Megaprop/TDS Megaprop INCYE-10.jpg"
             imagen_TDS_MP11 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Megaprop/TDS Megaprop INCYE-11.jpg"
 
-
+            # Falta el TDS del Lolashor 
 
             document_editor = DocumentEditor(document_path)
             added_imagen_SS = document_editor.añadir_im_SS(texto_SS, imagen_SS)
             added_imagen_MP = document_editor.añadir_im_MP(texto_MP, imagen_MP)
             added_imagen_GS = document_editor.añadir_im_GS(texto_GS, imagen_GS)
+            # falta el del lolashor
 
             if checkbox_values[2]: # Superslim
                 added_imagen_TDS_SS = document_editor.añadir_TDS_SS(texto_apendice, imagen_TDS_SS1, imagen_TDS_SS2, imagen_TDS_SS3, imagen_TDS_SS4, imagen_TDS_SS5, imagen_TDS_SS6, imagen_TDS_SS7, imagen_TDS_SS8, imagen_TDS_SS9, imagen_TDS_SS10, imagen_TDS_SS11, imagen_TDS_SS12, imagen_TDS_SS13, imagen_TDS_SS14, imagen_TDS_SS15, imagen_TDS_SS16, imagen_TDS_SS17, imagen_TDS_SS18, imagen_TDS_SS19, imagen_TDS_SS20, imagen_TDS_SS21, imagen_TDS_SS22, imagen_TDS_SS23, imagen_TDS_SS24, imagen_TDS_SS25, imagen_TDS_SS26, imagen_TDS_SS27, imagen_TDS_SS28)
@@ -705,6 +706,8 @@ class Application(tk.Frame):
                 added_imagen_TDS_MP = document_editor.añadir_TDS_MP(texto_apendice, imagen_TDS_MP1, imagen_TDS_MP2, imagen_TDS_MP3, imagen_TDS_MP4, imagen_TDS_MP5, imagen_TDS_MP6, imagen_TDS_MP7, imagen_TDS_MP8, imagen_TDS_MP9, imagen_TDS_MP10, imagen_TDS_MP11)
             if checkbox_values2[3]: # Granshor
                 added_imagen_TDS_GS = document_editor.añadir_TDS_GS(texto_apendice, imagen_TDS_GS1, imagen_TDS_GS2, imagen_TDS_GS3, imagen_TDS_GS4, imagen_TDS_GS5, imagen_TDS_GS6, imagen_TDS_GS7, imagen_TDS_GS8, imagen_TDS_GS9, imagen_TDS_GS10, imagen_TDS_GS11, imagen_TDS_GS12, imagen_TDS_GS13, imagen_TDS_GS14, imagen_TDS_GS15, imagen_TDS_GS16, imagen_TDS_GS17, imagen_TDS_GS18, imagen_TDS_GS19, imagen_TDS_GS20, imagen_TDS_GS21, imagen_TDS_GS22, imagen_TDS_GS23, imagen_TDS_GS24, imagen_TDS_GS25, imagen_TDS_GS26, imagen_TDS_GS27, imagen_TDS_GS28, imagen_TDS_GS29, imagen_TDS_GS30, imagen_TDS_GS31, imagen_TDS_GS32)
+            # falta el del lolashor 
+
             start_paragraph_index = 50
             end_paragraph_index = 65 
 
