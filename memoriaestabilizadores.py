@@ -103,6 +103,22 @@ class DocumentEditor:
     def convert_to_pdf(word_file_path, pdf_file_path):
         convert(word_file_path, pdf_file_path)
 
+    # Localizamos esto para meter la imagen de carga de viento
+    def buscar_cargaviento(self, texto_viento):
+        for i, paragraph in enumerate(self.document.paragraphs):
+            if texto_viento in paragraph.text:
+                return i+1
+            return -1
+        
+    def añadir_img_viento(self, texto_viento, imagen_viento):
+        target_index = self.buscar_txt_añTDS(texto_viento)
+        if target_index != -1:
+            target_paragraph = self.document.paragraphs[target_index]
+            run = target_paragraph.add_run()
+            run.add_picture(imagen_viento, width=Inches(7), height=Inches(9.2))
+            return True 
+        return False
+
     ########################## SuperSlim ########################################################
 
     # a�ade la imagen de la SS
@@ -303,7 +319,7 @@ class Application(tk.Frame):
         self.pack(fill=tk.BOTH, expand=True)
         self.create_widgets()
         self.planos_paths = ()
-        self.apendice_paths = ()
+        self.apendice_path = ()
                 # Button styling 
 
     def create_widgets(self):
@@ -428,7 +444,7 @@ class Application(tk.Frame):
                                pady=9)
         self.select_button.pack()
 
-        self.apendice_button = tk.Button(text="Seleccionar Apéndice 2:", command=self.select_apendice, font=("Helvetica", 16), bg="#F5F5F5", fg="black",
+        self.apendice_button = tk.Button(text="Seleccionar Excel Cálculos:", command=self.select_apendice, font=("Helvetica", 16), bg="#F5F5F5", fg="black",
                         padx=12,
                         pady=4)
         self.apendice_button.pack()
@@ -445,9 +461,9 @@ class Application(tk.Frame):
         self.fill_button.pack()
 
     def select_apendice(self):
-        folder = filedialog.askopenfilenames()
+        folder = filedialog.askopenfilename()
         if folder:
-            self.apendice_paths = folder 
+            self.apendice_path = folder 
 
     def select_planos(self):
         folder = filedialog.askopenfilenames()
@@ -474,7 +490,18 @@ class Application(tk.Frame):
         altura = self.alt_entry.get()
         huecos = self.pctj_entry.get()
         c_eolico = self.ceol_entry.get()
-        
+
+        wb_file_name = self.apendice_path
+        outputPNGImage = 'C:/Memorias y servidor/Estabilizadores/carga_viento.jpg'
+        xls_file = win32com.client.gencache.EnsureDispatch("Excel.Application")
+        wb = xls_file.Workbooks.Open(Filename=wb_file_name)
+        xls_file.DisplayAlerts = False 
+        ws = wb.Worksheets("Estabilizador")
+        ws.Range(ws.Cells(46,1),ws.Cells(110,14)).CopyPicture(Format= win32com.client.constants.xlBitmap)  # example from cell (1,1) to cell (15,3)
+        img = ImageGrab.grabclipboard()
+        img.save(outputPNGImage)
+        wb.Close(SaveChanges=False, Filename=wb_file_name)
+                
         additional_info = {
         "José M. Maldonado": "José Manuel Maldonado.\nMáster Ingeniero de Caminos, CC. y PP.\nDpto. Ingeniería INCYE.",
         "David Lara.": "David Lara.\nMáster Ingeniero de Caminos, CC. y PP.\nDpto. Ingeniería INCYE.",
@@ -692,6 +719,10 @@ class Application(tk.Frame):
             imagen_TDS_MP10 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Megaprop/TDS Megaprop INCYE-10.jpg"
             imagen_TDS_MP11 = "C:/Memorias y servidor/Aplicacion de Memorias/TDSs/Megaprop/TDS Megaprop INCYE-11.jpg"
 
+            # Imagen del viento 
+            imagen_viento = "C:/Memorias y servidor/Estabilizadores/carga_viento.jpg"
+            texto_viento= "3. CARGA VIENTO"
+
             # Falta el TDS del Lolashor 
 
             document_editor = DocumentEditor(document_path)
@@ -700,25 +731,27 @@ class Application(tk.Frame):
             added_imagen_GS = document_editor.añadir_im_GS(texto_GS, imagen_GS)
             # falta el del lolashor
 
-            if checkbox_values[2]: # Superslim
+            if checkbox_values2[0]: # Superslim
                 added_imagen_TDS_SS = document_editor.añadir_TDS_SS(texto_apendice, imagen_TDS_SS1, imagen_TDS_SS2, imagen_TDS_SS3, imagen_TDS_SS4, imagen_TDS_SS5, imagen_TDS_SS6, imagen_TDS_SS7, imagen_TDS_SS8, imagen_TDS_SS9, imagen_TDS_SS10, imagen_TDS_SS11, imagen_TDS_SS12, imagen_TDS_SS13, imagen_TDS_SS14, imagen_TDS_SS15, imagen_TDS_SS16, imagen_TDS_SS17, imagen_TDS_SS18, imagen_TDS_SS19, imagen_TDS_SS20, imagen_TDS_SS21, imagen_TDS_SS22, imagen_TDS_SS23, imagen_TDS_SS24, imagen_TDS_SS25, imagen_TDS_SS26, imagen_TDS_SS27, imagen_TDS_SS28)
-            if checkbox_values[3]: # Megaprop
+            if checkbox_values2[1]: # Megaprop
                 added_imagen_TDS_MP = document_editor.añadir_TDS_MP(texto_apendice, imagen_TDS_MP1, imagen_TDS_MP2, imagen_TDS_MP3, imagen_TDS_MP4, imagen_TDS_MP5, imagen_TDS_MP6, imagen_TDS_MP7, imagen_TDS_MP8, imagen_TDS_MP9, imagen_TDS_MP10, imagen_TDS_MP11)
             if checkbox_values2[3]: # Granshor
                 added_imagen_TDS_GS = document_editor.añadir_TDS_GS(texto_apendice, imagen_TDS_GS1, imagen_TDS_GS2, imagen_TDS_GS3, imagen_TDS_GS4, imagen_TDS_GS5, imagen_TDS_GS6, imagen_TDS_GS7, imagen_TDS_GS8, imagen_TDS_GS9, imagen_TDS_GS10, imagen_TDS_GS11, imagen_TDS_GS12, imagen_TDS_GS13, imagen_TDS_GS14, imagen_TDS_GS15, imagen_TDS_GS16, imagen_TDS_GS17, imagen_TDS_GS18, imagen_TDS_GS19, imagen_TDS_GS20, imagen_TDS_GS21, imagen_TDS_GS22, imagen_TDS_GS23, imagen_TDS_GS24, imagen_TDS_GS25, imagen_TDS_GS26, imagen_TDS_GS27, imagen_TDS_GS28, imagen_TDS_GS29, imagen_TDS_GS30, imagen_TDS_GS31, imagen_TDS_GS32)
             # falta el del lolashor 
 
+            if checkbox_values[0] or checkbox_values[1] or checkbox_values[2] or checkbox_values[3]:
+                added_im_viento = document_editor.añadir_img_viento(texto_viento, imagen_viento)
+
             start_paragraph_index = 50
             end_paragraph_index = 65 
 
-            if added_imagen_SS or added_imagen_MP or added_imagen_GS or added_imagen_TDS_SS or added_imagen_TDS_GS or added_imagen_TDS_MP:
+            if added_imagen_SS or added_imagen_MP or added_imagen_GS or added_imagen_TDS_SS or added_imagen_TDS_GS or added_imagen_TDS_MP or added_im_viento:
                 if self.output_path:
                     document_editor.remove_empty_paragraphs_between_range(start_paragraph_index, end_paragraph_index)
                     
                     document_editor.save_document(self.output_path)
                     pdf_path = os.path.splitext(self.output_path)[0] + ".pdf"
                     document_editor.in_planos(self.planos_paths, pdf_path) 
-                    document_editor.append_pdf(self.apendice_paths, pdf_path) 
                     #pdf_output_path = self.output_path.replace(".docx", ".pdf") 
                     #convert(self.output_path, pdf_output_path)
             else:
